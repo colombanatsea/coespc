@@ -130,6 +130,60 @@ body {
 }
 .btn-add-row:hover { background: var(--creme-lin); border-color: var(--ambre-fete); }
 
+/* Section headings in forms */
+.form-heading { margin: 2rem 0 1rem; padding-top: 1.5rem; border-top: 2px solid var(--papier-vieilli); }
+.form-heading:first-child { margin-top: 0; padding-top: 0; border-top: none; }
+.form-heading-title { font-family: 'Fraunces', serif; font-weight: 700; font-size: 1.1rem; color: var(--bleu-logo); }
+
+/* Sidebar group labels */
+.sidebar-group-label {
+  padding: 1rem 1.5rem 0.25rem; font-size: 0.65rem; font-weight: 600;
+  text-transform: uppercase; letter-spacing: 0.12em; color: rgba(244,179,101,0.35);
+}
+
+/* Link editor */
+.link-editor { position: relative; }
+.form-hint { display: block; margin-top: 0.25rem; font-size: 0.75rem; color: var(--bois-chaud); opacity: 0.5; }
+
+/* Image editor */
+.image-editor { display: flex; flex-direction: column; gap: 0.75rem; }
+.image-preview { max-width: 200px; max-height: 150px; border-radius: 8px; border: 1px solid var(--papier-vieilli); object-fit: cover; }
+.form-file {
+  padding: 0.5rem; border: 1px dashed var(--papier-vieilli); border-radius: 8px;
+  font-family: inherit; font-size: 0.85rem; cursor: pointer;
+}
+.form-file:hover { border-color: var(--ambre-fete); background: rgba(212,118,10,0.03); }
+
+/* Image list editor */
+.image-list-editor {
+  border: 1px solid var(--papier-vieilli); border-radius: 8px; padding: 1rem; background: #fff;
+  display: flex; flex-wrap: wrap; gap: 0.75rem;
+}
+.image-item {
+  position: relative; width: 120px;
+}
+.image-thumb {
+  width: 120px; height: 90px; object-fit: cover; border-radius: 6px;
+  border: 1px solid var(--papier-vieilli);
+}
+.image-item .btn-remove-row {
+  position: absolute; top: -6px; right: -6px; width: 24px; height: 24px;
+  font-size: 0.65rem; border-radius: 50%;
+}
+
+/* Archive year selector */
+.archive-year-grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  gap: 0.75rem; margin-top: 0.5rem;
+}
+.archive-year-btn {
+  padding: 1rem; background: #fff; border: 2px solid var(--papier-vieilli);
+  border-radius: 8px; font-family: 'Fraunces', serif; font-weight: 900;
+  font-size: 1.1rem; color: var(--bleu-logo); cursor: pointer;
+  transition: all 0.2s;
+}
+.archive-year-btn:hover { border-color: var(--ambre-fete); background: var(--creme-lin); transform: translateY(-2px); }
+
 /* Toast */
 .toast {
   position: fixed; bottom: 2rem; right: 2rem; padding: 1rem 1.5rem;

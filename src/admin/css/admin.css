@@ -1,0 +1,149 @@
+/* Admin CSS — Kermesse Eternelle Design System */
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Fraunces:opsz,wght@9..144,700;9..144,900&display=swap');
+
+:root {
+  --bleu-logo: #051682;
+  --or-logo: #F4B365;
+  --ambre-fete: #D4760A;
+  --rouge-guirlande: #C0392B;
+  --creme-lin: #FDF6E8;
+  --papier-vieilli: #F0E6D0;
+  --bois-chaud: #5C4A3A;
+  --encre: #2C1F14;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--creme-lin);
+  color: var(--encre);
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+/* LOGIN PAGE */
+.login-page {
+  display: flex; align-items: center; justify-content: center;
+  min-height: 100vh; padding: 2rem;
+}
+
+.login-card {
+  background: #fff; border: 1px solid var(--papier-vieilli);
+  border-radius: 12px; padding: 3rem; max-width: 400px; width: 100%;
+  text-align: center;
+}
+
+.login-logo { margin: 0 auto 1.5rem; display: block; }
+.login-title { font-family: 'Fraunces', serif; font-weight: 900; color: var(--bleu-logo); font-size: 1.5rem; margin-bottom: 0.25rem; }
+.login-subtitle { color: var(--bois-chaud); font-size: 0.875rem; margin-bottom: 2rem; }
+
+.form-label { display: block; font-weight: 500; font-size: 0.875rem; margin-bottom: 0.5rem; text-align: left; color: var(--bois-chaud); }
+.form-input {
+  width: 100%; padding: 0.75rem 1rem; border: 1px solid var(--papier-vieilli);
+  border-radius: 8px; font-family: inherit; font-size: 1rem;
+  transition: border-color 0.2s;
+}
+.form-input:focus { outline: none; border-color: var(--ambre-fete); box-shadow: 0 0 0 3px rgba(212,118,10,0.15); }
+.form-textarea { width: 100%; padding: 0.75rem 1rem; border: 1px solid var(--papier-vieilli); border-radius: 8px; font-family: inherit; font-size: 1rem; resize: vertical; min-height: 100px; }
+.form-textarea:focus { outline: none; border-color: var(--ambre-fete); box-shadow: 0 0 0 3px rgba(212,118,10,0.15); }
+
+.btn-admin-primary {
+  display: block; width: 100%; padding: 0.85rem; margin-top: 1.5rem;
+  background: var(--ambre-fete); color: var(--creme-lin); border: none;
+  border-radius: 100px; font-family: inherit; font-size: 1rem; font-weight: 700;
+  cursor: pointer; transition: background 0.2s, transform 0.1s;
+}
+.btn-admin-primary:hover { background: #b8640a; transform: translateY(-1px); }
+.btn-admin-primary:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+
+.login-error { color: var(--rouge-guirlande); font-size: 0.875rem; margin-top: 1rem; }
+
+/* DASHBOARD PAGE */
+.admin-layout { display: flex; min-height: 100vh; }
+
+.admin-sidebar {
+  width: 240px; background: var(--bleu-logo); color: var(--or-logo);
+  display: flex; flex-direction: column; position: fixed; top: 0; bottom: 0; left: 0;
+  z-index: 10;
+}
+
+.sidebar-header {
+  display: flex; align-items: center; gap: 0.75rem;
+  padding: 1.5rem; border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+.sidebar-title { font-family: 'Fraunces', serif; font-weight: 700; font-size: 1.1rem; }
+
+.sidebar-nav { flex: 1; padding: 1rem 0; overflow-y: auto; }
+
+.sidebar-link {
+  display: block; width: 100%; text-align: left; padding: 0.75rem 1.5rem;
+  color: var(--or-logo); opacity: 0.7; border: none; background: none;
+  font-family: inherit; font-size: 0.9rem; font-weight: 500; cursor: pointer;
+  transition: all 0.2s;
+}
+.sidebar-link:hover { opacity: 1; background: rgba(255,255,255,0.08); }
+.sidebar-link.active { opacity: 1; background: rgba(255,255,255,0.12); border-left: 3px solid var(--or-logo); }
+
+.sidebar-footer { padding: 1rem 1.5rem; border-top: 1px solid rgba(255,255,255,0.1); }
+
+.btn-logout {
+  width: 100%; padding: 0.6rem; background: none; border: 1px solid rgba(244,179,101,0.3);
+  border-radius: 8px; color: var(--or-logo); opacity: 0.7; font-family: inherit;
+  font-size: 0.85rem; cursor: pointer; transition: all 0.2s;
+}
+.btn-logout:hover { opacity: 1; background: rgba(255,255,255,0.08); }
+
+.admin-main { flex: 1; margin-left: 240px; }
+
+.admin-topbar {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 1.5rem 2rem; background: #fff; border-bottom: 1px solid var(--papier-vieilli);
+  position: sticky; top: 0; z-index: 5;
+}
+.admin-page-title { font-family: 'Fraunces', serif; font-weight: 700; font-size: 1.25rem; color: var(--bleu-logo); }
+.admin-topbar-actions { display: flex; align-items: center; gap: 1.5rem; }
+.last-modified { font-size: 0.8rem; color: var(--bois-chaud); opacity: 0.6; }
+.btn-publish { white-space: nowrap; width: auto; margin-top: 0; padding: 0.7rem 1.5rem; }
+
+.admin-content { padding: 2rem; max-width: 800px; }
+.admin-loading { color: var(--bois-chaud); opacity: 0.6; }
+
+.form-group { margin-bottom: 1.5rem; }
+.form-info { padding: 1rem; background: #fff; border: 1px solid var(--papier-vieilli); border-radius: 8px; color: var(--bois-chaud); font-size: 0.9rem; }
+
+/* List editor */
+.list-editor { border: 1px solid var(--papier-vieilli); border-radius: 8px; padding: 1rem; background: #fff; }
+.list-row { display: flex; gap: 0.5rem; margin-bottom: 0.5rem; align-items: center; }
+.list-input { flex: 1; padding: 0.5rem 0.75rem; font-size: 0.875rem; }
+.btn-remove-row {
+  width: 32px; height: 32px; border: none; background: var(--rouge-guirlande);
+  color: white; border-radius: 6px; cursor: pointer; font-weight: 700; font-size: 0.8rem;
+  flex-shrink: 0; transition: opacity 0.2s;
+}
+.btn-remove-row:hover { opacity: 0.8; }
+.btn-add-row {
+  display: block; width: 100%; padding: 0.5rem; margin-top: 0.5rem;
+  background: none; border: 1px dashed var(--papier-vieilli); border-radius: 6px;
+  color: var(--ambre-fete); font-family: inherit; font-size: 0.85rem;
+  font-weight: 600; cursor: pointer; transition: all 0.2s;
+}
+.btn-add-row:hover { background: var(--creme-lin); border-color: var(--ambre-fete); }
+
+/* Toast */
+.toast {
+  position: fixed; bottom: 2rem; right: 2rem; padding: 1rem 1.5rem;
+  background: #2EA66A; color: white; border-radius: 8px; font-weight: 600;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15); z-index: 100;
+  animation: toastIn 0.3s ease;
+}
+.toast-error { background: var(--rouge-guirlande); }
+@keyframes toastIn { from { transform: translateY(20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+
+/* Responsive */
+@media (max-width: 768px) {
+  .admin-sidebar { width: 200px; }
+  .admin-main { margin-left: 200px; }
+  .admin-topbar { flex-direction: column; gap: 0.75rem; align-items: flex-start; }
+  .admin-content { padding: 1rem; }
+}

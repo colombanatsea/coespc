@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Administration — COESPC</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Fraunces:opsz,wght@9..144,700;9..144,900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/admin/css/admin.css">
+</head>
+<body class="login-page">
+  <div class="login-card">
+    <img src="/assets/images/logo-coespc.png" alt="COESPC" width="80" height="80" class="login-logo">
+    <h1 class="login-title">Administration</h1>
+    <p class="login-subtitle">Fete Villageoise d'Annecy-le-Vieux</p>
+    <form id="loginForm" class="login-form">
+      <label for="password" class="form-label">Mot de passe</label>
+      <input type="password" id="password" name="password" class="form-input" placeholder="Entrez le mot de passe" required autocomplete="current-password">
+      <button type="submit" class="btn-admin-primary" id="loginBtn">Se connecter</button>
+      <p class="login-error" id="loginError" hidden>Mot de passe incorrect</p>
+    </form>
+  </div>
+  <script>
+    document.getElementById('loginForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const btn = document.getElementById('loginBtn');
+      const err = document.getElementById('loginError');
+      btn.disabled = true;
+      btn.textContent = 'Connexion...';
+      err.hidden = true;
+      try {
+        const res = await fetch('/api/auth', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ password: document.getElementById('password').value })
+        });
+        const data = await res.json();
+        if (res.ok && data.token) {
+          localStorage.setItem('admin_token', data.token);
+          localStorage.setItem('admin_expires', data.expires);
+          window.location.href = '/admin/dashboard.html';
+        } else {
+          err.textContent = data.error || 'Mot de passe incorrect';
+          err.hidden = false;
+        }
+      } catch (ex) {
+        err.textContent = 'Erreur de connexion au serveur';
+        err.hidden = false;
+      }
+      btn.disabled = false;
+      btn.textContent = 'Se connecter';
+    });
+  </script>
+</body>
+</html>

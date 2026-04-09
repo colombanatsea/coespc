@@ -1,0 +1,13 @@
+name = "fete-villageoise"
+compatibility_date = "2024-01-01"
+
+[vars]
+# Set ADMIN_PASSWORD and JWT_SECRET via Cloudflare dashboard (Settings > Variables)
+
+[[kv_namespaces]]
+binding = "CONTENT"
+id = "" # To be filled after creating KV namespace in Cloudflare dashboard
+
+[[r2_buckets]]
+binding = "ASSETS"
+bucket_name = "fete-villageoise-assets"

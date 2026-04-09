@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initScrollAnimations();
   initSmoothScroll();
   initActiveNav();
+  initCmsContent();
 });
 
 // Generate fanion pennants dynamically
@@ -90,6 +91,30 @@ function initSmoothScroll() {
       }
     });
   });
+}
+
+// Load CMS content from KV (if edited via admin)
+function initCmsContent() {
+  var page = window.location.pathname.replace(/^\//, '').replace(/\.html$/, '') || 'accueil';
+  if (page.startsWith('archives/')) page = page.replace('archives/', 'archive-');
+
+  fetch('/api/content/' + page)
+    .then(function(res) { return res.ok ? res.json() : null; })
+    .then(function(data) {
+      if (!data) return;
+      // Apply CMS overrides to elements with data-cms attributes
+      document.querySelectorAll('[data-cms]').forEach(function(el) {
+        var key = el.getAttribute('data-cms');
+        var keys = key.split('.');
+        var val = data;
+        for (var i = 0; i < keys.length; i++) {
+          if (val && val[keys[i]] !== undefined) val = val[keys[i]];
+          else { val = null; break; }
+        }
+        if (val !== null && val !== '') el.textContent = val;
+      });
+    })
+    .catch(function() { /* fallback to static HTML */ });
 }
 
 // Highlight active nav link based on current URL

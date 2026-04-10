@@ -3,4 +3,4 @@ Allow: /
 Disallow: /admin/
 Disallow: /api/
 
-Sitemap: https://fetevillageoise.com/sitemap.xml
+Sitemap: https://coespc.org/sitemap.xml

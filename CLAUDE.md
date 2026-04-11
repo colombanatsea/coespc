@@ -78,11 +78,18 @@ fete-villageoise-site/
 - [x] Spécification + CLAUDE.md + Handoff
 - [x] Architecture du site définie (voir HANDOFF.md §3)
 - [x] Backlog créatif historisé (BACKLOG-CREATIF.md)
-- [x] Contenu éditorial rédigé (23 fichiers dans /contenu/)
-- [x] Pages d'archives individuelles 2011-2024 (12 fichiers rédigés)
-- [ ] Direction créative tranchée
-- [ ] Maquette HTML/CSS
-- [ ] Repo GitHub initialisé
-- [ ] Migration DNS Cloudflare
-- [ ] Redirections anciennes URLs
-- [ ] Mise en production
+- [x] Direction créative : Kermesse Éternelle (design-systems-v2.html)
+- [x] Site complet : 26 pages HTML, CSS design system, JS, CMS admin
+- [x] 15 images récupérées du site WordPress originel
+- [x] CMS admin : 10 sections éditables, types image/link/list, archives par année
+- [x] SEO : canonical, OG, Twitter Card, favicon, JSON-LD (Organization + Event + FAQPage)
+- [x] 2 nouvelles pages SEO : foire-aux-questions.html, devenir-partenaire.html
+- [x] _redirects : 40+ règles migration WordPress
+- [x] _headers : sécurité + cache
+- [x] Sitemap : 24 URLs avec changefreq/priority
+- [x] Déployé sur Cloudflare Pages (coespc.pages.dev)
+- [x] Repo GitHub : github.com/colombanatsea/coespc
+- [ ] Validation contenu par le bureau du CŒSPC
+- [ ] Migration DNS fetevillageoise.com → Cloudflare Pages
+- [ ] Configuration KV + R2 pour le CMS admin
+- [ ] Soumission Search Console + demande indexation

@@ -41,9 +41,26 @@
 /animations-2011.html /archives/2011.html 301
 /ils-nous-aident-reservez-leur-vos-achats.html /partenaires.html 301
 
-# Pages structurelles
+# Pages structurelles WordPress -> nouveau site
+/presentation /histoire.html 301
+/presentation/ /histoire.html 301
 /programme-de-la-fete /edition-2026.html 301
+/programme-de-la-fete/ /edition-2026.html 301
 /tombola /edition-2026.html 301
+/historique/les-affiches /archives/ 301
+/historique/les-affiches/ /archives/ 301
+/historique /archives/ 301
+/author/* / 301
+/?p=* / 301
+/?page_id=* / 301
+/?cat=* / 301
+/?tag=* / 301
+
+# Variantes avec slash final
+/contact/ /contact.html 301
+/partenaires/ /partenaires.html 301
+/benevoles/ /benevoles.html 301
+/archives /archives/ 301
 /category/* /archives/ 301
 /tag/* /archives/ 301
 /photo-videotheque/* /archives/ 301

@@ -535,6 +535,36 @@ blockquote cite {
 .footer-bottom a { color: rgba(244,179,101,0.4); }
 .footer-bottom a:hover { color: var(--or-logo); }
 
+/* --- AFFICHE --- */
+.affiche-img {
+  max-width: 400px;
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-lg);
+  box-shadow: 0 8px 30px rgba(5, 22, 130, 0.12);
+  border: 1px solid var(--papier-vieilli);
+}
+.text-muted { color: var(--bois-chaud); opacity: 0.5; font-style: italic; }
+
+/* Archive card with image */
+.archive-card-img {
+  width: 100%; height: 180px; object-fit: cover;
+  border-radius: var(--radius-md) var(--radius-md) 0 0;
+  margin: calc(-1 * var(--space-6)) calc(-1 * var(--space-6)) var(--space-4);
+  width: calc(100% + 2 * var(--space-6));
+}
+
+/* Archive thumb with poster image */
+.archive-thumb img {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  object-fit: cover; border-radius: var(--radius-lg);
+}
+.archive-thumb { position: relative; }
+.archive-thumb .archive-year {
+  position: relative; z-index: 1;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.6);
+}
+
 /* --- UTILITIES --- */
 .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
 .text-center { text-align: center; }

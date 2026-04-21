@@ -84,3 +84,5 @@
 /xmlrpc.php / 301
 /wp-content/uploads/* /archives/ 301
 /page/* /archives/ 301
+/devenir-partenaire.html /partenaires.html#devenir-partenaire 301
+/devenir-partenaire /partenaires.html#devenir-partenaire 301

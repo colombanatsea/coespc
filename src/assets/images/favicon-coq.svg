@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <rect width="64" height="64" fill="#142477" rx="10"/>
+  <g transform="translate(8,10)">
+    <!-- Corps du coq -->
+    <path d="M12 36 Q8 32 10 26 Q12 22 18 22 Q22 20 28 22 Q34 22 38 26 Q40 30 38 34 Q36 38 32 38 Q24 40 20 38 Q14 38 12 36 Z" fill="#F4B365"/>
+    <!-- Queue -->
+    <path d="M38 28 Q44 22 46 18 Q48 14 46 12 Q44 10 40 14 Q38 18 36 22" fill="#D4AF37" stroke="#F4B365" stroke-width="1"/>
+    <!-- Tete -->
+    <circle cx="18" cy="22" r="5" fill="#F4B365"/>
+    <!-- Crete -->
+    <path d="M14 18 Q13 14 16 13 Q17 15 18 13 Q19 15 20 13 Q22 14 21 18" fill="#C0392B"/>
+    <!-- Bec -->
+    <path d="M13 22 L10 22 L13 24 Z" fill="#D4760A"/>
+    <!-- Oeil -->
+    <circle cx="17" cy="21" r="1" fill="#142477"/>
+    <!-- Pattes -->
+    <line x1="20" y1="38" x2="20" y2="44" stroke="#D4760A" stroke-width="1.5"/>
+    <line x1="28" y1="38" x2="28" y2="44" stroke="#D4760A" stroke-width="1.5"/>
+  </g>
+</svg>

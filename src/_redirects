@@ -50,11 +50,7 @@
 /historique/les-affiches /archives/ 301
 /historique/les-affiches/ /archives/ 301
 /historique /archives/ 301
-/author/* / 301
-/?p=* / 301
-/?page_id=* / 301
-/?cat=* / 301
-/?tag=* / 301
+/author/* /archives/ 301
 
 # Variantes avec slash final
 /contact/ /contact.html 301

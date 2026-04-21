@@ -10,7 +10,86 @@ document.addEventListener('DOMContentLoaded', () => {
   initCountdown();
   initMeteo();
   initBalloonsOnDayJ();
+  initGallery();
+  initPartnersFeed();
 });
+
+// ═══ GALERIE PHOTOS (auto depuis /assets/images/galerie/<annee>/galerie.json) ═══
+function initGallery() {
+  var grids = document.querySelectorAll('[data-gallery]');
+  if (!grids.length) return;
+  // Lightbox
+  var lb = document.createElement('div');
+  lb.className = 'gallery-lightbox';
+  lb.innerHTML = '<button class="gallery-lightbox-close" aria-label="Fermer">&times;</button><img alt="">';
+  document.body.appendChild(lb);
+  var lbImg = lb.querySelector('img');
+  var closeLb = function() { lb.classList.remove('open'); };
+  lb.addEventListener('click', closeLb);
+  document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeLb(); });
+
+  grids.forEach(function(grid) {
+    var annee = grid.getAttribute('data-gallery');
+    fetch('/assets/images/galerie/' + annee + '/galerie.json', { cache: 'no-cache' })
+      .then(function(r) { return r.ok ? r.json() : []; })
+      .then(function(list) {
+        if (!Array.isArray(list) || !list.length) {
+          grid.innerHTML = '<p class="gallery-empty">Aucune photo disponible pour l\'instant. Les photos seront ajout&eacute;es apr&egrave;s la f&ecirc;te.</p>';
+          return;
+        }
+        list.forEach(function(item) {
+          var src = '/assets/images/galerie/' + annee + '/' + item.file;
+          var alt = item.alt || 'Photo F&ecirc;te Villageoise ' + annee;
+          var a = document.createElement('a');
+          a.className = 'gallery-item';
+          a.href = src;
+          a.setAttribute('aria-label', alt);
+          a.innerHTML = '<img src="' + src + '" alt="' + alt.replace(/"/g, '&quot;') + '" loading="lazy">';
+          a.addEventListener('click', function(e) {
+            e.preventDefault();
+            lbImg.src = src;
+            lbImg.alt = alt;
+            lb.classList.add('open');
+          });
+          grid.appendChild(a);
+        });
+      })
+      .catch(function() {
+        grid.innerHTML = '<p class="gallery-empty">Aucune photo disponible pour l\'instant.</p>';
+      });
+  });
+}
+
+// ═══ FLUX ACTUS PARTENAIRES (via Worker /api/partners-feed) ═══
+function initPartnersFeed() {
+  var el = document.getElementById('partners-feed');
+  if (!el) return;
+  fetch('/api/partners-feed', { cache: 'no-cache' })
+    .then(function(r) { return r.ok ? r.json() : null; })
+    .then(function(data) {
+      if (!data || !data.items || !data.items.length) {
+        el.innerHTML = '<p class="partners-feed-empty">Flux indisponibles pour l\'instant.</p>';
+        return;
+      }
+      var html = data.items.slice(0, 6).map(function(it) {
+        var d = new Date(it.pubDate);
+        var dateStr = isNaN(d.getTime()) ? '' : d.toLocaleDateString('fr-FR', { day: 'numeric', month: 'short', year: 'numeric' });
+        return '<a class="partners-feed-item" href="' + it.link + '" target="_blank" rel="noopener">' +
+               '<span class="partners-feed-source">' + it.source + '</span>' +
+               '<strong class="partners-feed-title">' + escapeHtml(it.title) + '</strong>' +
+               (dateStr ? '<span class="partners-feed-date">' + dateStr + '</span>' : '') +
+               '</a>';
+      }).join('');
+      el.innerHTML = html;
+    })
+    .catch(function() { el.innerHTML = '<p class="partners-feed-empty">Flux indisponibles pour l\'instant.</p>'; });
+}
+
+function escapeHtml(s) {
+  return String(s).replace(/[&<>"']/g, function(c) {
+    return ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[c];
+  });
+}
 
 // ═══ COUNTDOWN JOUR J ═══
 function initCountdown() {

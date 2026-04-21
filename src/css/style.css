@@ -1354,6 +1354,212 @@ a.partner-tile::after {
 /* --- IMAGES HD --- */
 img { image-rendering: auto; -ms-interpolation-mode: bicubic; }
 
+/* =================================================================
+   TOMBOLA - TABLEAU DES RESULTATS
+   ================================================================= */
+.tombola-table-wrap {
+  overflow-x: auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(5, 22, 130, 0.08);
+  background: #fff;
+}
+.tombola-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+  background: #fff;
+}
+.tombola-table thead {
+  background: var(--bleu-logo, #142477);
+  color: var(--or-logo, #F4B365);
+}
+.tombola-table thead th {
+  padding: 1rem 0.75rem;
+  text-align: left;
+  font-family: 'Fraunces', serif;
+  font-weight: 700;
+  font-size: 0.95rem;
+  letter-spacing: 0.02em;
+}
+.tombola-table thead th:first-child { text-align: center; width: 4rem; }
+.tombola-table thead th:last-child  { text-align: center; width: 5.5rem; }
+.tombola-table tbody tr {
+  border-bottom: 1px solid rgba(5, 22, 130, 0.08);
+  transition: background 0.15s ease;
+}
+.tombola-table tbody tr:nth-child(even) { background: rgba(253, 246, 232, 0.6); }
+.tombola-table tbody tr:hover           { background: rgba(244, 179, 101, 0.15); }
+.tombola-table tbody tr:last-child      { border-bottom: none; }
+.tombola-table td {
+  padding: 0.85rem 0.75rem;
+  vertical-align: top;
+  line-height: 1.4;
+}
+.tombola-table td:first-child {
+  text-align: center;
+  font-weight: 700;
+  color: var(--bleu-logo, #142477);
+  font-family: 'Fraunces', serif;
+}
+.tombola-table td:last-child {
+  text-align: center;
+  font-family: 'Consolas', 'Courier New', monospace;
+  font-weight: 700;
+  color: var(--ambre-fete, #D4760A);
+  white-space: nowrap;
+}
+@media (max-width: 640px) {
+  .tombola-table { font-size: 0.85rem; }
+  .tombola-table thead th, .tombola-table td { padding: 0.6rem 0.4rem; }
+}
+
+/* =================================================================
+   RETRAIT DES LOTS
+   ================================================================= */
+.retrait-lots {
+  background: linear-gradient(135deg, var(--creme-lin, #FDF6E8) 0%, #fff 100%);
+  border: 2px solid var(--or-girouette, #D4AF37);
+  border-radius: 16px;
+  padding: 2rem;
+  position: relative;
+  margin: 2rem 0;
+}
+.retrait-lots::before {
+  content: '🎁';
+  position: absolute;
+  top: -1rem;
+  left: 1.5rem;
+  background: #fff;
+  padding: 0 0.5rem;
+  font-size: 1.5rem;
+}
+.retrait-lots h2 {
+  margin-top: 0;
+  color: var(--bleu-logo, #142477);
+  font-family: 'Fraunces', serif;
+  font-size: 1.5rem;
+}
+.retrait-lots p { margin: 0.75rem 0; font-size: 1.05rem; }
+.retrait-lots .retrait-hint {
+  margin-top: 1.25rem;
+  padding-top: 1rem;
+  border-top: 1px dashed rgba(5, 22, 130, 0.2);
+  font-size: 0.95rem;
+  color: #5C4A3A;
+}
+
+/* =================================================================
+   GALERIE PHOTOS
+   ================================================================= */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+.gallery-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  aspect-ratio: 4 / 3;
+  cursor: zoom-in;
+  background: var(--creme-lin, #FDF6E8);
+  box-shadow: 0 2px 10px rgba(5, 22, 130, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.gallery-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(5, 22, 130, 0.18);
+}
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+  display: block;
+}
+.gallery-item:hover img { transform: scale(1.05); }
+.gallery-empty {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 2rem;
+  color: #5C4A3A;
+  font-style: italic;
+}
+/* Lightbox */
+.gallery-lightbox {
+  position: fixed; inset: 0; z-index: 2000;
+  background: rgba(5, 22, 130, 0.92);
+  display: none;
+  align-items: center; justify-content: center;
+  padding: 2rem;
+  cursor: zoom-out;
+}
+.gallery-lightbox.open { display: flex; }
+.gallery-lightbox img {
+  max-width: 95vw; max-height: 90vh;
+  object-fit: contain;
+  border-radius: 8px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+}
+.gallery-lightbox-close {
+  position: absolute; top: 1rem; right: 1.5rem;
+  background: none; border: none;
+  color: var(--or-logo, #F4B365);
+  font-size: 2.5rem; cursor: pointer; line-height: 1;
+}
+
+/* =================================================================
+   FLUX ACTUS PARTENAIRES
+   ================================================================= */
+.partners-feed {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+.partners-feed-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1.25rem;
+  background: #fff;
+  border-radius: 12px;
+  border-left: 4px solid var(--ambre-fete, #D4760A);
+  box-shadow: 0 2px 10px rgba(5, 22, 130, 0.08);
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.partners-feed-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(5, 22, 130, 0.15);
+}
+.partners-feed-source {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--ambre-fete, #D4760A);
+}
+.partners-feed-title {
+  font-family: 'Fraunces', serif;
+  font-size: 1.05rem;
+  line-height: 1.35;
+  color: var(--bleu-logo, #142477);
+}
+.partners-feed-date {
+  font-size: 0.85rem;
+  color: #5C4A3A;
+  font-style: italic;
+}
+.partners-feed-empty {
+  grid-column: 1 / -1;
+  text-align: center;
+  color: #5C4A3A;
+  font-style: italic;
+}
+
 /* --- PRINT --- */
 @media print {
   .site-header, .fanions-banner, .site-footer, .nav-toggle, .btn { display: none; }

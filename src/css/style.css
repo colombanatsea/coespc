@@ -8,7 +8,7 @@
 /* --- TOKENS --- */
 :root {
   --bleu-logo: #142477;
-  --or-logo: #D4AF37;
+  --or-logo: #F4B365;
   --ambre-fete: #D4760A;
   --or-girouette: #D4AF37;
   --rouge-guirlande: #C0392B;
@@ -505,7 +505,7 @@ blockquote cite {
 }
 .footer-brand h3 {
   font-family: var(--font-display); font-weight: 700;
-  color: var(--or-girouette); font-size: var(--text-xl);
+  color: var(--or-logo); font-size: var(--text-xl);
   margin: var(--space-4) 0 var(--space-2);
 }
 .footer-brand p { color: rgba(244,179,101,0.6); font-size: var(--text-sm); line-height: var(--leading-normal); }

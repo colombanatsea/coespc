@@ -101,5 +101,8 @@ fete-villageoise-site/
 - [ ] Validation contenu par le bureau du CŒSPC sur coespc.pages.dev
 - [ ] Migration DNS coespc.org → Cloudflare Pages (custom domain)
 - [ ] Configuration KV + R2 pour le CMS admin
+- [x] Bindings Cloudflare configurés (KV CONTENT + secrets ADMIN_PASSWORD, JWT_SECRET)
+- [ ] Binding R2 ASSETS (en cours)
+- [ ] Custom domain coespc.org actif
 - [ ] Search Console + demande indexation après bascule DNS
 - [ ] Soumission Search Console + demande indexation

@@ -69,7 +69,12 @@ fete-villageoise-site/
 - La fête existe depuis **1950** (76 ans), 74 éditions réalisées (2 annulées)
 - **coespc.org** = portail HelloAsso (tombola, repas, adhésions) — renvois depuis le site vitrine
 - Galerie photos **intégrée dans les archives** (pas de page séparée)
-- Design system à appliquer : décision créative en attente (voir BACKLOG-CREATIF.md)
+- Design system **Kermesse Éternelle** appliqué : Bleu Clocher `#142477`, Or Girouette `#D4AF37`, Ambre Fête `#D4760A`, Rouge Guirlande `#C0392B`, Crème Lin `#FDF6E8`
+- Fraunces (display, 700-900) + DM Sans (body, 400/500/700)
+- Images optimisées : affiche-2025 (5.9 MB → 931 KB + WebP 371 KB), logo (448 KB → 22 KB), solidarité (5 MB → 108 KB)
+- Accents français corrigés en 2 passes (~500 corrections sur 26 pages)
+- Mobile first : min-height 48px pour la nav, zoom iOS prévenu (font-size 16px sur inputs), animations réduites
+- Domaine cible : **coespc.org** (pas fetevillageoise.com)
 
 ## État d'avancement
 - [x] Collecte des données (fichier de référence)
@@ -89,7 +94,12 @@ fete-villageoise-site/
 - [x] Sitemap : 24 URLs avec changefreq/priority
 - [x] Déployé sur Cloudflare Pages (coespc.pages.dev)
 - [x] Repo GitHub : github.com/colombanatsea/coespc
-- [ ] Validation contenu par le bureau du CŒSPC
-- [ ] Migration DNS fetevillageoise.com → Cloudflare Pages
+- [x] Passe qualité complète : accents, footer, JSON-LD enrichi, CLS prévu
+- [x] Images optimisées (13 MB économisés), WebP généré pour affiche 2025
+- [x] Nouveau design system appliqué (Bleu Clocher #142477, Or Girouette #D4AF37)
+- [x] Optimisations mobiles : touch targets, zoom iOS prévenu, animations allégées
+- [ ] Validation contenu par le bureau du CŒSPC sur coespc.pages.dev
+- [ ] Migration DNS coespc.org → Cloudflare Pages (custom domain)
 - [ ] Configuration KV + R2 pour le CMS admin
+- [ ] Search Console + demande indexation après bascule DNS
 - [ ] Soumission Search Console + demande indexation

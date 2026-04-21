@@ -7,8 +7,8 @@
 
 /* --- TOKENS --- */
 :root {
-  --bleu-logo: #051682;
-  --or-logo: #F4B365;
+  --bleu-logo: #142477;
+  --or-logo: #D4AF37;
   --ambre-fete: #D4760A;
   --or-girouette: #D4AF37;
   --rouge-guirlande: #C0392B;
@@ -138,7 +138,7 @@ button { cursor: pointer; font-family: inherit; }
 
 /* --- FANIONS --- */
 .fanions-banner {
-  background: #030D5A; overflow: hidden;
+  background: #142477; overflow: hidden;
   padding: 0; line-height: 0;
 }
 .fanions-track {
@@ -161,7 +161,7 @@ button { cursor: pointer; font-family: inherit; }
 /* --- HERO --- */
 .hero {
   min-height: 100vh; display: flex; align-items: center; justify-content: center;
-  background: linear-gradient(170deg, #030D5A 0%, var(--bleu-logo) 40%, #0A2090 100%);
+  background: linear-gradient(170deg, #0a1157 0%, #1a237e 40%, #283593 70%, #3949ab 100%);
   color: #fff; position: relative; overflow: hidden; text-align: center;
   padding: var(--space-16) var(--space-8);
 }
@@ -203,7 +203,7 @@ button { cursor: pointer; font-family: inherit; }
 
 /* --- PAGE HERO (shorter) --- */
 .page-hero {
-  background: linear-gradient(170deg, #030D5A 0%, var(--bleu-logo) 100%);
+  background: linear-gradient(170deg, #0a1157 0%, #1a237e 100%);
   color: #fff; text-align: center;
   padding: var(--space-24) var(--space-8) var(--space-16);
   position: relative;
@@ -222,7 +222,7 @@ button { cursor: pointer; font-family: inherit; }
 .section { padding: var(--space-16) 0; }
 .section-alt { background: #fff; }
 .section-dark {
-  background: linear-gradient(170deg, var(--bleu-logo) 0%, #030D5A 100%);
+  background: linear-gradient(170deg, #1a237e 0%, #0a1157 100%);
   color: var(--or-logo);
 }
 .section-header {
@@ -629,6 +629,23 @@ blockquote cite {
   html { scroll-behavior: auto; }
   .fade-in { opacity: 1; transform: none; }
 }
+
+/* --- MOBILE OPTIMIZATIONS --- */
+@media (max-width: 768px) {
+  /* Plus grande target pour la nav mobile (accessibilite) */
+  .nav-link { min-height: 48px; display: flex; align-items: center; }
+  /* Prevenir les zooms involontaires sur iOS */
+  input, select, textarea { font-size: 16px !important; }
+  /* Reduire les animations complexes */
+  .archive-thumb:hover { transform: none; }
+  .card:hover { transform: translateY(-2px); }
+  /* Hero plus compact */
+  .hero-title { font-size: clamp(1.8rem, 8vw, 2.5rem); }
+  .hero-subtitle { font-size: 1rem; }
+}
+
+/* --- IMAGES HD --- */
+img { image-rendering: auto; -ms-interpolation-mode: bicubic; }
 
 /* --- PRINT --- */
 @media print {

@@ -104,22 +104,86 @@
     </section>
 
     <section class="section">
-      <div class="container content-narrow">
-        <h2>Telechargements</h2>
-        <p>Le dossier de presse et les visuels haute definition seront disponibles prochainement. En attendant, n'hesitez pas a nous contacter directement.</p>
-        <!-- Placeholder pour futurs telechargements -->
-        <div class="card" style="text-align:center; padding: 2rem;">
-          <p><strong>Dossier de presse 2026</strong></p>
-          <p>Bientot disponible</p>
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Kit m&eacute;dia</span>
+          <h2 class="section-title">Tout pour parler de la F&ecirc;te Villageoise</h2>
+          <p class="section-desc">Bio, chiffres cl&eacute;s, visuels, affiches, dossier complet &mdash; t&eacute;l&eacute;chargez ce dont vous avez besoin.</p>
+        </div>
+
+        <div class="media-kit-grid">
+          <a href="/assets/images/logo-coespc.png" download class="media-kit-card">
+            <div class="media-kit-icon">&#127919;</div>
+            <h3>Logo C&OElig;SPC</h3>
+            <p>PNG haute d&eacute;finition, fond transparent</p>
+            <span class="media-kit-meta">PNG &middot; 512&times;512</span>
+          </a>
+
+          <a href="/assets/images/affiche-2025.png" download class="media-kit-card">
+            <div class="media-kit-icon">&#129517;</div>
+            <h3>Affiche 2025 (F. Garreau)</h3>
+            <p>Derni&egrave;re affiche de l'artiste, version web HD</p>
+            <span class="media-kit-meta">PNG &middot; 1200&times;1697</span>
+          </a>
+
+          <a href="/assets/images/affiche-2024.jpg" download class="media-kit-card">
+            <div class="media-kit-icon">&#129517;</div>
+            <h3>Affiche 2024</h3>
+            <p>&Eacute;dition pr&eacute;c&eacute;dente</p>
+            <span class="media-kit-meta">JPG &middot; 782&times;1024</span>
+          </a>
+
+          <a href="/assets/images/annecy-le-vieux-historique.jpg" download class="media-kit-card">
+            <div class="media-kit-icon">&#127963;</div>
+            <h3>Photo historique</h3>
+            <p>Annecy-le-Vieux au d&eacute;but du XX<sup>e</sup> si&egrave;cle</p>
+            <span class="media-kit-meta">JPG &middot; 1200&times;900</span>
+          </a>
+
+          <a href="/assets/images/solidarite-remise-cheque.jpg" download class="media-kit-card">
+            <div class="media-kit-icon">&#129309;</div>
+            <h3>Photo remise ch&egrave;que</h3>
+            <p>Remise symbolique aux &oelig;uvres sociales</p>
+            <span class="media-kit-meta">JPG &middot; 1200&times;900</span>
+          </a>
+
+          <a href="/assets/images/tartiflette-2025.jpg" download class="media-kit-card">
+            <div class="media-kit-icon">&#127869;</div>
+            <h3>Tartiflette g&eacute;ante</h3>
+            <p>Plat signature de la f&ecirc;te</p>
+            <span class="media-kit-meta">JPG &middot; 1200&times;900</span>
+          </a>
+        </div>
+
+        <div class="media-kit-full">
+          <div>
+            <h3>Dossier de presse complet 2026</h3>
+            <p>Bio, historique, programme complet, chiffres cl&eacute;s, photos libres de droits et contacts &mdash; le tout en un seul document.</p>
+            <p class="text-muted">Disponible &agrave; partir de juillet 2026.</p>
+          </div>
+          <a href="#" class="btn btn-primary" aria-disabled="true" style="opacity: 0.6; pointer-events: none;">Bient&ocirc;t disponible</a>
         </div>
       </div>
     </section>
 
-    <section class="section section-alt cta-section">
+    <section class="section section-alt">
+      <div class="container content-narrow">
+        <h2>Boilerplate (&agrave; copier)</h2>
+        <div class="boilerplate-box">
+          <p>La <strong>F&ecirc;te Villageoise d'Annecy-le-Vieux</strong> est un &eacute;v&eacute;nement populaire &agrave; vocation caritative organis&eacute; chaque ann&eacute;e depuis 1950 par le <strong>C&OElig;SPC</strong> (Comit&eacute; des &OElig;uvres Sociales Paroissiales et Communales), association loi 1901 enti&egrave;rement b&eacute;n&eacute;vole. L'int&eacute;gralit&eacute; des b&eacute;n&eacute;fices est revers&eacute;e aux plus d&eacute;munis&nbsp;: 1/3 au CCAS d'Annecy, 2/3 aux &oelig;uvres sociales de la paroisse. La 74<sup>e</sup> &eacute;dition aura lieu le dimanche 13 septembre 2026 au chef-lieu d'Annecy-le-Vieux.</p>
+          <button type="button" class="btn btn-secondary" onclick="navigator.clipboard.writeText(this.previousElementSibling.textContent).then(()=>{this.textContent='Copi&eacute;&nbsp;!';setTimeout(()=>this.textContent='Copier le texte',2000);})">Copier le texte</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="section cta-section">
       <div class="container" style="text-align:center;">
         <h2>Contact presse</h2>
-        <p>Pour toute demande d'information, interview ou accreditation presse :</p>
-        <a href="mailto:contact@fetevillageoise.com" class="btn btn-primary">contact@fetevillageoise.com</a>
+        <p>Pour toute demande d'information, interview ou accr&eacute;ditation presse, contactez-nous en message priv&eacute; sur nos r&eacute;seaux sociaux.</p>
+        <div class="hero-actions" style="justify-content:center;">
+          <a href="https://www.instagram.com/fetevillageoise/" target="_blank" rel="noopener" class="btn btn-primary">Message Instagram</a>
+          <a href="https://www.facebook.com/profile.php?id=61577405273456" target="_blank" rel="noopener" class="btn btn-secondary">Message Facebook</a>
+        </div>
       </div>
     </section>
 
@@ -132,7 +196,7 @@
         <div class="footer-nav"><h4>Navigation</h4><a href="/">Accueil</a><a href="/histoire.html">Histoire</a><a href="/edition-2026.html">Édition 2026</a><a href="/partenaires.html">Partenaires</a><a href="/archives/">Archives</a><a href="/benevoles.html">Bénévoles</a><a href="/foire-aux-questions.html">Questions fréquentes</a></div>
         <div class="footer-contact"><h4>Nous suivre</h4><a href="https://www.instagram.com/fetevillageoise/" target="_blank" rel="noopener">Instagram &#64;fetevillageoise</a><a href="https://www.facebook.com/profile.php?id=61577405273456" target="_blank" rel="noopener">Page Facebook</a><a href="https://www.facebook.com/groups/39604019015/" target="_blank" rel="noopener">Groupe Facebook</a><a href="https://www.helloasso.com/associations/comite-des-oeuvres-sociales-paroissiales-et-commun" target="_blank" rel="noopener">Tombola &amp; Billetterie</a></div>
       </div>
-      <div class="footer-bottom"><p>&copy; 2026 C&OElig;SPC - Annecy-le-Vieux</p><p><a href="/contact.html#mentions-legales">Mentions l&eacute;gales</a></p>
+      <div class="footer-bottom"><p>&copy; 2026 C&OElig;SPC - Annecy-le-Vieux</p><p><a href="/mentions-legales.html">Mentions l&eacute;gales</a></p>
         <p class="footer-credits">Con&ccedil;u avec &#128153; par <a href="https://colombanatsea.com" target="_blank" rel="noopener">Colomban</a> &middot; Propuls&eacute; et prot&eacute;g&eacute; par <a href="https://vaiata-dynamics.com/fr/cyber/" target="_blank" rel="noopener">VAIATA Cyber</a></p></div>
     </div>
   </footer>

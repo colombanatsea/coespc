@@ -3,53 +3,33 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Administration - COESPC</title>
+  <title>Administration &ndash; Fête Villageoise d'Annecy-le-Vieux</title>
   <meta name="robots" content="noindex, nofollow">
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Fraunces:opsz,wght@9..144,700;9..144,900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/admin/css/admin.css">
+  <link rel="icon" href="/assets/images/favicon-coq.svg" type="image/svg+xml">
+  <link rel="alternate icon" href="/assets/images/logo-coespc.png" type="image/png">
+  <style>
+    /* Thème CŒSPC pour Decap CMS */
+    :root {
+      --coespc-bleu: #142477;
+      --coespc-or: #F4B365;
+      --coespc-ambre: #D4760A;
+      --coespc-creme: #FDF6E8;
+    }
+    body { background: var(--coespc-creme); }
+    /* Customisation header Decap */
+    [class*="AppHeader"] { background: var(--coespc-bleu) !important; }
+    [class*="AppHeader"] a { color: var(--coespc-or) !important; }
+    [class*="SiteURL"] { color: var(--coespc-or) !important; }
+    /* Couleurs boutons publier */
+    button[class*="SaveButton"] { background: var(--coespc-ambre) !important; }
+  </style>
 </head>
-<body class="login-page">
-  <div class="login-card">
-    <img src="/assets/images/logo-coespc.png" alt="COESPC" width="80" height="80" class="login-logo">
-    <h1 class="login-title">Administration</h1>
-    <p class="login-subtitle">Fête Villageoise d'Annecy-le-Vieux</p>
-    <form id="loginForm" class="login-form">
-      <label for="password" class="form-label">Mot de passe</label>
-      <input type="password" id="password" name="password" class="form-input" placeholder="Entrez le mot de passe" required autocomplete="current-password">
-      <button type="submit" class="btn-admin-primary" id="loginBtn">Se connecter</button>
-      <p class="login-error" id="loginError" hidden>Mot de passe incorrect</p>
-    </form>
-  </div>
+<body>
+  <!-- Decap CMS -->
+  <script src="https://unpkg.com/decap-cms@^3.3.3/dist/decap-cms.js"></script>
   <script>
-    document.getElementById('loginForm').addEventListener('submit', async (e) => {
-      e.preventDefault();
-      const btn = document.getElementById('loginBtn');
-      const err = document.getElementById('loginError');
-      btn.disabled = true;
-      btn.textContent = 'Connexion...';
-      err.hidden = true;
-      try {
-        const res = await fetch('/api/auth', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ password: document.getElementById('password').value })
-        });
-        const data = await res.json();
-        if (res.ok && data.token) {
-          localStorage.setItem('admin_token', data.token);
-          localStorage.setItem('admin_expires', data.expires);
-          window.location.href = '/admin/dashboard.html';
-        } else {
-          err.textContent = data.error || 'Mot de passe incorrect';
-          err.hidden = false;
-        }
-      } catch (ex) {
-        err.textContent = 'Erreur de connexion au serveur';
-        err.hidden = false;
-      }
-      btn.disabled = false;
-      btn.textContent = 'Se connecter';
-    });
+    // Attente chargement puis init
+    window.CMS_MANUAL_INIT = false;
   </script>
 </body>
 </html>

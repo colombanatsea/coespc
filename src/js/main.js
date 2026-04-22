@@ -12,7 +12,77 @@ document.addEventListener('DOMContentLoaded', () => {
   initBalloonsOnDayJ();
   initGallery();
   initPartnersFeed();
+  initPageDecorations();
 });
+
+// ═══ DECORATIONS DE PAGE ═══
+// Injecte les éléments visuels dynamiques (tartiflette, verres, coq, etc.)
+// selon la page courante. Règle du design system : max 3 éléments par page,
+// subtils, en touches. Les fanions (déjà partout) comptent comme 1 élément,
+// donc on ajoute max 2 décorations complémentaires.
+function initPageDecorations() {
+  // Mapping url path -> liste de décorations à injecter
+  // Clés possibles : tartiflette, verres, lac, montagne, coq, coeur, ballon,
+  // clocher, journal, panier, tombola
+  var path = window.location.pathname.replace(/\/$/, '') || '/';
+  var DECORATIONS_BY_PAGE = {
+    '/':                          ['coq', 'verres'],               // home (ballons déjà pour day J)
+    '/histoire':                  ['montagne', 'clocher'],
+    '/histoire.html':             ['montagne', 'clocher'],
+    '/association':               ['coeur', 'clocher'],
+    '/association.html':          ['coeur', 'clocher'],
+    '/edition-2026':              ['tartiflette', 'tombola'],
+    '/edition-2026.html':         ['tartiflette', 'tombola'],
+    '/partenaires':               ['verres', 'panier'],
+    '/partenaires.html':          ['verres', 'panier'],
+    '/benevoles':                 ['coeur', 'coq'],
+    '/benevoles.html':            ['coeur', 'coq'],
+    '/contact':                   ['coq', 'clocher'],
+    '/contact.html':              ['coq', 'clocher'],
+    '/archives':                  ['montagne', 'clocher'],
+    '/foire-aux-questions':       ['coq'],
+    '/foire-aux-questions.html':  ['coq'],
+    '/presse':                    ['journal', 'montagne'],
+    '/presse.html':               ['journal', 'montagne'],
+  };
+  // Pages archives individuelles
+  if (/^\/archives\/\d{4}/.test(path)) {
+    DECORATIONS_BY_PAGE[path] = ['montagne', 'clocher'];
+  }
+
+  var decos = DECORATIONS_BY_PAGE[path];
+  if (!decos || !decos.length) return;
+
+  // Container
+  var container = document.createElement('div');
+  container.className = 'page-decorations';
+  container.setAttribute('aria-hidden', 'true');
+
+  // Définitions HTML de chaque type de décoration
+  var DEFINITIONS = {
+    tartiflette: '<span class="page-decoration decor-tartiflette" title="Tartiflette">&#129472;</span>',
+    verres:      '<span class="page-decoration decor-verres"><span>&#127863;</span><span>&#127863;</span></span>',
+    lac:         '<span class="page-decoration decor-lac" title="Lac d&apos;Annecy">&#127754;</span>',
+    montagne:    '<span class="page-decoration decor-montagne" title="La Tournette">&#127956;&#65039;</span>',
+    coq:         '<div class="page-decoration decor-coq-wrap"><span class="decor-coq">&#128019;</span><span class="decor-coq-cry">Cocorico&nbsp;!</span></div>',
+    coeur:       '<span class="page-decoration decor-coeur" title="Solidarité">&#128153;</span>',
+    ballon:      '<span class="page-decoration decor-ballon" title="Ballon">&#127880;</span>',
+    clocher:     '<span class="page-decoration decor-clocher" title="Clocher d&apos;Annecy-le-Vieux">&#9962;&#65039;</span>',
+    journal:     '<span class="page-decoration decor-journal" title="Presse">&#128240;</span>',
+    panier:      '<span class="page-decoration decor-panier" title="Panier">&#129730;</span>',
+    tombola:     '<span class="page-decoration decor-tombola" title="Tombola">&#127903;&#65039;</span>',
+  };
+
+  decos.forEach(function(key) {
+    var html = DEFINITIONS[key];
+    if (!html) return;
+    var tpl = document.createElement('template');
+    tpl.innerHTML = html.trim();
+    container.appendChild(tpl.content.firstChild);
+  });
+
+  document.body.appendChild(container);
+}
 
 // ═══ GALERIE PHOTOS (auto depuis /assets/images/galerie/<annee>/galerie.json) ═══
 function initGallery() {

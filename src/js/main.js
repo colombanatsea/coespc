@@ -12,15 +12,15 @@ document.addEventListener('DOMContentLoaded', () => {
   initBalloonsOnDayJ();
   initGallery();
   initPartnersFeed();
-  initPageDecorations();
 });
 
-// ═══ DECORATIONS DE PAGE ═══
-// Injecte les éléments visuels dynamiques (tartiflette, verres, coq, etc.)
-// selon la page courante. Règle du design system : max 3 éléments par page,
-// subtils, en touches. Les fanions (déjà partout) comptent comme 1 élément,
-// donc on ajoute max 2 décorations complémentaires.
-function initPageDecorations() {
+// ═══ DECORATIONS DE PAGE (desactivees) ═══
+// Ancien systeme qui injectait des elements flottants position:fixed
+// (tartiflette, verres, coq suivant le scroll). Retire car polluait
+// la lecture. Les decorations visuelles se font maintenant dans les
+// separateurs entre blocs (.cheers-divider, .rooster-scene) ou dans
+// le contenu statique, pas en overlay.
+function _initPageDecorationsDisabled() {
   // Mapping url path -> liste de décorations à injecter
   // Clés possibles : tartiflette, verres, lac, montagne, coq, coeur, ballon,
   // clocher, journal, panier, tombola

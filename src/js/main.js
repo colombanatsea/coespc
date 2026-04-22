@@ -256,27 +256,13 @@ function initMobileMenu() {
   });
 }
 
-// Sticky header background on scroll + mesure la hauteur pour positionner les fanions
+// Sticky header background on scroll
 function initStickyHeader() {
   const header = document.getElementById('siteHeader');
   if (!header) return;
   const onScroll = () => header.classList.toggle('scrolled', window.scrollY > 50);
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
-
-  // Synchronise --header-h avec la hauteur reelle du header (pour que
-  // .fanions-banner soit sticky juste sous lui, au pixel pres, sur mobile
-  // comme sur desktop).
-  const syncHeaderHeight = () => {
-    const h = header.getBoundingClientRect().height;
-    if (h > 0) document.documentElement.style.setProperty('--header-h', h + 'px');
-  };
-  syncHeaderHeight();
-  window.addEventListener('resize', syncHeaderHeight, { passive: true });
-  // Remesurer apres chargement des fonts (hauteur peut changer)
-  if (document.fonts && document.fonts.ready) {
-    document.fonts.ready.then(syncHeaderHeight);
-  }
 }
 
 // Scroll reveal animations

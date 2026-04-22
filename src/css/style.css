@@ -296,13 +296,18 @@ button { cursor: pointer; font-family: inherit; }
 .nav-toggle.active span:nth-child(2) { opacity: 0; }
 .nav-toggle.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
 
-/* --- FANIONS (sticky sous le header) --- */
+/* --- FANIONS (fixes en haut d'ecran, fond transparent) --- */
+/* Les fanions restent colles au sommet du viewport en permanence, meme
+   apres scroll. Fond transparent : on voit le header bleu qui passe en
+   dessous. pointer-events: none pour ne pas bloquer les clics du header. */
 .fanions-banner {
-  position: sticky;
-  top: var(--header-h, 64px);
-  z-index: 99;
-  background: #142477; overflow: hidden;
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 101; /* au-dessus du header (z-index 100) */
+  background: transparent;
+  overflow: visible;
   padding: 0; line-height: 0;
+  pointer-events: none;
 }
 .fanions-track {
   display: flex; align-items: flex-start;

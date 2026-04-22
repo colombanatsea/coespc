@@ -1,0 +1,46 @@
+# Page Edition 2026 — contenu editable via /admin/
+# Chaque cle correspond a un attribut data-cms="cle" sur edition-2026.html
+
+# ══ HERO ══
+heroBadge: "74e édition"
+heroTitre: "Fête Villageoise 2026"
+heroSousTitre: "Dimanche 13 septembre — Chef-lieu d'Annecy-le-Vieux"
+
+# ══ PROGRAMME ══
+programmeTitre: "Programme de la journée"
+
+# ══ RESTAURATION ══
+restaurationTitre: "Restauration"
+restaurationTexte: |
+  <p>La <strong>tartiflette géante</strong> est le plat signature de la Fête Villageoise. Préparée par un prestataire spécialisé avec du reblochon fermier, elle est servie sur place sous les chapiteaux.</p>
+  <div class="price-card">
+    <div class="price-card-inner">
+      <h3>Tartiflette géante</h3>
+      <p class="price">12,50 €</p>
+      <p>Préparée par un prestataire spécialisé</p>
+    </div>
+  </div>
+  <p>Egalement disponibles : diots et saucisses, frites, crêpes, glaces. Bar : vins, bières, sirops, boissons fraiches. Buvette tenue par nos bénévoles. Service continu de 12h à 15h.</p>
+restaurationCtaTexte: "Réserver sur HelloAsso"
+restaurationCtaLien: "https://www.helloasso.com/associations/comite-des-oeuvres-sociales-paroissiales-et-commun"
+
+# ══ ANIMATIONS ══
+animationsTitre: "Animations"
+
+# ══ TOMBOLA ══
+tombolaTitre: "Tombola"
+tombolaTexte: |
+  <p>Plus de <strong>40 lots</strong> offerts par les commerces, restaurants et entreprises d'Annecy-le-Vieux et de l'agglomeration. Repas gastronomiques, paniers gourmands, bons d'achat, activites sportives…</p>
+  <div class="price-card">
+    <div class="price-card-inner">
+      <h3>Ticket de tombola</h3>
+      <p class="price">2 €</p>
+      <p>En vente sur place et en ligne</p>
+    </div>
+  </div>
+  <p>Tirage au sort a <strong>17h30</strong> sur la place du Chef-lieu. Presence non obligatoire pour retirer les lots.</p>
+tombolaCtaTexte: "Acheter des tickets sur coespc.org"
+tombolaCtaLien: "https://www.helloasso.com/associations/comite-des-oeuvres-sociales-paroissiales-et-commun"
+
+# ══ INFOS PRATIQUES ══
+infosTitre: "Infos pratiques"

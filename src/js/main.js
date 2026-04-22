@@ -296,19 +296,63 @@ function initSmoothScroll() {
   });
 }
 
-// Load CMS content from KV (if edited via admin)
+// Load CMS content from YAML files in /_content/ (Decap CMS writes these)
+// Approche : le HTML contient le contenu initial (SEO, fallback). Si un YAML
+// existe pour la page courante, on le lit et on remplace les elements
+// marques data-cms="cle" par le contenu du YAML.
 function initCmsContent() {
-  var page = window.location.pathname.replace(/^\//, '').replace(/\.html$/, '').replace(/\/$/, '') || 'accueil';
-  if (page === 'archives') page = 'archives';
-  else if (page.startsWith('archives/')) page = page.replace('archives/', 'archive-');
+  var path = window.location.pathname.replace(/^\//, '').replace(/\.html$/, '').replace(/\/$/, '');
+  var yamlUrl;
+  // Mapping url -> fichier YAML
+  if (!path || path === 'index') {
+    yamlUrl = '/_content/pages/accueil.yml';
+  } else if (path === 'archives') {
+    yamlUrl = '/_content/pages/archives-index.yml';
+  } else if (path.startsWith('archives/')) {
+    var year = path.replace('archives/', '');
+    yamlUrl = '/_content/archives/' + year + '.yml';
+  } else {
+    yamlUrl = '/_content/pages/' + path + '.yml';
+  }
 
-  fetch('/api/content/' + page)
-    .then(function(res) { return res.ok ? res.json() : null; })
+  // Charger js-yaml dynamiquement (CDN, lazy, pas pour le premier paint)
+  var loadYamlLib = function() {
+    if (window.jsyaml) return Promise.resolve();
+    return new Promise(function(resolve, reject) {
+      var s = document.createElement('script');
+      s.src = 'https://cdn.jsdelivr.net/npm/js-yaml@4.1.0/dist/js-yaml.min.js';
+      s.onload = resolve;
+      s.onerror = reject;
+      document.head.appendChild(s);
+    });
+  };
+
+  fetch(yamlUrl, { cache: 'default' })
+    .then(function(res) { return res.ok ? res.text() : null; })
+    .then(function(text) {
+      if (!text) return null;
+      return loadYamlLib().then(function() {
+        try { return window.jsyaml.load(text); } catch (e) { return null; }
+      });
+    })
     .then(function(data) {
       if (!data) return;
       applyCmsContent(data);
     })
-    .catch(function() { /* fallback to static HTML */ });
+    .catch(function() { /* fallback silencieux sur HTML statique */ });
+
+  // Parametres site (horaires, dates, chiffres-cles) : charges en parallele pour
+  // toutes les pages afin d'etre disponibles partout
+  fetch('/_content/config/site.yml', { cache: 'default' })
+    .then(function(res) { return res.ok ? res.text() : null; })
+    .then(function(text) {
+      if (!text) return null;
+      return loadYamlLib().then(function() {
+        try { return { site: window.jsyaml.load(text) }; } catch (e) { return null; }
+      });
+    })
+    .then(function(data) { if (data) applyCmsContent(data); })
+    .catch(function() {});
 }
 
 function applyCmsContent(data) {

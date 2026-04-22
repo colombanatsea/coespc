@@ -1,0 +1,59 @@
+annee: 2018
+numero_edition: 68
+date_evenement: '2018-09-09'
+titre: Fête Villageoise 2018
+theme: « On rêve et on chante… ! » — entre danses et chants
+affiche: /assets/images/affiche-2018.jpg
+resume: 'Le dimanche 9 septembre 2018 , la Fête Villageoise s''est placée sous le thème « On rêve et on chante… ! » : l''article
+  post-événement titrait « 2018 : Entre danses et chants, mon cœur balance… » . Ambiance ensoleillée, esprit familial et intergénérationnel.
+
+
+  Dès 9 h, près de 2 000 compétiteurs ont pris le départ de l''Ancilevienne pour un tour du lac en équipes. Puis la journée
+  s''est animée avec la Compagnie Petites Poucettes (chants et histoires), un bal familial « ori-génial » sur thème animalier,
+  les démonstrations de la Salésienne Gymnastique , Annecy Trampoline pour enfants, maquillage, jeux en bois et concours de
+  tir.
+
+
+  Le repas, d''inspiration espagnole, a été servi à table. Buvette, sandwichs, frites, pâtisseries et glaces complétaient
+  l''offre. La tombola proposait cette année-là 350 lots .'
+tombola:
+  lots:
+  - numero: A
+    lot: Séjour d'une semaine en hôtel (Valfréjus ou Canaries, tout compris)
+    donateur: —
+    ticket: '3985'
+  - numero: B
+    lot: Croisière-repas sur le canal de Savières
+    donateur: —
+    ticket: '3791'
+  - numero: C
+    lot: Croisière-repas sur le canal de Savières
+    donateur: —
+    ticket: '4054'
+  - numero: D
+    lot: Chaussures de randonnée TECNICA Outdoor
+    donateur: TECNICA
+    ticket: '2205'
+  - numero: E
+    lot: Raquettes INOOK
+    donateur: INOOK
+    ticket: '3155'
+  introduction: Tous les billets se terminant par 8 gagnaient un lot. Tirage du dimanche 9 septembre 2018.
+  terminaison: '8'
+retrait_lots:
+  periode: après-midis de septembre, de 14 h à 18 h, du lundi au samedi.
+  lieu: salle paroissiale Sainte-Bernadette, Annecy-le-Vieux.
+  note: Pour toute question, contactez-nous via Instagram ou Facebook .
+partenaires:
+- TECNICA Outdoor
+- INOOK
+- Compagnie Petites Poucettes
+- Salésienne Gymnastique
+- Annecy Trampoline
+- L'Ancilevienne / AVOC
+- Croisière canal de Savières
+solidarite:
+  description: 'La remise de chèque a eu lieu le lundi 14 janvier 2019 à la mairie déléguée d''Annecy-le-Vieux au profit du
+    CCAS Annecy ville nouvelle et de la paroisse. Étaient présents : Jean-François Point (vice-président Fête Villageoise),
+    Françoise Tarpin (vice-présidente CCAS Annecy ville nouvelle), Guylaine Allantaz (1 re adjointe, mairie déléguée), des
+    conseillers municipaux et les bénévoles du comité. Événement couvert par Le Dauphiné Libéré du 16 janvier 2019.'

@@ -1,0 +1,69 @@
+# Page Partenaires — contenu editable via /admin/
+# Chaque cle correspond a un attribut data-cms="cle" sur partenaires.html
+# Les tuiles partenaires individuelles sont dans /src/_content/partenaires/
+
+# ══ HERO ══
+heroBadge: "74e édition – 13 septembre 2026"
+heroTitre: "Nos partenaires"
+heroSousTitre: "43 commerces, restaurants et entreprises soutiennent la 74e Fête Villageoise. Sans eux, la tombola n'existerait pas."
+
+# ══ STATS PARTENAIRES ══
+stat1Nombre: "43+"
+stat1Label: "partenaires confirmés"
+stat2Nombre: "27"
+stat2Label: "restaurants et cafés"
+stat3Nombre: "7"
+stat3Label: "commerces et cavistes"
+stat4Nombre: "5000"
+stat4Label: "plaquettes distribuées"
+
+# ══ INTRO SOUTIENS ══
+soutiensTag: "Nos soutiens"
+soutiensTitre: "Ils soutiennent la fête"
+soutiensDesc: "La Fête Villageoise ne serait rien sans l'engagement des commerçants, restaurateurs et entreprises d'Annecy-le-Vieux. Chaque année, ils offrent les lots de la tombola, financent la plaquette programme et font vivre la tradition villageoise."
+soutiensCitation: "« La Fête Villageoise, c'est l'occasion pour les commerçants du village de se retrouver autour d'une tradition qui nous dépasse tous. Offrir un repas ou un bon d'achat, c'est soutenir la paroisse, l'école, le tissu associatif. C'est aussi fidéliser nos clients autour d'une cause commune. » – Un restaurateur d'Annecy-le-Vieux, partenaire depuis 15 ans"
+
+# ══ CATEGORIES (titres et descriptions) ══
+categorieInstitutionnelsTitre: "Partenaires institutionnels"
+categorieInstitutionnelsDesc: "La fête repose sur l'alliance fondatrice entre la commune et la paroisse."
+categorieGastronomieTitre: "Gastronomie"
+categorieGastronomieDesc: "Les meilleures tables d'Annecy-le-Vieux offrent leurs repas pour la tombola."
+categorieCommercesTitre: "Commerces et cavistes"
+categorieCommercesDesc: "Les commerces de proximité qui font vivre le village toute l'année."
+categorieDistributionTitre: "Grande distribution"
+categorieDistributionDesc: "Les enseignes locales engagées dans la fête."
+categorieEntreprisesTitre: "Entreprises"
+categorieEntreprisesDesc: "Des entreprises de la région qui soutiennent l'événement."
+categorieServicesTitre: "Services & artisans"
+categorieServicesDesc: "Coiffure, design, services du village qui contribuent à la fête."
+
+# ══ DEVENIR PARTENAIRE ══
+devenirTag: "Rejoignez-nous"
+devenirTitre: "Devenir partenaire"
+devenirDesc: "Vous êtes commerçant, restaurateur, artisan ou chef d'entreprise à Annecy-le-Vieux ? Associez votre enseigne à la plus ancienne fête caritative du village. Trois façons de nous soutenir."
+devenirWay1Titre: "Offrir un lot tombola"
+devenirWay1Texte: "Un repas, un bon d'achat, un panier garni, un séjour. Votre lot est annoncé au micro lors du tirage devant 2 000 personnes, mentionné sur la plaquette programme et présenté sur nos réseaux sociaux."
+devenirWay2Titre: "Encart plaquette programme"
+devenirWay2Texte: "Réservez un encart publicitaire dans les 5 000 plaquettes déposées chez les commerçants, dans les écoles, les églises et les lieux publics d'Annecy-le-Vieux et Veyrier dès fin août. Tarifs et formats sur demande."
+devenirWay3Titre: "Don ou mécénat"
+devenirWay3Texte: "Soutenez directement l'association par un don. Le CŒSPC reverse l'intégralité des bénéfices à la paroisse, à l'école et aux associations du village."
+
+# ══ VISIBILITE ══
+visibilite1Titre: "Annonce au micro"
+visibilite1Texte: "Chaque lot est nommé lors du tirage devant 2 000 personnes."
+visibilite2Titre: "Plaquette programme"
+visibilite2Texte: "Mention dans les 5 000 plaquettes mises à disposition dans le village."
+visibilite3Titre: "Site web & réseaux"
+visibilite3Texte: "Présence sur cette page et sur nos posts Instagram et Facebook."
+visibilite4Titre: "Signalétique jour J"
+visibilite4Texte: "Votre nom affiché sur le podium et les stands durant la fête."
+
+# ══ PLAQUETTE PROGRAMME ══
+plaquetteTag: "Notre vitrine"
+plaquetteTitre: "La plaquette programme"
+plaquetteLede: "Chaque année, la plaquette programme de la Fête Villageoise est mise à disposition chez les commerçants, dans les écoles, les églises et les lieux publics d'Annecy-le-Vieux et Veyrier. C'est le support de référence qui accompagne le village jusqu'au jour J."
+
+# ══ CTA FINAL ══
+ctaFinalTag: "Ensemble"
+ctaFinalTitre: "Rejoignez la 74e édition"
+ctaFinalDesc: "Une tradition villageoise depuis 1950. 43 partenaires nous ont déjà rejoints pour 2026. Il reste encore une place pour la vôtre. Contactez-nous et associez votre enseigne à la fête du 13 septembre 2026."

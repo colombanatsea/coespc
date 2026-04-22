@@ -1,0 +1,45 @@
+# Page d'accueil — contenu editable via /admin/
+# Chaque cle correspond a un attribut data-cms="cle" sur index.html
+
+# ══ HERO ══
+heroEdition: "74e édition"
+heroTitre: 'La <em>Fête Villageoise</em><br>d''Annecy-le-Vieux'
+heroSousTitre: "Depuis 1950, la fête qui réunit tout le village au pied du vieux clocher."
+heroDate: "13 septembre 2026"
+heroCta1Texte: "Découvrir le programme"
+heroCta1Lien: "/edition-2026.html"
+heroCta2Texte: "Devenir bénévole"
+heroCta2Lien: "/benevoles.html"
+
+# ══ CHIFFRES CLES ══
+stat1Nombre: "76"
+stat1Label: "années d'existence"
+stat2Nombre: "74"
+stat2Label: "éditions réalisées"
+stat3Nombre: "50+"
+stat3Label: "bénévoles chaque année"
+stat4Nombre: "45+"
+stat4Label: "partenaires locaux"
+
+# ══ BLOC EDITION 2026 ══
+editionTitre: "Rendez-vous le 13 septembre 2026"
+editionTexte: "La 74<sup>e</sup> édition de la Fête Villageoise se prépare. Jeux pour toute la famille, tartiflette géante, tombola, tir à la carabine, jambon perché, musique…"
+editionLieu: "Chef-lieu d'Annecy-le-Vieux<br>Place de l'Église &amp; Parc Gabriel Fauré"
+editionAnimations: "Tartiflette géante, tir à la carabine, jeux en bois, jeux gonflables, maquillage, pêche à la ligne, tombola…"
+editionSolidarite: "Fête à vocation caritative : 100 % des bénéfices reversés aux plus démunis"
+
+# ══ BLOC SOLIDARITE ══
+solidariteTitre: "Une fête caritative depuis 1950"
+solidarite23Titre: "2/3 pour les plus démunis via la paroisse"
+solidarite23Texte: "Paroisse Christ Ressuscité : aide directe aux familles en difficulté, soutien alimentaire, accompagnement des plus fragiles."
+solidarite13Titre: "1/3 au CCAS d'Annecy"
+solidarite13Texte: "Centre Communal d'Action Sociale : aide aux personnes âgées, aux personnes en situation de handicap et aux familles en précarité."
+solidariteConclusion: "La Fête Villageoise est à vocation caritative. Depuis 1950, l'intégralité des bénéfices est reversée aux plus démunis : 1/3 au CCAS, 2/3 à la paroisse. Venir à la fête, c'est aider ses voisins."
+
+# ══ BLOC PARTENAIRES (teaser) ══
+partenairesTitre: "Ils soutiennent la fête"
+partenairesTexte: "Plus de 45 commerces, restaurants et entreprises d'Annecy-le-Vieux rendent cette fête possible chaque année."
+
+# ══ BLOC ARCHIVES (teaser) ══
+archivesTitre: "76 ans de fête au village"
+archivesTexte: "Du petit goret en lot de tombola dans les années 1950 à la tartiflette géante d'aujourd'hui, la Fête Villageoise a traversé les décennies."

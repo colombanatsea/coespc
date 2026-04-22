@@ -1,0 +1,43 @@
+annee: 2015
+numero_edition: 65
+date_evenement: '2015-09-13'
+titre: Fête Villageoise 2015
+theme: Saga Africa — l'Afrique s'invite à Annecy-le-Vieux
+affiche: /assets/images/affiche-2015.jpg
+resume: 'Le dimanche 13 septembre 2015 , le chef-lieu d''Annecy-le-Vieux s''est animé « aux couleurs de l''Afrique ! » . Cette
+  édition célébrait aussi les 30 ans de jumelage entre Annecy-le-Vieux et Dori (Burkina Faso) , portés par l'' Association
+  Échange Sahel qui a proposé « spectacles, concerts et expositions d''avril à novembre 2015 » .
+
+
+  À 9 h 00, vente de billets et départ de l''Ancilevienne avec 1 050 coureurs (30 e anniversaire de la course, captation drone).
+  Malgré une petite pluie matinale, la météo s''est améliorée et l''après-midi a vu les djembés de La Gazelle Mandiak et leurs
+  danseuses en costumes colorés animer la place.
+
+
+  Repas thématique africain à midi, puis jeux : tir, pêche, jeux en bois, fléchettes. L''article post-événement titrait « Saga
+  Africa ! Ce dimanche 13 septembre 2015 l''Afrique nous a enchanté ! » .'
+tombola:
+  lots:
+  - numero: '1'
+    lot: Séjour d'une semaine pour 2 personnes au Monténégro
+    donateur: —
+    ticket: '3929'
+  - numero: '2'
+    lot: Chaussures de trekking
+    donateur: —
+    ticket: '2149'
+  - numero: '3'
+    lot: Chaussures de trail-running
+    donateur: —
+    ticket: '1389'
+  introduction: Tous les tickets se terminant par 9 gagnaient un lot. Tirage du dimanche 13 septembre 2015.
+  terminaison: '9'
+retrait_lots:
+  periode: du 14 au 30 septembre 2015 , de 14 h à 18 h.
+  lieu: salle paroissiale Sainte-Bernadette, Annecy-le-Vieux.
+  note: Pour toute question, contactez-nous via Instagram ou Facebook .
+partenaires:
+- Association Échange Sahel (Annecy-le-Vieux / Dori, Burkina Faso)
+- La Gazelle Mandiak (groupe de danse/musique africaine)
+- L'Ancilevienne (30 e anniversaire)
+- AVOC

@@ -1,0 +1,44 @@
+annee: 2012
+numero_edition: 62
+date_evenement: '2012-09-09'
+titre: Fête Villageoise 2012
+theme: « Sous le soleil ! » — accordéons, majorettes et clowns
+affiche: /assets/images/affiche-2012.jpg
+resume: 'Le dimanche 9 septembre 2012 , au chef-lieu d''Annecy-le-Vieux : « C''est sous un soleil radieux que cette 60 e édition
+  de la Fête Villageoise » s''est déroulée. Dès 9 h, café-croissants et accueil des coureurs de l''Ancilevienne, messe dominicale,
+  puis à 11 h 30 verre de l''amitié offert par la commune, animé par les Accordéonistes du Val de Thônes . Repas servi sous
+  les barnums à midi.
+
+
+  Programme de l''après-midi : Majorettes de Meythet ( « dextérité, grâce, coordination » ), clown Fifou et Fifounet , démonstrations
+  de la Salé Gym , EKTA Karaté , jeux de pêche, fléchettes, tir à la carabine, jeux en bois et ballons. Buvette, sandwichs,
+  frites, crêpes et pâtisseries complétaient l''offre.
+
+
+  Une assemblée générale de lancement de la saison 2012 avait eu lieu le 1 er mars 2012, couverte par L''Essor Savoyard .'
+tombola:
+  lots:
+  - numero: '1'
+    lot: Croisière de 5 jours sur le Rhin pour 2 personnes (départ Lyon)
+    donateur: —
+    ticket: '4194'
+  - numero: '2'
+    lot: Paire de raquettes INOOK
+    donateur: INOOK
+    ticket: '1564'
+  - numero: '3'
+    lot: Chaussures outdoor hiking TECNICA
+    donateur: TECNICA
+    ticket: '3524'
+  introduction: Tous les numéros se terminant par 4 gagnaient un lot. Tirage du dimanche 9 septembre 2012.
+  terminaison: '4'
+partenaires:
+- Accordéonistes du Val de Thônes
+- Majorettes de Meythet
+- Clown Fifou (et Fifounet)
+- Salé Gym
+- EKTA Karaté
+- Commune d'Annecy-le-Vieux (verre de l'amitié)
+- L'Ancilevienne
+- INOOK
+- TECNICA

@@ -1,0 +1,165 @@
+annee: 2023
+numero_edition: 71
+date_evenement: '2023-09-10'
+titre: Fête Villageoise 2023
+theme: 45 lots, 34 partenaires — tradition familiale
+affiche: /assets/images/affiche-2023.jpg
+resume: 'Le 2 e dimanche de septembre 2023, la Place Gabriel Fauré a vibré au rythme d''une journée conviviale associant musique,
+  jeux interactifs, restauration et buvette. Au programme : tir à la carabine, pêche à la ligne, ballons à percer, structures
+  gonflables, jeux d''adresse et grande cible.
+
+
+  La tombola, véritable cœur de l''événement, proposait 45 lots avec tirage à 17 h 30. Les billets étaient vendus à 2 € sur
+  place ou en ligne via HelloAsso, chaque achat soutenant les actions sociales du CŒSPC.'
+tombola:
+  lots:
+  - numero: '1'
+    lot: Repas pour 2 personnes
+    donateur: Le Clos des Sens
+    ticket: —
+  - numero: '2'
+    lot: Repas pour 2 personnes
+    donateur: L'Abbaye
+    ticket: —
+  - numero: '3'
+    lot: Repas pour 2 personnes
+    donateur: Irma Bocuse
+    ticket: —
+  - numero: '4'
+    lot: Repas pour 2 personnes
+    donateur: Les 4 Gourmets
+    ticket: —
+  - numero: '5'
+    lot: Repas pour 2 personnes
+    donateur: Le Clocher
+    ticket: —
+  - numero: '6'
+    lot: Repas pour 2 personnes
+    donateur: Le Petit-Prince
+    ticket: —
+  - numero: '7'
+    lot: Repas pour 2 personnes
+    donateur: Café-Brunet
+    ticket: —
+  - numero: '8'
+    lot: Repas pour 2 personnes
+    donateur: Le Binôme
+    ticket: —
+  - numero: '9'
+    lot: Bon d'achat 150 €
+    donateur: Carrefour Market
+    ticket: —
+  - numero: '10'
+    lot: Bon d'achat 100 €
+    donateur: Petit Casino des Tilleuls
+    ticket: —
+  - numero: '11'
+    lot: Massage SPA NUXE
+    donateur: Imperial Palace
+    ticket: —
+  - numero: '12'
+    lot: 2 flûtes à champagne
+    donateur: Imperial Palace
+    ticket: —
+  - numero: 13–14
+    lot: 2 × bon coiffeur 50 €
+    donateur: L'Atelier du Coiffeur
+    ticket: —
+  - numero: '15'
+    lot: Panier garni Savoie
+    donateur: —
+    ticket: —
+  - numero: '16'
+    lot: 2 pizzas
+    donateur: Le Scugnidzo
+    ticket: —
+  - numero: 17–18
+    lot: 2 × bon boucherie 15 € + bouteille
+    donateur: Boucherie Noël
+    ticket: —
+  - numero: '19'
+    lot: Coffret macarons
+    donateur: —
+    ticket: —
+  - numero: 20–22
+    lot: Magnum + reblochon (3 lots)
+    donateur: —
+    ticket: —
+  - numero: 23–24
+    lot: 2 × bon bar 20 €
+    donateur: La Trinquette
+    ticket: —
+  - numero: '25'
+    lot: Reblochon + bouteille
+    donateur: —
+    ticket: —
+  - numero: '26'
+    lot: Bon boucherie 15 € + bouteille
+    donateur: Boucherie Noël
+    ticket: —
+  - numero: 27–31
+    lot: 5 × bon Botanic
+    donateur: Botanic
+    ticket: —
+  - numero: '32'
+    lot: Tomme de Savoie
+    donateur: Chabert / Schmidhauser
+    ticket: —
+  - numero: '33'
+    lot: Bon Botanic
+    donateur: Botanic
+    ticket: —
+  - numero: '34'
+    lot: Bon boulangerie 20 €
+    donateur: Comptoir du Pain / Fournil
+    ticket: —
+  - numero: 35–39
+    lot: 5 × bon Botanic
+    donateur: Botanic
+    ticket: —
+  - numero: 40–42
+    lot: 3 × article Chabert
+    donateur: Fromagerie Chabert
+    ticket: —
+  - numero: 43–45
+    lot: 4 × bon boulangerie 10 €
+    donateur: Comptoir du Pain / Fournil
+    ticket: —
+  introduction: 45 lots offerts par les commerçants et restaurateurs d'Annecy-le-Vieux. Tirage à 17 h 30.
+retrait_lots:
+  note: Pour toute question, contactez-nous via Instagram ou Facebook .
+partenaires:
+- Le Clos des Sens
+- Restaurant L'Abbaye
+- Restaurant Irma Bocuse
+- Fournil de mon père
+- Alpina / ERA Immobilier
+- Carrefour Market
+- Le Clocher
+- Petit Casino des Tilleuls
+- Le Binôme
+- Café Brunet
+- Le Petit Prince
+- Les 4 Gourmets
+- Entreprise Mecalac
+- Viret
+- Lugaz
+- Douceurs de la Ferme
+- Le Scugnidzo
+- Schmidhauser
+- Casino supermarché ALV
+- La Maison Boudet
+- SAS Caves du Mont
+- Agnellet
+- L'Atelier du Coiffeur
+- Botanic
+- CIC
+- Fournier
+- Express Copy
+- La Trinquette
+- Albigny Optic
+- Boucherie Noël
+- La Java des Flacons
+- L'Imperial Palace
+- Comptoir du Pain
+- Chabert

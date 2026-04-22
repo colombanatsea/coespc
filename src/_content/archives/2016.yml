@@ -1,0 +1,55 @@
+annee: 2016
+numero_edition: 66
+date_evenement: '2016-09-11'
+titre: Fête Villageoise 2016
+theme: Années 80 & Grèce éternelle — Corfou
+affiche: /assets/images/affiche-2016.jpg
+resume: 'Le dimanche 11 septembre 2016 , l''édition s''est déroulée sous un soleil radieux, à tel point que « tout le monde
+  cherchait de l''ombre pour cette fête 2016 » . Le thème : Années 80 , décidé lors de l''assemblée générale du 8 février
+  2016 à la salle Saint-Laurent devant une trentaine de membres.
+
+
+  Les points d''animation étaient répartis entre le parvis de l''église (buvette à l''ombre du clocher) et le parc Gabriel
+  Fauré (jeux en bois à l''ombre, barbe à papa). DJ années 80 pour les adultes, jeux en bois pour les enfants, repas grec
+  le midi et Ancilevienne le matin (course/vélo).
+
+
+  La tombola mettait à l''honneur la Grèce éternelle avec un séjour tout compris à Corfou comme lot principal.'
+tombola:
+  lots:
+  - numero: A
+    lot: Séjour tout compris d'une semaine à Corfou pour 2 personnes (départ Lyon)
+    donateur: —
+    ticket: '3441'
+  - numero: B
+    lot: Chaussures Tecnica Outdoor Trekking
+    donateur: Tecnica Outdoor
+    ticket: '2791'
+  - numero: C
+    lot: Chaussures Tecnica Outdoor Trail Running
+    donateur: Tecnica Outdoor
+    ticket: '1162'
+  - numero: D
+    lot: Montre de poche mécanique Magnin
+    donateur: Magnin
+    ticket: '1421'
+  - numero: E
+    lot: Set de couteaux de cuisine griffé Marc Veyrat
+    donateur: Marc Veyrat
+    ticket: '3176'
+  introduction: Tous les billets se terminant par 4 gagnaient un lot. Tirage du dimanche 11 septembre 2016.
+  terminaison: '4'
+retrait_lots:
+  lieu: salle paroissiale Sainte-Bernadette, Annecy-le-Vieux.
+  note: Pour toute question, contactez-nous via Instagram ou Facebook .
+partenaires:
+- Tecnica Outdoor
+- Magnin (horloger)
+- Marc Veyrat (couteaux de cuisine)
+- L'Ancilevienne / AVOC
+- Ville d'Annecy-le-Vieux
+solidarite:
+  description: 'La remise de chèque a eu lieu le jeudi 3 mars 2016 en mairie, au profit du CCAS et de la paroisse (produits
+    de l''édition 2015). Étaient présents : Christian Balmain (président CŒSPC), Bernard Accoyer (maire), Ghislaine Allantaz
+    (1 re adjointe), Père Michel Tournade et Isabelle Astruz (adjointe Solidarité). Événement couvert par Le Dauphiné Libéré
+    du samedi 5 mars 2016. Article « La fête c''est aussi la solidarité ! » .'

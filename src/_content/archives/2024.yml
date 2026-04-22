@@ -1,0 +1,76 @@
+annee: 2024
+numero_edition: 72
+date_evenement: '2024-09-08'
+titre: Fête Villageoise 2024
+theme: Tartiflette, jambon perché et parcours gonflable
+affiche: /assets/images/affiche-2024.jpg
+resume: 'Le 2 e dimanche de septembre 2024, le chef-lieu d''Annecy-le-Vieux a accueilli une nouvelle édition placée sous le
+  signe de la gastronomie savoyarde et des jeux familiaux. La tartiflette-salade a régalé les convives, complétée par frites-saucisse,
+  crêpes, gaufres et glaces.
+
+
+  Côté animations : cage interactive, cage de foot-penalty, quatre jeux d''adresse « fête foraine », grande structure gonflable
+  avec parcours et toboggan pour enfants, stand tir à la carabine (trois boîtes à ballons et concours .22LR), pêche à la ligne
+  pour les plus petits, et deux concours emblématiques : la « Hauteur du Jambon perché » et le « Poids du Panier garni » .
+
+
+  Appel lancé par le comité : « Et venez nombreux vous amuser avec nous ! » . Les billets de tombola étaient proposés à 2 €
+  via HelloAsso, tirage à 17 h 30 Place Gabriel Fauré.'
+tombola:
+  lots:
+  - numero: '1'
+    lot: Repas pour 2 personnes
+    donateur: Sur les Bois
+    ticket: —
+  - numero: '2'
+    lot: Repas pour 2 personnes
+    donateur: Le Clos des Sens
+    ticket: —
+  - numero: '3'
+    lot: Repas pour 2 personnes
+    donateur: Irma Bocuse
+    ticket: —
+  - numero: '4'
+    lot: Repas pour 2 personnes
+    donateur: Le Clocher
+    ticket: —
+  - numero: '5'
+    lot: Repas pour 2 personnes
+    donateur: Les 4 Gourmets
+    ticket: —
+  - numero: '6'
+    lot: Repas pour 2 personnes
+    donateur: Le Petit-Prince
+    ticket: —
+  - numero: '7'
+    lot: Repas pour 2 personnes
+    donateur: Café-Brunet
+    ticket: —
+  - numero: '8'
+    lot: Repas pour 2 personnes
+    donateur: Le Binôme
+    ticket: —
+  - numero: '9'
+    lot: Repas pour 2 personnes
+    donateur: Le Bel Abri
+    ticket: —
+  - numero: '10'
+    lot: Panier garni
+    donateur: —
+    ticket: —
+  introduction: 10 lots offerts par les restaurateurs et commerçants d'Annecy-le-Vieux. Tirage effectué Place Gabriel Fauré
+    à 17 h 30.
+partenaires:
+- Sur les Bois
+- Le Clos des Sens
+- Irma Bocuse
+- Le Clocher
+- Les 4 Gourmets
+- Le Petit-Prince
+- Café-Brunet
+- Le Binôme
+- Le Bel Abri
+- AVOC — Annecy-le-Vieux Of Course
+- L'Ancilevienne
+- Paroisse du diocèse d'Annecy
+- Ville d'Annecy

@@ -1,0 +1,193 @@
+annee: 2025
+numero_edition: 73
+date_evenement: '2025-09-14'
+titre: Fête Villageoise 2025
+theme: 'Record : 55 lots de tombola'
+affiche: /assets/images/affiche-2025.png
+resume: 'L''édition 2025 de la Fête Villageoise a marque un record historique avec pas moins de 55 lots de tombola et le soutien
+  de 38 partenaires . Une mobilisation exceptionnelle qui temoigne de l''attachement des commerçants et entreprises locales
+  a cet événement incontournable d''Annecy-le-Vieux.
+
+
+  Cote musique, les festivaliers ont pu profiter des concerts d'' A la Rue.com et de l'' Orchestre de Rue des Faxs , pour
+  une ambiance festive et entrainante tout au long de la journée.'
+tombola:
+  lots:
+  - numero: '1'
+    lot: Menu découverte 7 saveurs pour 2 (516 €)
+    donateur: Le Clos des Sens — Thomas Dorival & Franck Derouet
+    ticket: '3331'
+  - numero: '2'
+    lot: 2 menus
+    donateur: Sur les Bois / Maison Benoît Vidal
+    ticket: '1703'
+  - numero: '3'
+    lot: Bon cadeau 100 €
+    donateur: Le Binôme
+    ticket: '1015'
+  - numero: '4'
+    lot: Bon cadeau
+    donateur: Le Clocher
+    ticket: '1932'
+  - numero: '5'
+    lot: Bon cadeau
+    donateur: Les 4 Gourmets
+    ticket: '1266'
+  - numero: '6'
+    lot: Bon cadeau
+    donateur: Bistrot Green
+    ticket: '1775'
+  - numero: '7'
+    lot: Jambon
+    donateur: Maison Boudet
+    ticket: '2161'
+  - numero: '8'
+    lot: Panier gourmand
+    donateur: Carrefour Market
+    ticket: '1713'
+  - numero: '9'
+    lot: Bon d'achat 90 €
+    donateur: Petit Casino des Tilleuls
+    ticket: '1721'
+  - numero: '10'
+    lot: Panier gourmand
+    donateur: Intermarché
+    ticket: '1390'
+  - numero: 11–20
+    lot: Inscription prioritaire Ancilevienne 2026 (10 lots)
+    donateur: Ancilevienne
+    ticket: divers
+  - numero: '21'
+    lot: Week-end en van aménagé (300 €)
+    donateur: BlackSheep Van
+    ticket: '2943'
+  - numero: '22'
+    lot: 2 menus gourmands
+    donateur: La Cour de l'Abbaye — Vincent Favre-Félix
+    ticket: '3318'
+  - numero: '23'
+    lot: Dîner pour deux
+    donateur: Table de Melba
+    ticket: '1891'
+  - numero: '24'
+    lot: 2 menus canailles
+    donateur: Café Brunet
+    ticket: '2346'
+  - numero: '25'
+    lot: Bon cadeau 90 €
+    donateur: Le Brazé Annecy
+    ticket: '1683'
+  - numero: '26'
+    lot: Bon cadeau 90 €
+    donateur: Botanic
+    ticket: '1679'
+  - numero: '27'
+    lot: 2 menus Dolce Vita
+    donateur: Imperial Palace — Le Riva
+    ticket: '2935'
+  - numero: '28'
+    lot: Bon d'achat 60 €
+    donateur: Casino des Tilleuls
+    ticket: '2149'
+  - numero: '29'
+    lot: 2 repas entrée / plat / dessert
+    donateur: L'Assiette Rouge
+    ticket: '2110'
+  - numero: '30'
+    lot: Panier gourmand
+    donateur: Carrefour Market
+    ticket: '1951'
+  - numero: '31'
+    lot: 2 menus gambas à volonté
+    donateur: Le Ciselin
+    ticket: '2939'
+  - numero: '32'
+    lot: 1 magnum
+    donateur: Caves du Mont + Chabert
+    ticket: '2071'
+  - numero: '33'
+    lot: 2 repas
+    donateur: Bora Bora
+    ticket: '2560'
+  - numero: '34'
+    lot: Bon cadeau 90 €
+    donateur: Botanic
+    ticket: '3305'
+  - numero: '35'
+    lot: Bouteille + bon d'achat
+    donateur: La Java des Flacons & Fruitières Chabert
+    ticket: '3066'
+  - numero: '36'
+    lot: 1 galette + 1 crêpe
+    donateur: La Crêperie d'Annecy-le-Vieux
+    ticket: '2263'
+  - numero: '37'
+    lot: Coupe brushing ou homme
+    donateur: Salon du Clocher
+    ticket: '2290'
+  - numero: '38'
+    lot: 2 apéros + 2 pizzas
+    donateur: Rita
+    ticket: '2672'
+  - numero: '39'
+    lot: 2 menus du jour
+    donateur: Le Repère d'Albigny
+    ticket: '2248'
+  - numero: '40'
+    lot: 2 pizzas
+    donateur: La Casa Nostra
+    ticket: '1850'
+  - numero: '41'
+    lot: Bon cadeau
+    donateur: L'Apéritivo
+    ticket: '1927'
+  - numero: '42'
+    lot: Bon cadeau 2 pizzas
+    donateur: La Trinquette
+    ticket: '2106'
+  - numero: 43–45
+    lot: Décorations (3 lots)
+    donateur: Laulab — Architecture d'intérieur
+    ticket: divers
+  - numero: '46'
+    lot: Bon cadeau 60 €
+    donateur: Botanic
+    ticket: '3362'
+  - numero: '47'
+    lot: 2 pizzas
+    donateur: Pepone Annecy-le-Vieux
+    ticket: '1937'
+  - numero: '48'
+    lot: Magnum Château Charron rouge
+    donateur: Caves du Mont
+    ticket: '1455'
+  - numero: '49'
+    lot: Bons d'achat 50 €
+    donateur: Carrefour Market
+    ticket: '2995'
+  - numero: '50'
+    lot: 2 ramen ou donburi
+    donateur: Yatta Ramen
+    ticket: '1728'
+  - numero: 51–52
+    lot: Bons cadeau (2 lots)
+    donateur: La Java des Flacons
+    ticket: 3014, 2038
+  - numero: '53'
+    lot: Panier gourmand
+    donateur: Carrefour Market
+    ticket: '1461'
+  - numero: '54'
+    lot: Bon cadeau 2 bo bun
+    donateur: Chez Mamie Anh
+    ticket: '2001'
+  - numero: '55'
+    lot: Coffret 12 macarons
+    donateur: Patrick Agnellet
+    ticket: '2634'
+  introduction: 55 lots offerts par les partenaires locaux. Tirage effectué le dimanche 14 septembre 2025.
+retrait_lots:
+  periode: mercredi 17 septembre 2025, de 17 h à 19 h.
+  lieu: salle paroissiale de Saint-Laurent, Annecy-le-Vieux.
+  note: Tous les gagnants ont été contactés directement. Pour toute question ou arrangement, passez par Instagram ou Facebook
+    .

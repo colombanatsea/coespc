@@ -1,0 +1,37 @@
+annee: 2014
+numero_edition: 64
+date_evenement: '2014-09-14'
+titre: Fête Villageoise 2014
+theme: Viva Brasil — la fête à la brésilienne
+affiche: /assets/images/affiche-2014.jpg
+resume: 'Le dimanche 14 septembre 2014 , en pleine année de Coupe du Monde, la Fête Villageoise « accueille le Brésil ! »
+  . Appel lancé par le comité : « Venez nombreux ce dimanche 14 septembre pour vivre un moment de fête à la brésilienne ! »
+  . Le bilan fut à la hauteur : « la tradition et les couleurs brésiliennes ont enflammé la fête ! » .
+
+
+  Au programme : capoeira , danses brésiliennes, repas « à la Brésilienne » , musique live avec les Flasharmonicas , démonstrations
+  de trampoline , buvette, sandwichs, pâtisseries, concours de tir et jeux pour tous âges.
+
+
+  Du soleil brésilien sur la colline d''Annecy-le-Vieux : « Viva Brasil ! »'
+tombola:
+  lots:
+  - numero: A
+    lot: Séjour d'une semaine tout compris pour 2 personnes dans un hôtel à Chypre du Nord (départ Lyon)
+    donateur: —
+    ticket: '1843'
+  - numero: B
+    lot: Paire de chaussures trekking TECNICA
+    donateur: TECNICA
+    ticket: '4053'
+  - numero: C
+    lot: Paire de chaussures trail-running TECNICA
+    donateur: TECNICA
+    ticket: '1223'
+  introduction: Tous les billets se terminant par 3 gagnaient un lot. Tirage du dimanche 14 septembre 2014.
+  terminaison: '3'
+partenaires:
+- TECNICA Outdoor
+- Les Flasharmonicas
+- Annecy Trampoline
+- Artistes de capoeira (invités)

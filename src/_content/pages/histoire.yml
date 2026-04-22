@@ -1,0 +1,58 @@
+# Page Histoire — contenu editable via /admin/
+# Chaque cle correspond a un attribut data-cms="cle" sur histoire.html
+
+# ══ HERO ══
+heroBadge: "Depuis 1950"
+heroTitre: "76 ans de fête au village"
+heroSousTitre: "De la kermesse paroissiale à la Fête Villageoise, retour sur une histoire qui unit Annecy-le-Vieux depuis 1950."
+
+# ══ PHOTO HISTORIQUE ══
+photoHistorique: "/assets/images/annecy-le-vieux-historique.jpg"
+photoHistoriqueLegende: "Annecy-le-Vieux au début du XXe siècle"
+
+# ══ ORIGINES 1948-1953 ══
+originesTitre: "Tout a commencé sur la place de l'Église"
+originesPeriode: "1948 – 1953"
+originesTexte: |
+  <p>En 1948, un petit groupe d'habitants d'Annecy-le-Vieux décide de créer une kermesse paroissiale pour animer le village et financer les œuvres sociales. Parmi les fondateurs, on retrouve les noms de <strong>Barat</strong>, <strong>Bouche</strong> et <strong>Ligeray</strong>, aux côtés de <strong>Mr Rouge</strong>, alors maire, et de l'<strong>Abbé Bron</strong>, curé de la paroisse.</p>
+  <p>Le <strong>CŒSPC</strong> – Comité des Œuvres Sociales Paroissiales et Communales – est fondé pour porter cette ambition : une fête populaire dont les bénéfices seraient partagés entre la commune et la paroisse.</p>
+  <p>Dès 1950, la première édition de la kermesse a lieu sur la place de l'Église. C'est un succès immédiat qui rassemble tout le village.</p>
+originesCitation: "« La kermesse paroissiale a réuni, comme chaque année, tous les habitants du chef-lieu dans une atmosphère de franche gaieté. Les jeux, la tombola et le bal ont fait la joie de tous, petits et grands. » – Le Vieux Clocher, 1953"
+
+# ══ ANNEES 1950 ══
+annees50Titre: "Le goret, la course cycliste et les lampions"
+annees50Periode: "Années 1950"
+annees50Texte: |
+  <p>Les années 1950 donnent à la fête ses traditions les plus mémorables. La <strong>tombola du goret</strong> – où le premier prix est un cochon vivant – devient l'attraction incontournable. Les lampions illuminent la place, et les danses folkloriques animent les soirées.</p>
+  <p>La <strong>course cycliste</strong> attire les coureurs de toute la région. Les concurrents se disputent le sprint avec acharnement – chacun veut jouer les <strong>Bobet</strong>, selon la presse de l'époque.</p>
+  <p>La visite de <strong>M. Rollier</strong>, alors préfet de Haute-Savoie, confirme le rayonnement de la fête bien au-delà d'Annecy-le-Vieux.</p>
+
+# ══ EVOLUTION 1960-1980 ══
+evolutionTitre: "La fête grandit avec le village"
+evolutionPeriode: "1960 – 1980"
+evolutionTexte: |
+  <p>Avec la croissance d'Annecy-le-Vieux, la fête se diversifie. De nouveaux jeux et attractions sont ajoutes chaque année. Un <strong>stand de tir</strong> est installe pres de l'ecole Sainte-Anne, et les stands de restauration proposent desormais les spécialités savoyardes qui font la reputation de la fête.</p>
+  <p>Le nombre de bénévoles augmente et le CŒSPC structure son organisation pour accueillir toujours plus de visiteurs. La fête quitte progressivement le cadre de la simple kermesse paroissiale pour devenir un veritable événement communal.</p>
+
+# ══ ANCILEVIENNE 1985-1986 ══
+ancilevienneTitre: "Quand le sport rejoint la fête"
+ancileviennePeriode: "1985 – 1986"
+ancilevienneTexte: |
+  <p>En 1985, <strong>Claude Fort</strong>, champion de France de course sur 800 et 1 500 m, ajoute une <strong>course à pied autour du chef-lieu</strong> au programme de la Fête Villageoise, ouvrant la fête au monde sportif.</p>
+  <p>En 1986, il créé l'<a href="https://www.ancilevienne.fr/" target="_blank" rel="noopener"><strong>Ancilevienne</strong></a>, un duo cycliste/coureur autour du lac (46 km), organisé par l'<a href="https://www.avoc.fr/" target="_blank" rel="noopener"><strong>AVOC</strong></a> (association partenaire) en parallèle de la Fête Villageoise. L'Ancilevienne devient un rendez-vous incontournable et contribue à élargir le public de la fête, attirant sportifs et familles de toute l'agglomération.</p>
+  <p>Aujourd'hui encore, la <a href="/edition-2026.html#programme">74<sup>e</sup> édition</a> ouvre toujours par l'accueil des coureurs de l'Ancilevienne, prolongeant cette alliance entre sport et fête de village.</p>
+
+# ══ AUJOURD'HUI ══
+aujourdhuiTitre: "74 éditions et toujours debout"
+aujourdhuiTexte: |
+  <p>Aujourd'hui, la Fête Villageoise d'Annecy-le-Vieux reste fidele a l'esprit de ses fondateurs. Chaque annee, plus de <strong>50 bénévoles</strong> se mobilisent pour monter les stands, preparer la tartiflette géante, organiser les jeux et accueillir les visiteurs.</p>
+  <p>Les bénéfices continuent d'etre reversés au <strong>CCAS</strong> (Centre Communal d'Action Sociale) et aux <strong>oeuvres sociales paroissiales</strong>, perpetuant la mission de solidarite voulue par les fondateurs.</p>
+  <p>La Fête Villageoise, c'est un village qui se retrouve, qui partage, et qui transmet. 76 ans plus tard, l'essentiel n'a pas change.</p>
+
+# ══ CHRONOLOGIE ══
+chronologieTitre: "Chronologie"
+
+# ══ CTA ARCHIVES ══
+ctaArchivesTitre: "Vous avez des archives ?"
+ctaArchivesTexte: "Photos anciennes, programmes, articles de presse… Aidez-nous a enrichir l'histoire de la Fête Villageoise."
+ctaArchivesBouton: "Contactez-nous"

@@ -1,7 +1,6 @@
 # Decap CMS — Configuration
 # Documentation : https://decapcms.org/docs/configuration-options/
 
-# Backend GitHub avec OAuth proxy hébergé sur Cloudflare Pages (functions/oauth/*)
 backend:
   name: github
   repo: colombanatsea/coespc
@@ -9,23 +8,19 @@ backend:
   base_url: https://coespc.org
   auth_endpoint: oauth
   commit_messages:
-    create: 'cms: créé « {{collection}} » — {{slug}}'
-    update: 'cms: modifié « {{collection}} » — {{slug}}'
-    delete: 'cms: supprimé « {{collection}} » — {{slug}}'
-    uploadMedia: 'cms: ajout média {{path}}'
-    deleteMedia: 'cms: suppression média {{path}}'
+    create: "cms: créé « {{collection}} » — {{slug}}"
+    update: "cms: modifié « {{collection}} » — {{slug}}"
+    delete: "cms: supprimé « {{collection}} » — {{slug}}"
+    uploadMedia: "cms: ajout média {{path}}"
+    deleteMedia: "cms: suppression média {{path}}"
 
-# Dossier des médias uploadés
-media_folder: 'src/assets/images/uploads'
-public_folder: '/assets/images/uploads'
+media_folder: "src/assets/images/uploads"
+public_folder: "/assets/images/uploads"
 
-# Langue de l'interface
 locale: fr
 
-# Mode éditorial : draft → review → publish (via Pull Requests)
 publish_mode: editorial_workflow
 
-# URL du site pour previews
 site_url: https://coespc.org
 display_url: https://coespc.org
 logo_url: https://coespc.org/assets/images/logo-coespc.png
@@ -38,189 +33,349 @@ collections:
   # 1) ARCHIVES — une entrée par année
   # ------------------------------------------------------------
   - name: archives
-    label: 'Archives (édition par année)'
-    label_singular: 'Archive'
-    folder: 'src/_content/archives'
+    label: "Archives (édition par année)"
+    label_singular: "Archive"
+    folder: "src/_content/archives"
+    extension: yml
+    format: yml
     create: true
-    slug: '{{annee}}'
+    slug: "{{annee}}"
     identifier_field: annee
-    summary: '{{annee}} — {{titre}}'
-    sortable_fields: ['annee']
-    view_groups:
-      - label: Décennie
-        field: annee
-        pattern: '\d{3}'
+    summary: "{{annee}} — {{titre}}"
+    sortable_fields: ["annee"]
     fields:
-      - { name: annee, label: 'Année', widget: number, value_type: int, min: 1950, max: 2100 }
-      - { name: numero_edition, label: "N° d'édition (ex. 73)", widget: number, value_type: int, min: 1, max: 200 }
-      - { name: date_evenement, label: "Date de l'événement", widget: datetime, format: 'YYYY-MM-DD', date_format: 'YYYY-MM-DD', time_format: false, hint: "Date du dimanche de la fête" }
-      - { name: titre, label: 'Titre court', widget: string, hint: "Ex. « Saga Africa » ou « 55 lots de tombola »" }
-      - { name: theme, label: 'Thème / sous-titre', widget: string, required: false, hint: "Ex. « L'Afrique s'invite à Annecy-le-Vieux »" }
-      - { name: affiche, label: "Affiche de l'édition", widget: image, required: false, hint: "Image de l'affiche (JPG/PNG, 400×566px conseillé)" }
+      - name: annee
+        label: "Année"
+        widget: number
+        value_type: int
+        min: 1950
+        max: 2100
+      - name: numero_edition
+        label: "N° d'édition (ex. 73)"
+        widget: number
+        value_type: int
+        min: 1
+        max: 200
+      - name: date_evenement
+        label: "Date de l'événement"
+        widget: datetime
+        format: "YYYY-MM-DD"
+        date_format: "YYYY-MM-DD"
+        time_format: false
+        hint: "Date du dimanche de la fête"
+      - name: titre
+        label: "Titre court"
+        widget: string
+        hint: "Ex. « Saga Africa » ou « 55 lots de tombola »"
+      - name: theme
+        label: "Thème / sous-titre"
+        widget: string
+        required: false
+      - name: affiche
+        label: "Affiche de l'édition"
+        widget: image
+        required: false
+        hint: "JPG/PNG, 400×566 px conseillé"
       - name: resume
-        label: 'Résumé de l\'édition'
+        label: "Résumé de l'édition"
         widget: markdown
-        hint: "2-3 paragraphes décrivant l'édition (contexte, thème, temps forts)"
-      # ---- TOMBOLA ----
+        hint: "2-3 paragraphes décrivant l'édition"
       - name: tombola
-        label: 'Tombola'
+        label: "Tombola"
         widget: object
         required: false
         collapsed: true
         fields:
-          - { name: terminaison, label: 'Terminaison gagnante', widget: string, required: false, hint: "Ex. « 8 » si tous les billets finissant par 8 gagnent" }
-          - { name: introduction, label: 'Introduction', widget: text, required: false }
+          - name: terminaison
+            label: "Terminaison gagnante"
+            widget: string
+            required: false
+            hint: "Ex. « 8 » si tous les billets finissant par 8 gagnent"
+          - name: introduction
+            label: "Introduction"
+            widget: text
+            required: false
           - name: lots
-            label: 'Lots gagnants'
+            label: "Lots gagnants"
             widget: list
-            summary: '{{fields.numero}}. {{fields.lot}} — {{fields.donateur}}'
+            summary: "{{fields.numero}}. {{fields.lot}} — {{fields.donateur}}"
             fields:
-              - { name: numero, label: 'N° du lot (ex. « 1 » ou « 11-20 »)', widget: string }
-              - { name: lot, label: 'Description du lot', widget: string }
-              - { name: donateur, label: 'Donateur / partenaire', widget: string, required: false }
-              - { name: ticket, label: 'N° du ticket gagnant', widget: string, required: false }
-      # ---- RETRAIT DES LOTS ----
+              - name: numero
+                label: "N° du lot"
+                widget: string
+                hint: "Ex. « 1 » ou « 11-20 »"
+              - name: lot
+                label: "Description du lot"
+                widget: string
+              - name: donateur
+                label: "Donateur / partenaire"
+                widget: string
+                required: false
+              - name: ticket
+                label: "N° du ticket gagnant"
+                widget: string
+                required: false
       - name: retrait_lots
-        label: 'Retrait des lots'
+        label: "Retrait des lots"
         widget: object
         required: false
         collapsed: true
         fields:
-          - { name: periode, label: 'Période', widget: string, required: false, hint: "Ex. « Mercredi 17 septembre 2025, 17h-19h »" }
-          - { name: lieu, label: 'Lieu', widget: string, required: false, hint: "Ex. « Salle paroissiale Saint-Laurent »" }
-          - { name: note, label: 'Note', widget: text, required: false }
-      # ---- PARTENAIRES ----
+          - name: periode
+            label: "Période"
+            widget: string
+            required: false
+            hint: "Ex. « Mercredi 17 septembre 2025, 17 h-19 h »"
+          - name: lieu
+            label: "Lieu"
+            widget: string
+            required: false
+            hint: "Ex. « Salle paroissiale Saint-Laurent »"
+          - name: note
+            label: "Note"
+            widget: text
+            required: false
       - name: partenaires
-        label: 'Partenaires / donateurs cités'
+        label: "Partenaires / donateurs cités"
         widget: list
         required: false
         default: []
-        field: { name: nom, label: 'Nom du partenaire', widget: string }
-      # ---- SOLIDARITÉ ----
+        field:
+          name: nom
+          label: "Nom du partenaire"
+          widget: string
       - name: solidarite
-        label: 'Solidarité (remise de chèque)'
+        label: "Solidarité (remise de chèque)"
         widget: object
         required: false
         collapsed: true
         fields:
-          - { name: date, label: 'Date de remise', widget: datetime, format: 'YYYY-MM-DD', date_format: 'YYYY-MM-DD', time_format: false, required: false }
-          - { name: montant, label: 'Montant (€)', widget: string, required: false, hint: "Ex. « 1 500 € » ou « 4 000 € »" }
-          - { name: beneficiaires, label: 'Bénéficiaires', widget: string, required: false, hint: "Ex. « CCAS + paroisse »" }
-          - { name: description, label: 'Description', widget: text, required: false }
-      # ---- GALERIE PHOTOS ----
-      - name: galerie
-        label: 'Galerie photos'
-        widget: list
-        required: false
-        default: []
-        hint: "Téléversez les photos de l'édition, une par une"
-        fields:
-          - { name: image, label: 'Photo', widget: image }
-          - { name: legende, label: 'Légende / texte alternatif', widget: string }
+          - name: date
+            label: "Date de remise"
+            widget: datetime
+            format: "YYYY-MM-DD"
+            date_format: "YYYY-MM-DD"
+            time_format: false
+            required: false
+          - name: montant
+            label: "Montant (€)"
+            widget: string
+            required: false
+            hint: "Ex. « 1 500 € » ou « 4 000 € »"
+          - name: beneficiaires
+            label: "Bénéficiaires"
+            widget: string
+            required: false
+            hint: "Ex. « CCAS + paroisse »"
+          - name: description
+            label: "Description"
+            widget: text
+            required: false
 
   # ------------------------------------------------------------
-  # 2) PAGES ÉDITABLES — contenus statiques des grandes pages
+  # 2) PAGES ÉDITABLES
   # ------------------------------------------------------------
   - name: pages
-    label: 'Pages du site'
-    label_singular: 'Page'
-    folder: 'src/_content/pages'
+    label: "Pages du site"
+    label_singular: "Page"
+    folder: "src/_content/pages"
+    extension: yml
+    format: yml
     create: false
-    slug: '{{slug}}'
-    identifier_field: titre
+    slug: "{{slug}}"
+    identifier_field: heroTitre
     fields:
-      - { name: titre, label: 'Titre (interne)', widget: string }
-      - { name: slug, label: 'Slug (technique)', widget: hidden }
-      - { name: contenu, label: 'Contenu', widget: markdown }
+      - name: heroEdition
+        label: "Badge édition"
+        widget: string
+        required: false
+      - name: heroTitre
+        label: "Titre principal (peut contenir du HTML : em, br, strong)"
+        widget: string
+      - name: heroSousTitre
+        label: "Sous-titre"
+        widget: text
+        required: false
 
   # ------------------------------------------------------------
-  # 3) PARAMÈTRES GÉNÉRAUX (dates, réseaux, chiffres-clés)
+  # 3) PARAMÈTRES GÉNÉRAUX
   # ------------------------------------------------------------
   - name: parametres
-    label: 'Paramètres du site'
+    label: "Paramètres du site"
     files:
       - name: site
-        label: 'Informations générales'
-        file: 'src/_content/config/site.yml'
+        label: "Informations générales"
+        file: "src/_content/config/site.yml"
         fields:
-          - { name: edition_prochaine_date, label: 'Date prochaine édition', widget: datetime, format: 'YYYY-MM-DD', date_format: 'YYYY-MM-DD', time_format: false }
-          - { name: edition_prochaine_numero, label: "Numéro de la prochaine édition", widget: number, value_type: int }
-          - { name: annees_depuis_creation, label: "Nombre d'années depuis la 1ère édition (1950)", widget: number, value_type: int, hint: "À mettre à jour chaque année" }
-          - { name: total_editions, label: "Nombre total d'éditions (hors annulations)", widget: number, value_type: int }
-          - { name: total_benevoles, label: "Nombre de bénévoles", widget: string, hint: "Ex. « 50+ »" }
-          - { name: total_partenaires, label: "Nombre de partenaires", widget: string, hint: "Ex. « 45+ »" }
-          - { name: heure_ouverture, label: 'Heure ouverture stands', widget: string }
-          - { name: heure_fermeture, label: 'Heure fermeture', widget: string }
-          - { name: lieu, label: 'Lieu principal', widget: string }
+          - name: edition_prochaine_date
+            label: "Date prochaine édition"
+            widget: datetime
+            format: "YYYY-MM-DD"
+            date_format: "YYYY-MM-DD"
+            time_format: false
+          - name: edition_prochaine_numero
+            label: "Numéro de la prochaine édition"
+            widget: number
+            value_type: int
+          - name: annees_depuis_creation
+            label: "Nombre d'années depuis la 1re édition (1950)"
+            widget: number
+            value_type: int
+            hint: "À mettre à jour chaque année"
+          - name: total_editions
+            label: "Nombre total d'éditions (hors annulations)"
+            widget: number
+            value_type: int
+          - name: total_benevoles
+            label: "Nombre de bénévoles"
+            widget: string
+            hint: "Ex. « 50+ »"
+          - name: total_partenaires
+            label: "Nombre de partenaires"
+            widget: string
+            hint: "Ex. « 45+ »"
+          - name: heure_ouverture
+            label: "Heure ouverture stands"
+            widget: string
+          - name: heure_fermeture
+            label: "Heure fermeture"
+            widget: string
+          - name: lieu
+            label: "Lieu principal"
+            widget: string
       - name: reseaux
-        label: 'Réseaux sociaux'
-        file: 'src/_content/config/reseaux.yml'
+        label: "Réseaux sociaux"
+        file: "src/_content/config/reseaux.yml"
         fields:
-          - { name: instagram, label: 'URL Instagram', widget: string }
-          - { name: facebook_page, label: 'URL page Facebook', widget: string }
-          - { name: facebook_group, label: 'URL groupe Facebook', widget: string }
-          - { name: helloasso, label: 'URL HelloAsso (billetterie)', widget: string }
+          - name: instagram
+            label: "URL Instagram"
+            widget: string
+          - name: facebook_page
+            label: "URL page Facebook"
+            widget: string
+          - name: facebook_group
+            label: "URL groupe Facebook"
+            widget: string
+          - name: helloasso
+            label: "URL HelloAsso (billetterie)"
+            widget: string
 
   # ------------------------------------------------------------
-  # 4) PARTENAIRES 2026 — liste éditable
+  # 4) PARTENAIRES 2026
   # ------------------------------------------------------------
   - name: partenaires
-    label: 'Partenaires (édition en cours)'
-    label_singular: 'Partenaire'
-    folder: 'src/_content/partenaires'
+    label: "Partenaires (édition en cours)"
+    label_singular: "Partenaire"
+    folder: "src/_content/partenaires"
+    extension: yml
+    format: yml
     create: true
-    slug: '{{slug}}'
+    slug: "{{slug}}"
     identifier_field: nom
-    view_groups:
-      - { label: Catégorie, field: categorie }
     fields:
-      - { name: nom, label: 'Nom', widget: string }
+      - name: nom
+        label: "Nom"
+        widget: string
       - name: categorie
-        label: 'Catégorie'
+        label: "Catégorie"
         widget: select
         options:
-          - { label: 'Institutionnels', value: 'institutionnel' }
-          - { label: 'Gastronomie', value: 'gastronomie' }
-          - { label: 'Commerces & cavistes', value: 'commerces' }
-          - { label: 'Grande distribution', value: 'distribution' }
-          - { label: 'Entreprises', value: 'entreprises' }
-          - { label: 'Services & artisans', value: 'services' }
-      - { name: description, label: 'Description courte (2-3 mots)', widget: string, hint: "Ex. « Restaurant ★★★ Michelin »" }
-      - { name: url, label: 'Site web', widget: string, required: false }
-      - { name: logo, label: 'Logo', widget: image, required: false }
-      - { name: ordre, label: "Ordre d'affichage", widget: number, value_type: int, required: false, default: 999 }
-      - { name: actif, label: 'Partenaire actif cette année', widget: boolean, default: true }
+          - { label: "Institutionnels", value: "institutionnel" }
+          - { label: "Gastronomie", value: "gastronomie" }
+          - { label: "Commerces & cavistes", value: "commerces" }
+          - { label: "Grande distribution", value: "distribution" }
+          - { label: "Entreprises", value: "entreprises" }
+          - { label: "Services & artisans", value: "services" }
+      - name: description
+        label: "Description courte (2-3 mots)"
+        widget: string
+        hint: "Ex. « Restaurant ★★★ Michelin »"
+      - name: url
+        label: "Site web"
+        widget: string
+        required: false
+      - name: logo
+        label: "Logo"
+        widget: image
+        required: false
+      - name: ordre
+        label: "Ordre d'affichage"
+        widget: number
+        value_type: int
+        required: false
+        default: 999
+      - name: actif
+        label: "Partenaire actif cette année"
+        widget: boolean
+        default: true
 
   # ------------------------------------------------------------
   # 5) PROGRAMME ÉDITION EN COURS
   # ------------------------------------------------------------
   - name: programme
-    label: 'Programme édition en cours'
-    label_singular: 'Moment du programme'
-    folder: 'src/_content/programme'
+    label: "Programme édition en cours"
+    label_singular: "Moment du programme"
+    folder: "src/_content/programme"
+    extension: yml
+    format: yml
     create: true
-    slug: '{{heure}}-{{slug}}'
+    slug: "{{heure | replace(':', 'h')}}-{{slug}}"
     identifier_field: titre
-    sortable_fields: ['heure']
+    sortable_fields: ["ordre", "heure"]
     fields:
-      - { name: heure, label: 'Heure', widget: string, hint: "Format HH:MM, ex. « 09:00 » ou « 17:30 »" }
-      - { name: titre, label: 'Titre', widget: string }
-      - { name: description, label: 'Description', widget: text }
-      - { name: categorie, label: 'Catégorie', widget: select, options: ['Ouverture', 'Restauration', 'Animation', 'Musique', 'Tombola', 'Solidarité', 'Clôture'], default: 'Animation' }
-      - { name: ordre, label: "Ordre d'affichage", widget: number, value_type: int, required: false, default: 999 }
+      - name: heure
+        label: "Heure"
+        widget: string
+        hint: "Format HH:MM, ex. « 09:00 » ou « 17:30 »"
+      - name: heure_fin
+        label: "Heure de fin (facultatif)"
+        widget: string
+        required: false
+      - name: titre
+        label: "Titre"
+        widget: string
+      - name: description
+        label: "Description"
+        widget: text
+      - name: categorie
+        label: "Catégorie"
+        widget: select
+        options: ["Ouverture", "Restauration", "Animation", "Musique", "Tombola", "Solidarité", "Clôture"]
+        default: "Animation"
+      - name: ordre
+        label: "Ordre d'affichage"
+        widget: number
+        value_type: int
+        required: false
+        default: 999
 
   # ------------------------------------------------------------
   # 6) FAQ
   # ------------------------------------------------------------
   - name: faq
-    label: 'Questions fréquentes'
-    label_singular: 'Question'
-    folder: 'src/_content/faq'
+    label: "Questions fréquentes"
+    label_singular: "Question"
+    folder: "src/_content/faq"
+    extension: yml
+    format: yml
     create: true
-    slug: '{{slug}}'
+    slug: "{{slug}}"
     identifier_field: question
     fields:
-      - { name: question, label: 'Question', widget: string }
-      - { name: reponse, label: 'Réponse', widget: markdown }
-      - { name: categorie, label: 'Catégorie', widget: select, options: ['Événement', 'Tombola', 'Bénévoles', 'Partenaires', 'Pratique'], default: 'Événement' }
-      - { name: ordre, label: "Ordre d'affichage", widget: number, value_type: int, required: false, default: 999 }
+      - name: question
+        label: "Question"
+        widget: string
+      - name: reponse
+        label: "Réponse"
+        widget: markdown
+      - name: categorie
+        label: "Catégorie"
+        widget: select
+        options: ["Événement", "Tombola", "Bénévoles", "Partenaires", "Pratique"]
+        default: "Événement"
+      - name: ordre
+        label: "Ordre d'affichage"
+        widget: number
+        value_type: int
+        required: false
+        default: 999

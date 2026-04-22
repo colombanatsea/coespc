@@ -1801,6 +1801,68 @@ img { image-rendering: auto; -ms-interpolation-mode: bicubic; }
 }
 
 
+/* =================================================================
+   ARCHIVES PRESSE (coupures et bulletins anciens dans histoire.html)
+   Effet "papier vieilli" subtil, avec caption typée bulletin paroissial.
+   ================================================================= */
+.archive-press {
+  margin: var(--space-8) 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-3);
+  max-width: 100%;
+}
+.archive-press figure {
+  margin: 0;
+  background: var(--papier-vieilli);
+  padding: var(--space-4);
+  border-radius: var(--radius-md);
+  box-shadow:
+    0 2px 4px rgba(92, 74, 58, 0.15),
+    0 8px 24px rgba(92, 74, 58, 0.08);
+  transform: rotate(-0.3deg);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.archive-press figure:hover {
+  transform: rotate(0deg) translateY(-2px);
+  box-shadow:
+    0 4px 8px rgba(92, 74, 58, 0.2),
+    0 12px 32px rgba(92, 74, 58, 0.12);
+}
+.archive-press figure:nth-child(even) { transform: rotate(0.3deg); }
+.archive-press figure:nth-child(even):hover { transform: rotate(0deg) translateY(-2px); }
+.archive-press img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: var(--radius-sm);
+  /* Sepia tres leger pour unifier les coupures */
+  filter: sepia(0.15) contrast(1.02);
+}
+.archive-press figcaption {
+  margin-top: var(--space-3);
+  font-size: var(--text-sm);
+  color: var(--bois-chaud);
+  font-style: italic;
+  line-height: var(--leading-snug);
+  text-align: center;
+}
+.archive-press figcaption strong {
+  font-family: var(--font-display);
+  font-style: normal;
+  color: var(--bleu-logo);
+  display: block;
+  margin-bottom: var(--space-1);
+}
+
+/* Sur desktop : deux coupures cote-a-cote si le container est assez large */
+@media (min-width: 880px) {
+  .archive-press.archive-press-duo {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-6);
+  }
+}
+
 /* --- LIEN ADMIN DANS FOOTER (discret) --- */
 .footer-admin-link {
   font-size: var(--text-xs) !important;

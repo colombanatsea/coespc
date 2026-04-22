@@ -22,6 +22,16 @@
     [class*="SiteURL"] { color: var(--coespc-or) !important; }
     /* Couleurs boutons publier */
     button[class*="SaveButton"] { background: var(--coespc-ambre) !important; }
+    /* Limite taille du logo sur page login */
+    [class*="LogoIcon"],
+    [class*="AuthenticationPage"] img,
+    [class*="login"] img {
+      max-width: 140px !important;
+      max-height: 140px !important;
+      width: auto !important;
+      height: auto !important;
+      border-radius: 12px;
+    }
   </style>
 </head>
 <body>

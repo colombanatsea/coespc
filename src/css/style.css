@@ -296,8 +296,11 @@ button { cursor: pointer; font-family: inherit; }
 .nav-toggle.active span:nth-child(2) { opacity: 0; }
 .nav-toggle.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
 
-/* --- FANIONS --- */
+/* --- FANIONS (sticky sous le header) --- */
 .fanions-banner {
+  position: sticky;
+  top: var(--header-h, 64px);
+  z-index: 99;
   background: #142477; overflow: hidden;
   padding: 0; line-height: 0;
 }

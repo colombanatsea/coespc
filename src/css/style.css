@@ -1788,3 +1788,12 @@ img { image-rendering: auto; -ms-interpolation-mode: bicubic; }
   a { color: #000; text-decoration: underline; }
   a[href]::after { content: ' (' attr(href) ')'; font-size: 0.8em; }
 }
+
+
+/* --- LIEN ADMIN DANS FOOTER (discret) --- */
+.footer-admin-link {
+  font-size: var(--text-xs) !important;
+  opacity: 0.5;
+  transition: opacity 0.2s;
+}
+.footer-admin-link:hover { opacity: 1; text-decoration: underline; }

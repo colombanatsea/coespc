@@ -1,54 +1,214 @@
 /* ================================================================
-   KERMESSE ETERNELLE — Design System CSS
-   Fete Villageoise d'Annecy-le-Vieux — COESPC
+   CŒSPC · Fête Villageoise — Design System
+   Annecy-le-Vieux · depuis 1950
    ================================================================ */
 
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,700;0,9..144,900;1,9..144,400&display=swap');
+/* ───── Fonts locales (self-hosted, OFL, zéro appel réseau) ─────── */
+@font-face {
+  font-family: 'DM Sans';
+  font-style: normal; font-weight: 400 700; font-display: swap;
+  src: url('/assets/fonts/dmsans-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'DM Sans';
+  font-style: normal; font-weight: 400 700; font-display: swap;
+  src: url('/assets/fonts/dmsans-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Fraunces';
+  font-style: normal; font-weight: 400 900; font-display: swap;
+  src: url('/assets/fonts/fraunces-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Fraunces';
+  font-style: normal; font-weight: 400 900; font-display: swap;
+  src: url('/assets/fonts/fraunces-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Fraunces';
+  font-style: italic; font-weight: 400 900; font-display: swap;
+  src: url('/assets/fonts/fraunces-italic-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Fraunces';
+  font-style: italic; font-weight: 400 900; font-display: swap;
+  src: url('/assets/fonts/fraunces-italic-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Instrument Serif';
+  font-style: normal; font-weight: 400; font-display: swap;
+  src: url('/assets/fonts/instrumentserif-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Instrument Serif';
+  font-style: normal; font-weight: 400; font-display: swap;
+  src: url('/assets/fonts/instrumentserif-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Instrument Serif';
+  font-style: italic; font-weight: 400; font-display: swap;
+  src: url('/assets/fonts/instrumentserif-italic-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Instrument Serif';
+  font-style: italic; font-weight: 400; font-display: swap;
+  src: url('/assets/fonts/instrumentserif-italic-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
 
 /* --- TOKENS --- */
 :root {
-  --bleu-logo: #142477;
-  --or-logo: #F4B365;
-  --ambre-fete: #D4760A;
-  --or-girouette: #D4AF37;
-  --rouge-guirlande: #C0392B;
-  --vert-tilleul: #4A8C4F;
-  --jaune-ballon: #E8B960;
-  --bleu-lac: #5BA3C9;
-  --corail-fleur: #E07A5F;
-  --creme-lin: #FDF6E8;
-  --papier-vieilli: #F0E6D0;
-  --bois-chaud: #5C4A3A;
-  --encre: #2C1F14;
-  --font-display: 'Fraunces', Georgia, serif;
-  --font-body: 'DM Sans', -apple-system, sans-serif;
-  --text-xs: 0.75rem;
-  --text-sm: 0.875rem;
-  --text-base: 1rem;
-  --text-lg: 1.125rem;
-  --text-xl: 1.25rem;
-  --text-2xl: 1.563rem;
-  --text-3xl: 1.953rem;
-  --text-4xl: 2.441rem;
-  --text-5xl: 3.052rem;
-  --leading-tight: 1.15;
-  --leading-snug: 1.3;
-  --leading-normal: 1.6;
+  /* ═══ COLORS · Primaires ═══ */
+  --bleu-logo:       #142477;  /* Bleu Clocher — nuit de fête */
+  --or-logo:         #F4B365;  /* Or chaud — texte sur fond bleu */
+  --ambre-fete:      #D4760A;  /* CTA, liens, accents chauds */
+  --or-girouette:    #D4AF37;  /* Détails, cocardes, badges */
+  --rouge-guirlande: #C0392B;  /* Fanions, drapeau Savoie */
+
+  /* ═══ COLORS · Secondaires (touches du peintre) ═══ */
+  --vert-tilleul:    #4A8C4F;
+  --jaune-ballon:    #E8B960;
+  --bleu-lac:        #5BA3C9;
+  --corail-fleur:    #E07A5F;
+
+  /* ═══ COLORS · Neutres papier ═══ */
+  --creme-lin:       #FDF6E8;
+  --papier-vieilli:  #F0E6D0;
+  --bois-chaud:      #5C4A3A;
+  --encre:           #2C1F14;
+
+  /* ═══ SEMANTIC ALIASES ═══ */
+  --bg:              var(--creme-lin);
+  --bg-alt:          #FFFFFF;
+  --bg-dark:         var(--bleu-logo);
+  --fg1:             var(--encre);
+  --fg2:             var(--bois-chaud);
+  --fg-on-dark:      var(--or-logo);
+  --fg-muted:        rgba(92, 74, 58, 0.65);
+  --accent:          var(--ambre-fete);
+  --accent-hover:    #b8640a;
+  --link:            var(--ambre-fete);
+  --border:          var(--papier-vieilli);
+
+  /* ═══ TYPE · Familles ═══ */
+  --font-display:        'Fraunces', Georgia, 'Times New Roman', serif;
+  --font-body:           'DM Sans', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  --font-italic-accent:  'Instrument Serif', Georgia, serif;
+
+  /* ═══ TYPE · Échelle (ratio 1.25 Major Third) ═══ */
+  --text-xs:    0.75rem;    /* 12px — légendes */
+  --text-sm:    0.875rem;   /* 14px — metadata */
+  --text-base:  1rem;       /* 16px — corps */
+  --text-lg:    1.125rem;   /* 18px — intro */
+  --text-xl:    1.25rem;    /* 20px — sous-titres */
+  --text-2xl:   1.563rem;   /* 25px — titres section */
+  --text-3xl:   1.953rem;   /* 31px — titres page */
+  --text-4xl:   2.441rem;   /* 39px — hero mobile */
+  --text-5xl:   3.052rem;   /* 49px — hero desktop */
+
+  --leading-tight:   1.15;
+  --leading-snug:    1.3;
+  --leading-normal:  1.6;
   --leading-relaxed: 1.75;
-  --space-1: 0.25rem;
-  --space-2: 0.5rem;
-  --space-3: 0.75rem;
-  --space-4: 1rem;
-  --space-6: 1.5rem;
-  --space-8: 2rem;
+
+  /* ═══ SPACING (base 8px) ═══ */
+  --space-1:  0.25rem;
+  --space-2:  0.5rem;
+  --space-3:  0.75rem;
+  --space-4:  1rem;
+  --space-6:  1.5rem;
+  --space-8:  2rem;
   --space-12: 3rem;
   --space-16: 4rem;
   --space-24: 6rem;
-  --radius-sm: 4px;
-  --radius-md: 8px;
-  --radius-lg: 12px;
-  --radius-full: 100px;
+
+  /* ═══ RADII ═══ */
+  --radius-sm:   4px;
+  --radius-md:   8px;
+  --radius-lg:   12px;
+  --radius-xl:   16px;
+  --radius-full: 100px;  /* pilules, boutons */
+
+  /* ═══ ELEVATION (bleu-tinted, pas de gris froid) ═══ */
+  --shadow-sm:        0 2px 8px  rgba(5,22,130,0.04);
+  --shadow-md:        0 6px 20px rgba(5,22,130,0.06);
+  --shadow-lg:        0 8px 30px rgba(5,22,130,0.12);
+  --shadow-cta:       0 4px 15px rgba(212,118,10,0.25);
+  --shadow-cta-hover: 0 6px 25px rgba(212,118,10,0.35);
+
+  /* ═══ MOTION ═══ */
+  --ease-out:  cubic-bezier(.2,.8,.2,1);
+  --dur-fast:  0.15s;
+  --dur-base:  0.2s;
+  --dur-slow:  0.4s;
 }
+
+/* ═══════════════════════════════════════════
+   CLASSES UTILITAIRES .ds-*
+   Design system tokens réutilisables
+   ═══════════════════════════════════════════ */
+.ds-h1, h1.ds {
+  font-family: var(--font-display); font-weight: 900;
+  font-size: var(--text-5xl); line-height: var(--leading-tight);
+  color: var(--bleu-logo); letter-spacing: -0.01em;
+}
+.ds-h2, h2.ds {
+  font-family: var(--font-display); font-weight: 900;
+  font-size: var(--text-3xl); line-height: var(--leading-tight);
+  color: var(--bleu-logo);
+}
+.ds-h3, h3.ds {
+  font-family: var(--font-display); font-weight: 700;
+  font-size: var(--text-2xl); line-height: var(--leading-snug);
+  color: var(--bleu-logo);
+}
+.ds-h4, h4.ds {
+  font-family: var(--font-display); font-weight: 700;
+  font-size: var(--text-xl); line-height: var(--leading-snug);
+  color: var(--bleu-logo);
+}
+.ds-eyebrow {
+  display: inline-block;
+  font-family: var(--font-body); font-size: var(--text-xs);
+  font-weight: 600; text-transform: uppercase; letter-spacing: 0.12em;
+  color: var(--ambre-fete); background: rgba(212,118,10,0.08);
+  padding: 0.4em 1em; border-radius: var(--radius-full);
+}
+.ds-p {
+  font-family: var(--font-body); font-weight: 400;
+  font-size: var(--text-base); line-height: var(--leading-normal);
+  color: var(--bois-chaud);
+}
+.ds-lead {
+  font-family: var(--font-body); font-weight: 400;
+  font-size: var(--text-lg); line-height: var(--leading-relaxed);
+  color: var(--bois-chaud);
+}
+.ds-small   { font-size: var(--text-sm); color: var(--bois-chaud); }
+.ds-caption { font-size: var(--text-xs); color: var(--fg-muted); letter-spacing: 0.05em; }
+
+/* Citations / exergues en Instrument Serif italique */
+.ds-quote, blockquote.ds {
+  font-family: var(--font-italic-accent); font-style: italic;
+  font-size: var(--text-xl); line-height: var(--leading-snug);
+  color: var(--bois-chaud);
+  border-left: 3px solid var(--ambre-fete);
+  padding: var(--space-4) var(--space-6);
+  background: rgba(212,118,10,0.04);
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+}
+
+/* Titres italiques signature : h1 Une <em>Fête Villageoise</em> depuis 1950 */
+.hero-title em, h1 em.signature, .ds em { font-style: italic; color: inherit; }
 
 /* --- RESET & BASE --- */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }

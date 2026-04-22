@@ -243,9 +243,9 @@ button { cursor: pointer; font-family: inherit; }
 /* --- CONTAINER --- */
 .container { max-width: 1200px; margin: 0 auto; padding: 0 var(--space-8); }
 
-/* --- HEADER --- */
+/* --- HEADER (scrolle avec la page, non sticky) --- */
 .site-header {
-  position: sticky; top: 0; z-index: 100;
+  position: relative;
   background: var(--bleu-logo);
   transition: box-shadow 0.3s;
 }
@@ -296,18 +296,18 @@ button { cursor: pointer; font-family: inherit; }
 .nav-toggle.active span:nth-child(2) { opacity: 0; }
 .nav-toggle.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
 
-/* --- FANIONS (fixes en haut d'ecran, fond transparent) --- */
-/* Les fanions restent colles au sommet du viewport en permanence, meme
-   apres scroll. Fond transparent : on voit le header bleu qui passe en
-   dessous. pointer-events: none pour ne pas bloquer les clics du header. */
+/* --- FANIONS (placees sous le header, sticky en haut au scroll) --- */
+/* Au chargement : placees a leur position naturelle, juste sous le header
+   bleu (dans le flow). Quand on scroll, le header monte hors de l'ecran
+   et les fanions se collent au sommet du viewport (sticky top: 0). Fond
+   transparent : on voit la page derriere, pas de bandeau bleu. */
 .fanions-banner {
-  position: fixed;
-  top: 0; left: 0; right: 0;
-  z-index: 101; /* au-dessus du header (z-index 100) */
+  position: sticky;
+  top: 0;
+  z-index: 100;
   background: transparent;
   overflow: visible;
   padding: 0; line-height: 0;
-  pointer-events: none;
 }
 .fanions-track {
   display: flex; align-items: flex-start;

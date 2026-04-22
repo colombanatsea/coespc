@@ -1,1 +1,16 @@
-[]
+[
+  { "file": "01-affichette-faure-1.jpg", "alt": "Affichette au parc Gabriel-Fauré — « On rêve et on chante ! »" },
+  { "file": "02-pousse-vert-extra.jpg", "alt": "Animation enfants — Pousse vert extra" },
+  { "file": "03-affichette-faure-2.jpg", "alt": "Seconde affichette au parc Gabriel-Fauré" },
+  { "file": "04-reves-chansons-1.jpg", "alt": "Rêves et chansons — la compagnie Petites Poucettes" },
+  { "file": "05-reves-chansons-2.jpg", "alt": "Chants intergénérationnels avec Petites Poucettes" },
+  { "file": "06-planning-animations.jpg", "alt": "Planning détaillé des animations de l'édition 2018" },
+  { "file": "07-place-gabriel-faure.jpg", "alt": "La place Gabriel-Fauré, lieu de tous les rassemblements" },
+  { "file": "08-petites-poucettes-1.jpg", "alt": "La compagnie Petites Poucettes raconte des histoires" },
+  { "file": "09-petites-poucettes-2.jpg", "alt": "Spectacle intergénérationnel des Petites Poucettes" },
+  { "file": "10-bal-animalier.jpg", "alt": "Le bal familial ori-génial sur thème animalier" },
+  { "file": "11-chants-danses.jpg", "alt": "Entre danses et chants, mon cœur balance" },
+  { "file": "12-ambiance-familiale.jpg", "alt": "Ambiance familiale sous le soleil de septembre" },
+  { "file": "13-stand-fete.jpg", "alt": "Stand d'animation au cœur de la fête" },
+  { "file": "14-remise-cheque-2018.jpg", "alt": "Remise de chèque en mairie — 14 janvier 2019 (édition 2018)" }
+]

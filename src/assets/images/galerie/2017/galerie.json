@@ -1,1 +1,14 @@
-[]
+[
+  { "file": "01-baleares-majorque.jpg", "alt": "Baléares - Majorque, l'une des destinations du 1ᵉʳ prix tombola" },
+  { "file": "02-val-frejus.jpg", "alt": "Val-Fréjus, seconde option du 1ᵉʳ prix tombola" },
+  { "file": "03-ptiouts-jean-vovray.jpg", "alt": "Le groupe folk Lô P'tiouts Jean Vovray d'Annecy" },
+  { "file": "04-pierrot-colporteur.jpg", "alt": "Pierrot le Colporteur — chansons et spectacles pour enfants" },
+  { "file": "05-ambiance-savoyarde.jpg", "alt": "Un bon cru savoyard — ambiance traditions" },
+  { "file": "06-repas-savoyard.jpg", "alt": "Repas savoyard partagé sous les barnums" },
+  { "file": "07-stand-animations.jpg", "alt": "Stands et animations sur la place" },
+  { "file": "08-concours-tir.jpg", "alt": "Concours de tir à la carabine 2017" },
+  { "file": "09-public-traditions.jpg", "alt": "Le public nombreux pour Fête et Traditions" },
+  { "file": "10-moment-folk.jpg", "alt": "Moment folk savoyard en plein cœur du village" },
+  { "file": "11-remise-cheque-2017.jpg", "alt": "Remise de chèque en mairie — 8 décembre 2017" },
+  { "file": "12-remise-cheque-annexe.jpg", "alt": "Christian Balmain, Christian Travert et les élus lors de la remise de chèque 2017" }
+]

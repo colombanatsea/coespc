@@ -1,1 +1,10 @@
-[]
+[
+  { "file": "01-plaquette-recto.jpg", "alt": "Plaquette 2019 — recto" },
+  { "file": "02-plaquette-verso.jpg", "alt": "Plaquette 2019 — verso, liste des annonceurs" },
+  { "file": "03-resultats-tombola.jpg", "alt": "Résultats de la tombola 2019" },
+  { "file": "04-annonceurs-plaquette.jpg", "alt": "Les annonceurs qui soutiennent la Fête" },
+  { "file": "05-reunion-bilan.jpg", "alt": "Réunion bilan — 28 octobre 2019, présidée par Jean-François Point" },
+  { "file": "06-photo-souvenir.jpg", "alt": "Photo souvenir d'archive de la Fête Villageoise" },
+  { "file": "07-remise-cheque-2019.jpg", "alt": "Remise de chèque de 1 500 € en mairie — 6 janvier 2020 (édition 2019)" },
+  { "file": "08-remise-cheque-mairie.jpg", "alt": "Bénévoles et élus réunis pour la remise de chèque solidarité" }
+]

@@ -1,1 +1,11 @@
-[]
+[
+  { "file": "01-annees-80.jpg", "alt": "Thème 2016 : années 80 — DJ et ambiance rétro" },
+  { "file": "02-remise-cheque-2016.jpg", "alt": "Remise de chèque en mairie — 3 mars 2016" },
+  { "file": "03-remise-cheque-mairie.jpg", "alt": "Christian Balmain, Bernard Accoyer et les élus lors de la remise de chèque" },
+  { "file": "04-corfou-tombola.jpg", "alt": "Corfou — Grèce éternelle, 1ᵉʳ lot de la tombola" },
+  { "file": "05-buvette-clocher.jpg", "alt": "Buvette à l'ombre du clocher" },
+  { "file": "06-parvis-eglise.jpg", "alt": "Le parvis de l'église sous un soleil radieux" },
+  { "file": "07-grece-eternelle.jpg", "alt": "Ambiance grecque pour le repas et la tombola" },
+  { "file": "08-jeux-parc-faure.jpg", "alt": "Jeux en bois à l'ombre du parc Gabriel-Fauré" },
+  { "file": "09-animations-enfants.jpg", "alt": "Animations pour les enfants — barbe à papa et jeux" }
+]

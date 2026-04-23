@@ -1219,34 +1219,78 @@ blockquote cite {
   50% { transform: scale(1.05); }
 }
 
-/* --- BALLOONS (jour J) --- */
+/* --- BALLOONS JOUR J (fullscreen, fixed, explosion festive) --- */
 .balloons-container {
   position: fixed; inset: 0;
   pointer-events: none; z-index: 9999;
   overflow: hidden;
 }
-.balloon {
+.balloons-container .balloon {
   position: absolute;
   width: 50px; height: 65px;
   border-radius: 50% 50% 50% 50% / 55% 55% 45% 45%;
-  animation: balloonRise var(--duration, 10s) ease-in var(--delay, 0s) forwards;
+  animation: balloonRiseFull var(--duration, 10s) ease-in var(--delay, 0s) forwards;
   opacity: 0;
   bottom: -100px;
   box-shadow: inset -8px -10px 15px rgba(0,0,0,0.12);
 }
-.balloon::after {
+.balloons-container .balloon::after {
   content: '';
   position: absolute;
   bottom: -40px; left: 50%;
   width: 1px; height: 40px;
   background: rgba(0,0,0,0.3);
 }
-@keyframes balloonRise {
+@keyframes balloonRiseFull {
   0%   { transform: translateY(0) translateX(0) rotate(0deg); opacity: 0; }
   5%   { opacity: 0.9; }
   50%  { transform: translateY(-55vh) translateX(30px) rotate(5deg); opacity: 0.85; }
   95%  { opacity: 0.6; }
   100% { transform: translateY(-120vh) translateX(-20px) rotate(-3deg); opacity: 0; }
+}
+
+/* --- BALLONS PASTEL PERMANENTS DANS LES HEROS --- */
+/* Animation continue de ballons pastel qui montent lentement en arriere-plan
+   du hero (index.html) et des page-hero. Tons doux pour ne pas distraire
+   de la lecture. Conforme a l'esprit Kermesse Eternelle ("ballons helium"). */
+.balloons-hero {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 1; /* sous le contenu (z-index 2) mais au-dessus du fond */
+}
+.hero, .page-hero { position: relative; }
+.balloons-hero .balloon-hero {
+  position: absolute;
+  bottom: -80px;
+  width: 36px;
+  height: 46px;
+  border-radius: 50% 50% 50% 50% / 55% 55% 45% 45%;
+  opacity: 0;
+  animation: balloonRiseHero var(--dur, 18s) linear var(--delay, 0s) infinite;
+  box-shadow:
+    inset -6px -8px 12px rgba(255, 255, 255, 0.35),
+    inset 6px 4px 10px rgba(0, 0, 0, 0.08);
+  will-change: transform, opacity;
+}
+.balloons-hero .balloon-hero::after {
+  content: '';
+  position: absolute;
+  bottom: -30px; left: 50%;
+  width: 1px; height: 30px;
+  background: rgba(244, 179, 101, 0.4);
+}
+@keyframes balloonRiseHero {
+  0%   { transform: translate(0, 0) rotate(0deg); opacity: 0; }
+  10%  { opacity: 0.75; }
+  50%  { transform: translate(20px, -50%) rotate(6deg); opacity: 0.85; }
+  90%  { opacity: 0.55; }
+  100% { transform: translate(-15px, -120%) rotate(-4deg); opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .balloons-hero { display: none; }
 }
 
 /* --- METEO WIDGET --- */

@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initBalloonsOnDayJ();
   initGallery();
   initPartnersFeed();
+  initBalloonsHero();
 });
 
 // ═══ DECORATIONS DE PAGE (desactivees) ═══
@@ -258,7 +259,46 @@ function meteoDesc(code) {
   return 'Orages';
 }
 
-// ═══ BALLONS COLORES LE JOUR J ═══
+// ═══ BALLONS PASTEL PERMANENTS DANS LES HEROS ═══
+// Anime un courant permanent de ballons pastel qui montent doucement
+// dans le fond du hero (index) et des page-hero (autres pages).
+// Inspire du design system Kermesse Eternelle.
+function initBalloonsHero() {
+  // Palette pastel (tirees des secondaires Kermesse Eternelle, adoucies)
+  var COLORS = [
+    '#F7DCA0', // jaune ballon pastel
+    '#F0C29A', // ambre pastel
+    '#F0B5A3', // corail pastel
+    '#B0D5E5', // bleu lac pastel
+    '#B2D8B5', // vert tilleul pastel
+    '#EBD58F', // or girouette pastel
+    '#F0D4D4', // rose pastel
+    '#D1C4E0'  // lavande pastel
+  ];
+  var NB_BALLOONS = 8;
+  var heroes = document.querySelectorAll('.hero, .page-hero');
+  heroes.forEach(function(hero) {
+    var container = document.createElement('div');
+    container.className = 'balloons-hero';
+    container.setAttribute('aria-hidden', 'true');
+    for (var i = 0; i < NB_BALLOONS; i++) {
+      var b = document.createElement('span');
+      b.className = 'balloon-hero';
+      b.style.background = COLORS[Math.floor(Math.random() * COLORS.length)];
+      b.style.left = (Math.random() * 90 + 5) + '%';
+      // Taille legerement variable (28-44px) pour un effet naturel
+      var size = 28 + Math.random() * 16;
+      b.style.width = size + 'px';
+      b.style.height = (size * 1.3) + 'px';
+      b.style.setProperty('--dur', (14 + Math.random() * 10) + 's');
+      b.style.setProperty('--delay', (-Math.random() * 20) + 's'); // delai negatif = certains commencent deja haut
+      container.appendChild(b);
+    }
+    hero.insertBefore(container, hero.firstChild);
+  });
+}
+
+// ═══ BALLONS COLORES LE JOUR J (plus intense, fullscreen) ═══
 function initBalloonsOnDayJ() {
   var target = new Date('2026-09-13');
   var targetEnd = new Date('2026-09-13T23:59:59');

@@ -1252,18 +1252,22 @@ blockquote cite {
 /* --- BALLONS PASTEL PERMANENTS DANS LES HEROS --- */
 /* Animation continue de ballons pastel qui montent lentement en arriere-plan
    du hero (index.html) et des page-hero. Tons doux pour ne pas distraire
-   de la lecture. Conforme a l'esprit Kermesse Eternelle ("ballons helium"). */
+   de la lecture. Conforme a l'esprit Kermesse Eternelle ("ballons helium").
+   La distance de montee est calculee en JS (--rise-distance) a partir de
+   la hauteur reelle du hero, pour que les ballons montent jusqu'en haut
+   meme quand le hero fait 200px (page-hero) ou 800px (hero home mobile). */
 .balloons-hero {
   position: absolute;
   inset: 0;
   pointer-events: none;
   overflow: hidden;
   z-index: 1; /* sous le contenu (z-index 2) mais au-dessus du fond */
+  --rise-distance: 100vh; /* fallback si JS pas encore charge */
 }
 .hero, .page-hero { position: relative; }
 .balloons-hero .balloon-hero {
   position: absolute;
-  bottom: -80px;
+  bottom: -80px; /* demarre juste sous le hero */
   width: 36px;
   height: 46px;
   border-radius: 50% 50% 50% 50% / 55% 55% 45% 45%;
@@ -1282,11 +1286,20 @@ blockquote cite {
   background: rgba(244, 179, 101, 0.4);
 }
 @keyframes balloonRiseHero {
-  0%   { transform: translate(0, 0) rotate(0deg); opacity: 0; }
-  10%  { opacity: 0.75; }
-  50%  { transform: translate(20px, -50%) rotate(6deg); opacity: 0.85; }
-  90%  { opacity: 0.55; }
-  100% { transform: translate(-15px, -120%) rotate(-4deg); opacity: 0; }
+  0%   {
+    transform: translate(0, 0) rotate(0deg);
+    opacity: 0;
+  }
+  10%  { opacity: 0.7; }
+  50%  {
+    transform: translate(20px, calc(var(--rise-distance) * -0.5)) rotate(6deg);
+    opacity: 0.8;
+  }
+  90%  { opacity: 0.5; }
+  100% {
+    transform: translate(-15px, calc(var(--rise-distance) * -1.15)) rotate(-4deg);
+    opacity: 0;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

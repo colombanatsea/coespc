@@ -263,8 +263,10 @@ function meteoDesc(code) {
 // Anime un courant permanent de ballons pastel qui montent doucement
 // dans le fond du hero (index) et des page-hero (autres pages).
 // Inspire du design system Kermesse Eternelle.
+// La hauteur de montee est mesuree dynamiquement (voir --rise-distance)
+// pour que les ballons montent vraiment jusqu'en haut du hero, que ce
+// soit un hero 800px desktop ou un page-hero 200px mobile.
 function initBalloonsHero() {
-  // Palette pastel (tirees des secondaires Kermesse Eternelle, adoucies)
   var COLORS = [
     '#F7DCA0', // jaune ballon pastel
     '#F0C29A', // ambre pastel
@@ -275,27 +277,57 @@ function initBalloonsHero() {
     '#F0D4D4', // rose pastel
     '#D1C4E0'  // lavande pastel
   ];
-  var NB_BALLOONS = 8;
+  // Moins de ballons sur mobile pour eviter le serrement visuel
+  var isMobile = window.innerWidth < 640;
+  var NB_BALLOONS = isMobile ? 4 : 8;
+
   var heroes = document.querySelectorAll('.hero, .page-hero');
   heroes.forEach(function(hero) {
     var container = document.createElement('div');
     container.className = 'balloons-hero';
     container.setAttribute('aria-hidden', 'true');
+
     for (var i = 0; i < NB_BALLOONS; i++) {
       var b = document.createElement('span');
       b.className = 'balloon-hero';
       b.style.background = COLORS[Math.floor(Math.random() * COLORS.length)];
-      b.style.left = (Math.random() * 90 + 5) + '%';
-      // Taille legerement variable (28-44px) pour un effet naturel
-      var size = 28 + Math.random() * 16;
+      // Repartition reguliere + jitter : evite que 2 ballons soient l'un sur l'autre
+      var basePos = (i / NB_BALLOONS) * 100;
+      var jitter = (Math.random() - 0.5) * (80 / NB_BALLOONS);
+      b.style.left = Math.max(3, Math.min(95, basePos + jitter)) + '%';
+      // Taille variable (28-44px desktop, 22-34px mobile)
+      var sizeMin = isMobile ? 22 : 28;
+      var sizeMax = isMobile ? 34 : 44;
+      var size = sizeMin + Math.random() * (sizeMax - sizeMin);
       b.style.width = size + 'px';
       b.style.height = (size * 1.3) + 'px';
-      b.style.setProperty('--dur', (14 + Math.random() * 10) + 's');
-      b.style.setProperty('--delay', (-Math.random() * 20) + 's'); // delai negatif = certains commencent deja haut
+      // Duree variable (18-28s)
+      b.style.setProperty('--dur', (18 + Math.random() * 10) + 's');
+      // Delai negatif = les ballons sont deja en cours de montee au chargement
+      // Reparti sur la duree pour un effet continu (pas tous en bas au start)
+      b.style.setProperty('--delay', (-(i + Math.random()) * 3) + 's');
       container.appendChild(b);
     }
     hero.insertBefore(container, hero.firstChild);
   });
+
+  // Mesure la hauteur du hero et met a jour --rise-distance pour que
+  // la montee couvre tout le hero + un peu au-dessus (pour sortie douce).
+  var syncRiseDistance = function() {
+    document.querySelectorAll('.balloons-hero').forEach(function(c) {
+      var h = c.parentElement.offsetHeight;
+      if (h > 0) {
+        // +120 pour que le ballon sorte bien au-dessus du viewport
+        c.style.setProperty('--rise-distance', (h + 120) + 'px');
+      }
+    });
+  };
+  syncRiseDistance();
+  window.addEventListener('resize', syncRiseDistance, { passive: true });
+  // Recalcul apres chargement des fonts (hauteur du hero peut changer)
+  if (document.fonts && document.fonts.ready) {
+    document.fonts.ready.then(syncRiseDistance);
+  }
 }
 
 // ═══ BALLONS COLORES LE JOUR J (plus intense, fullscreen) ═══

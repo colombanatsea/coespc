@@ -1,5 +1,5 @@
 # Page Partenaires — contenu editable via /admin/
-# Chaque cle correspond a un attribut data-cms="cle" sur partenaires.html
+# Chaque clé correspond à un attribut data-cms="clé" sur partenaires.html
 # Les tuiles partenaires individuelles sont dans /src/_content/partenaires/
 
 # ══ HERO ══

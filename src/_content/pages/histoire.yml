@@ -1,5 +1,5 @@
 # Page Histoire — contenu editable via /admin/
-# Chaque cle correspond a un attribut data-cms="cle" sur histoire.html
+# Chaque clé correspond à un attribut data-cms="clé" sur histoire.html
 
 # ══ HERO ══
 heroBadge: "Depuis 1950"
@@ -31,7 +31,7 @@ annees50Texte: |
 evolutionTitre: "La fête grandit avec le village"
 evolutionPeriode: "1960 – 1980"
 evolutionTexte: |
-  <p>Avec la croissance d'Annecy-le-Vieux, la fête se diversifie. De nouveaux jeux et attractions sont ajoutes chaque année. Un <strong>stand de tir</strong> est installe pres de l'ecole Sainte-Anne, et les stands de restauration proposent desormais les spécialités savoyardes qui font la reputation de la fête.</p>
+  <p>Avec la croissance d'Annecy-le-Vieux, la fête se diversifie. De nouveaux jeux et attractions sont ajoutés chaque année. Un <strong>stand de tir</strong> est installé près de l&#39;école Sainte-Anne, et les stands de restauration proposent désormais les spécialités savoyardes qui font la réputation de la fête.</p>
   <p>Le nombre de bénévoles augmente et le CŒSPC structure son organisation pour accueillir toujours plus de visiteurs. La fête quitte progressivement le cadre de la simple kermesse paroissiale pour devenir un veritable événement communal.</p>
 
 # ══ ANCILEVIENNE 1985-1986 ══
@@ -45,8 +45,8 @@ ancilevienneTexte: |
 # ══ AUJOURD'HUI ══
 aujourdhuiTitre: "74 éditions et toujours debout"
 aujourdhuiTexte: |
-  <p>Aujourd'hui, la Fête Villageoise d'Annecy-le-Vieux reste fidele a l'esprit de ses fondateurs. Chaque annee, plus de <strong>50 bénévoles</strong> se mobilisent pour monter les stands, preparer la tartiflette géante, organiser les jeux et accueillir les visiteurs.</p>
-  <p>Les bénéfices continuent d'etre reversés au <strong>CCAS</strong> (Centre Communal d'Action Sociale) et aux <strong>oeuvres sociales paroissiales</strong>, perpetuant la mission de solidarite voulue par les fondateurs.</p>
+  <p>Aujourd'hui, la Fête Villageoise d'Annecy-le-Vieux reste fidele à l'esprit de ses fondateurs. Chaque année, plus de <strong>50 bénévoles</strong> se mobilisent pour monter les stands, preparer la tartiflette géante, organiser les jeux et accueillir les visiteurs.</p>
+  <p>Les bénéfices continuent d'être reversés au <strong>CCAS</strong> (Centre Communal d'Action Sociale) et aux <strong>œuvres sociales paroissiales</strong>, perpétuant la mission de solidarité voulue par les fondateurs.</p>
   <p>La Fête Villageoise, c'est un village qui se retrouve, qui partage, et qui transmet. 76 ans plus tard, l'essentiel n'a pas change.</p>
 
 # ══ CHRONOLOGIE ══

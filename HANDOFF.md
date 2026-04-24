@@ -1,5 +1,5 @@
 # HANDOFF — Spécification Technique & Fonctionnelle
-## Fête Villageoise d'Annecy-le-Vieux — fetevillageoise.com
+## Fête Villageoise d'Annecy-le-Vieux — coespc.org
 
 ---
 
@@ -21,7 +21,7 @@ Le CŒSPC (Comité des Œuvres Sociales Paroissiales et Communales) organise la 
 | Repo | GitHub | Versioning, collaboration, CI/CD natif |
 | Build | HTML/CSS/JS statique | Pas de dépendance, maintenable par non-dev |
 | CSS | Custom (design system) | Léger, pas de framework |
-| Domaine | fetevillageoise.com | Existant, migration DNS vers Cloudflare |
+| Domaine | coespc.org | Nouveau domaine, bascule DNS vers Cloudflare Pages en attente |
 | Formulaires | HelloAsso (tombola, adhésion) | Déjà utilisé par le CŒSPC |
 | Réseaux sociaux | Embed Facebook + lien Instagram | Intégration native |
 | Analytics | Cloudflare Web Analytics | Gratuit, RGPD-friendly, pas de cookie |
@@ -51,7 +51,7 @@ Le CŒSPC (Comité des Œuvres Sociales Paroissiales et Communales) organise la 
 
 > **Note** : La galerie photos/vidéos n'a pas de page dédiée. Les photos sont intégrées directement dans chaque page d'archive annuelle, ce qui simplifie la navigation et donne du contexte aux images.
 
-> **Note** : coespc.org est le portail HelloAsso du CŒSPC. Tous les liens transactionnels (tombola en ligne, réservation tartiflette, adhésion/don) renvoient vers ce site. fetevillageoise.com reste le site vitrine et d'archives.
+> **Note** : `coespc.org` est à la fois le nouveau domaine du site vitrine et le nom utilisé pour référer au portail HelloAsso du CŒSPC. Tous les liens transactionnels (tombola en ligne, réservation tartiflette, adhésion/don) pointent vers `https://www.helloasso.com/associations/comite-des-oeuvres-sociales-paroissiales-et-commun`. `fetevillageoise.com` est l'ancien WordPress en cours de désactivation (redirections 301 pour préserver les URLs indexées).
 
 ### 3.2 Navigation
 
@@ -196,7 +196,7 @@ Fichier `_redirects` (format Cloudflare Pages) :
 ### RGPD
 - Pas de cookie tiers → pas de bandeau cookies nécessaire
 - Mentions légales avec identité du CŒSPC
-- Contact : contact@fetevillageoise.com
+- Contact : voir `src/contact.html` (mail CŒSPC + formulaire)
 
 ---
 
@@ -252,7 +252,21 @@ Chaque année, le responsable site (Colomban) doit :
 | 1. Collecte | Données, archives, scan site | ✅ Terminé |
 | 2. Spécification | CLAUDE.md, HANDOFF.md, architecture | ✅ Terminé |
 | 3. Contenu | Rédaction de toutes les pages | ✅ Terminé |
-| 4. Design | Direction créative → maquette CSS | ⏳ En attente choix |
-| 5. Développement | HTML/CSS/JS, intégration contenu | 🔜 Prochain |
-| 6. Migration | GitHub, Cloudflare, DNS, redirections | 🔜 |
-| 7. Lancement | Tests, QA, mise en prod | 🔜 |
+| 4. Design | Direction créative Kermesse Éternelle → CSS | ✅ Terminé |
+| 5. Développement | HTML/CSS/JS, CMS Decap, Workers Cloudflare | ✅ Terminé |
+| 6. Migration | GitHub, Cloudflare Pages, redirections WP | ✅ Terminé (hors DNS) |
+| 7. Qualité | Accents, entités OG/Twitter, Schema.org, llms.txt | ✅ Terminé (04-2026) |
+| 8. Lancement | Bascule DNS coespc.org → Cloudflare Pages | 🔜 En attente |
+| 9. SEO | Search Console, soumission sitemap, indexation | 🔜 Après bascule |
+
+---
+
+## 10. Conventions de qualité SEO / preview
+
+- **URLs canoniques** : toujours `https://coespc.org/...` (pas de `fetevillageoise.com`).
+- **Meta OG / Twitter / title / alt** : Unicode brut (é, œ, Œ, à, ê…), **pas** d'entités HTML (`&OElig;`, `&eacute;`), **pas** de superscripts Unicode (`74ᵉ` se rend mal dans les cartes de partage).
+- **Numérotation ordinale** dans le corps HTML : `74<sup>e</sup> édition`. Dans les meta/OG/title : `74e édition` (plat).
+- **Schema.org** (index.html) : un seul `sameAs` consolidé, `Organization` + `Event` + `FAQPage` valides.
+- **`src/llms.txt`** : index pour crawlers LLM (format llmstxt.org), mis à jour quand on ajoute une page.
+- **`sitemap.xml`** + **`robots.txt`** : domaine aligné sur `coespc.org`, sitemap référencé dans robots.txt.
+- **`_headers`** : HTML cache court (5 min), assets figés (affiches) cache immutable 1 an.

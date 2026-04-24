@@ -8,8 +8,9 @@ Migration WordPress → site statique sur **GitHub + Cloudflare Pages**.
 - **Hébergement** : Cloudflare Pages (deploy depuis GitHub)
 - **Repo** : GitHub (à créer, propriétaire : Colomban)
 - **Générateur** : Site statique (HTML/CSS/JS) — pas de framework lourd
-- **Domaine** : fetevillageoise.com (migration DNS vers Cloudflare)
-- **Ancien site** : WordPress 6.0.11 sur OVH
+- **Domaine cible** : coespc.org (migration DNS vers Cloudflare Pages)
+- **Preview** : coespc.pages.dev
+- **Ancien site** : WordPress 6.0.11 sur OVH (fetevillageoise.com, à désactiver après bascule)
 
 ## Structure du repo
 ```
@@ -75,6 +76,8 @@ fete-villageoise-site/
 - Accents français corrigés en 2 passes (~500 corrections sur 26 pages)
 - Mobile first : min-height 48px pour la nav, zoom iOS prévenu (font-size 16px sur inputs), animations réduites
 - Domaine cible : **coespc.org** (pas fetevillageoise.com)
+- Meta previews (OG/Twitter) : Unicode brut, pas d'entités HTML ni de superscripts Unicode (ᵉ, ᴱ) — ils cassent les cartes de partage
+- SEO/LLM : `src/llms.txt` à la racine (https://coespc.org/llms.txt), `sitemap.xml` et `robots.txt` alignés sur coespc.org
 
 ## État d'avancement
 - [x] Collecte des données (fichier de référence)
@@ -105,6 +108,7 @@ fete-villageoise-site/
 - [ ] Binding R2 ASSETS (a refaire avec bonne jurisdiction)
 - [x] Design system : --or-logo restaure a #F4B365 (corail chaud) pour textes sur fond bleu
 - [x] Liens billetterie migres vers HelloAsso direct (58 occurrences)
+- [x] Passe qualité preview 2026-04 : 74ᵉ Unicode → `74<sup>e</sup>`, entités HTML décodées en Unicode brut dans tous les meta OG/Twitter/title/alt, accents corrigés sur ~30 pages et YAML CMS, canonical+og:url+Schema.org unifiés sur https://coespc.org, sitemap aligné, `llms.txt` publié à la racine
 - [ ] Custom domain coespc.org actif
 - [ ] Search Console + demande indexation après bascule DNS
 - [ ] Soumission Search Console + demande indexation

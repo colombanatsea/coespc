@@ -1,5 +1,5 @@
 # Page Presse — contenu editable via /admin/
-# Chaque cle correspond a un attribut data-cms="cle" sur presse.html
+# Chaque clé correspond à un attribut data-cms="clé" sur presse.html
 
 # ══ HERO ══
 heroBadge: "74e édition – 13 septembre 2026"
@@ -13,8 +13,8 @@ chiffresTitre: "Chiffres clés"
 enBrefTitre: "En bref"
 texteIntro: |
   <p>La <strong>Fête Villageoise d'Annecy-le-Vieux</strong> est un événement populaire organisé chaque année depuis 1950 par le <strong>CŒSPC</strong> (Comité des Œuvres Sociales Paroissiales et Communales), une association loi 1901 entièrement bénévole.</p>
-  <p>L'intégralité des bénéfices est reversee au <strong>CCAS</strong> (Centre Communal d'Action Sociale) pour un tiers, et aux <strong>oeuvres sociales paroissiales</strong> pour les deux tiers restants.</p>
-  <p>La fête propose une tartiflette géante, une tombola avec plus de 40 lots offerts par les commerces locaux, des jeux, des animations, et l'Ancilevienne – une course a pied creee en 1985.</p>
+  <p>L'intégralité des bénéfices est reversée au <strong>CCAS</strong> (Centre Communal d'Action Sociale) pour un tiers, et aux <strong>œuvres sociales paroissiales</strong> pour les deux tiers restants.</p>
+  <p>La fête propose une tartiflette géante, une tombola avec plus de 40 lots offerts par les commerces locaux, des jeux, des animations, et l'Ancilevienne – une course à pied créée en 1985.</p>
 
 # ══ KIT MEDIA ══
 kitTag: "Kit média"

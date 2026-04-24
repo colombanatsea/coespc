@@ -1,5 +1,5 @@
-# Page Edition 2026 — contenu editable via /admin/
-# Chaque cle correspond a un attribut data-cms="cle" sur edition-2026.html
+# Page Édition 2026 — contenu editable via /admin/
+# Chaque clé correspond à un attribut data-cms="clé" sur edition-2026.html
 
 # ══ HERO ══
 heroBadge: "74e édition"
@@ -38,7 +38,7 @@ tombolaTexte: |
       <p>En vente sur place et en ligne</p>
     </div>
   </div>
-  <p>Tirage au sort a <strong>17h30</strong> sur la place du Chef-lieu. Presence non obligatoire pour retirer les lots.</p>
+  <p>Tirage au sort à <strong>17h30</strong> sur la place du Chef-lieu. Présence non obligatoire pour retirer les lots.</p>
 tombolaCtaTexte: "Acheter des tickets sur coespc.org"
 tombolaCtaLien: "https://www.helloasso.com/associations/comite-des-oeuvres-sociales-paroissiales-et-commun"
 

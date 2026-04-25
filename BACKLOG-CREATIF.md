@@ -1,12 +1,24 @@
-# BACKLOG CRÉATIF — Idées à explorer plus tard
-> Ce fichier historise toutes les pistes créatives pour ne rien perdre.
-> Rien n'est engagé ici — ce sont des options à trancher quand on passera au design.
+# BACKLOG CRÉATIF — Idées et roadmap
+> Historique des pistes créatives + roadmap des évolutions futures.
+> Sert de mémoire pour ne rien perdre des décisions passées.
+
+---
+
+## 📊 Statut (avril 2026)
+
+- ✅ **Direction A « Kermesse Éternelle »** retenue + design system officiel Anthropic appliqué
+- ✅ **Site complet déployé** sur https://coespc.org
+- ✅ **CMS Decap actif** (workflow éditorial bénévoles via GitHub OAuth)
+- ✅ **13 archives années** + **47 partenaires** + **81 photos** + **12 FAQ** migrés
+- 🚧 **Activation OAuth bénévoles** = prochaine étape (voir `docs/CMS-ACTIVATION.md`)
+
+Idées non-prioritaires conservées ci-dessous (historique + roadmap).
 
 ---
 
 ## 1. Directions de design system (3 propositions)
 
-### Direction A — « Kermesse Éternelle » ⭐ (recommandée)
+### Direction A — « Kermesse Éternelle » ⭐ (RETENUE et déployée)
 - **Esprit** : énergie joyeuse et artisanale, peinte à la main
 - **Palette** : Bleu Clocher (#142477), Ambre Fête (#D4760A), Or Girouette (#D4AF37), Rouge Guirlande (#C0392B)
 - **Typo titrage** : Fraunces (variable serif, expressif, chaud)

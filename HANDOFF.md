@@ -1,15 +1,22 @@
-# HANDOFF — Spécification Technique & Fonctionnelle
-## Fête Villageoise d'Annecy-le-Vieux — fetevillageoise.com
+# HANDOFF — Spécification technique & fonctionnelle
+## Fête Villageoise d'Annecy-le-Vieux — coespc.org
+
+> **État** : production active sur https://coespc.org
+> **Dernière mise à jour** : 24 avril 2026
 
 ---
 
 ## 1. Contexte
 
-Le CŒSPC (Comité des Œuvres Sociales Paroissiales et Communales) organise la Fête Villageoise d'Annecy-le-Vieux depuis 1950 (76 ans). L'événement annuel rassemble la communauté autour de jeux, restauration, tombola et animations, en lien avec la course l'Ancilevienne. Les bénéfices sont reversés aux œuvres sociales de la paroisse (2/3) et au CCAS de la ville d'Annecy (1/3).
+Le **CŒSPC** (Comité des Œuvres Sociales Paroissiales et Communales) organise la Fête Villageoise d'Annecy-le-Vieux depuis **1950** (76 ans, 74 éditions, 2 annulations COVID en 2020-2021).
 
-**Site actuel** : WordPress 6.0.11 sur OVH, non maintenu techniquement, contenu riche mais désorganisé (2011→2025).
+**Mission** : journée festive familiale (jeux, restauration savoyarde, tombola, animations musicales) dont **100 % des bénéfices** sont reversés :
+- **1/3** au CCAS d'Annecy
+- **2/3** aux œuvres sociales de la paroisse Christ Ressuscité
 
-**Objectif** : site statique moderne, rapide, accessible, archivant TOUTE l'histoire de la fête.
+**Site précédent** : WordPress 6.0.11 sur OVH (fetevillageoise.com), non maintenu techniquement, contenu hétérogène (2011-2025).
+
+**Site actuel** : statique sur **https://coespc.org**, refonte 2026 par Colomban Monnier (https://colombanatsea.com), propulsé et protégé par VAIATA Cyber.
 
 ---
 
@@ -17,242 +24,286 @@ Le CŒSPC (Comité des Œuvres Sociales Paroissiales et Communales) organise la 
 
 | Composant | Choix | Justification |
 |---|---|---|
-| Hébergement | Cloudflare Pages | Gratuit, CDN mondial, HTTPS auto, preview branches |
-| Repo | GitHub | Versioning, collaboration, CI/CD natif |
-| Build | HTML/CSS/JS statique | Pas de dépendance, maintenable par non-dev |
-| CSS | Custom (design system) | Léger, pas de framework |
-| Domaine | fetevillageoise.com | Existant, migration DNS vers Cloudflare |
-| Formulaires | HelloAsso (tombola, adhésion) | Déjà utilisé par le CŒSPC |
-| Réseaux sociaux | Embed Facebook + lien Instagram | Intégration native |
-| Analytics | Cloudflare Web Analytics | Gratuit, RGPD-friendly, pas de cookie |
+| **Hébergement** | Cloudflare Pages | Gratuit, CDN mondial, HTTPS auto, preview branches |
+| **Repo** | GitHub `colombanatsea/coespc` | Versioning, déploiement auto sur push `main` |
+| **Front** | HTML/CSS/JS vanilla | Léger, lisible bénévoles, zéro build step |
+| **CSS** | Custom design system « Kermesse Éternelle » | Léger, pas de framework |
+| **Polices** | Auto-hébergées WOFF2 (Fraunces + DM Sans + Instrument Serif) | Zéro appel Google, OFL |
+| **CMS** | [Decap CMS](https://decapcms.org) (ex-Netlify CMS) | Standard Jamstack, équivalent WordPress sur statique |
+| **Auth CMS** | OAuth GitHub via Cloudflare Pages Functions | Pas de backend à maintenir |
+| **Stockage contenu** | Fichiers YAML dans Git (`src/_content/`) | Versionné, rollback, transparent |
+| **Workers** | Cloudflare Pages Functions | RSS partenaires, OAuth proxy |
+| **Domaine** | coespc.org (Cloudflare DNS) | SSL Full strict, mode DNS proxy |
+| **Billetterie** | HelloAsso externe | Déjà utilisé par le CŒSPC |
+| **Réseaux sociaux** | Widget Elfsight (Instagram) + liens Facebook | Anti-spam (emails masqués) |
+| **Analytics** | Cloudflare Web Analytics | RGPD-friendly, sans cookie |
 
 ---
 
 ## 3. Architecture du site
 
-### 3.1 Arborescence des pages
+### 3.1 Arborescence des pages publiques
 
 ```
-/ (Accueil)
-├── /histoire              Notre histoire (1950 → aujourd'hui)
-├── /association            Le CŒSPC — qui sommes-nous
-├── /edition-2026           Programme de la 74ᵉ édition
-│   └── → Renvois vers coespc.org (tombola, repas, adhésions)
-├── /partenaires            Nos partenaires (avec logos)
-├── /benevoles              Devenir bénévole (formulaire/contact)
-├── /archives               Toutes les éditions + galerie photos intégrée
-│   ├── /archives/2025      (résumé, tombola, photos, partenaires)
-│   ├── /archives/2024
+/                          Accueil (hero + stats + édition + solidarité + partenaires + archives)
+├── /histoire              76 ans d'histoire (1948 → 2026, coupures presse 1953)
+├── /association           Le CŒSPC, missions, gouvernance (à enrichir)
+├── /edition-2026          Programme jour J + tartiflette + tombola + infos pratiques
+├── /partenaires           47 partenaires en 6 catégories + portraits + plaquette
+├── /benevoles             Devenir bénévole (Instagram/Facebook prioritaires)
+├── /archives/             Index chronologique des 13 éditions archivées
+│   ├── /archives/2025     73e édition (record 55 lots)
+│   ├── /archives/2024     72e édition (tartiflette, gonflables)
 │   ├── ...
-│   └── /archives/2011
-├── /presse                 Dossier de presse (PDF téléchargeable)
-└── /contact                Contact + mentions légales
+│   └── /archives/2011     59e édition (Sonneurs de Savoye, Country Club)
+├── /presse                Kit média téléchargeable + boilerplate copiable
+├── /foire-aux-questions   FAQ (12 Q/R éditables via CMS)
+├── /contact               Contact (Instagram + Facebook + adresse postale)
+├── /mentions-legales      noindex, dédié (RGPD, hébergeur, crédits)
+└── /admin/                Decap CMS (login GitHub OAuth)
 ```
 
-> **Note** : La galerie photos/vidéos n'a pas de page dédiée. Les photos sont intégrées directement dans chaque page d'archive annuelle, ce qui simplifie la navigation et donne du contexte aux images.
-
-> **Note** : coespc.org est le portail HelloAsso du CŒSPC. Tous les liens transactionnels (tombola en ligne, réservation tartiflette, adhésion/don) renvoient vers ce site. fetevillageoise.com reste le site vitrine et d'archives.
-
-### 3.2 Navigation
-
-**Header** : Logo CŒSPC + nav principale (Accueil | Histoire | Édition 2026 | Partenaires | Archives | Contact) + **bouton CTA « Tombola & Billetterie → coespc.org »**
-**Footer** : Logos partenaires institutionnels (Mairie, Paroisse, AVOC, Ancilevienne) + réseaux sociaux + mentions légales + lien coespc.org
-
-### 3.3 Pages spéciales
-
-**Page d'accueil** :
-- Hero : affiche 2026 (quand disponible) ou photo emblématique + date + « 74ᵉ édition »
-- Bloc « Depuis 1950 » : chiffre clé (76 ans, 74 éditions, 50+ bénévoles)
-- Bloc « Prochaine édition » : date, lieu, CTA programme
-- Bloc « Partenaires » : carrousel logos
-- Bloc « Réseaux sociaux » : embed Facebook + liens
-- Bloc « Solidarité » : explication du reversement CCAS/paroisse
-
-**Page Archives (index)** :
-- Timeline visuelle verticale (année, affiche miniature, titre/thème, lien)
-- Chaque année cliquable vers sa page dédiée
-- De 2025 (haut) à 2011 (bas), avec section « Avant 2011 » pour les coupures de presse
-
-**Page Archive (par année)** :
-- Affiche de l'année
-- Résumé de l'édition
-- Résultats tombola complets
-- Galerie photos
-- Liste partenaires de l'année
-- Résultats concours de tir (quand disponible)
-- Liens vers articles originaux (si conservés)
-
----
-
-## 4. Redirections (anciennes URLs → nouvelles)
-
-Fichier `_redirects` (format Cloudflare Pages) :
+### 3.2 Sources de contenu
 
 ```
-# Pages principales
-/dimanche-14-septembre-2025-73eme-edition-de-la-fete-villageoise.html /archives/2025 301
-/resultats-de-la-tombola-de-la-fete-villageoise-2025.html /archives/2025 301
-/fete-villageoise-2024.html /archives/2024 301
-/fete-villageoise-2023.html /archives/2023 301
-/fete-villageoise-2022.html /archives/2022 301
-/fete-villageoise-2019.html /archives/2019 301
-/fete-villageoise-2019-2.html /archives/2019 301
-/un-bilan-mitige.html /archives/2019 301
-/solidarite.html /archives/2019 301
-/2018-entre-danses-et-chants-mon-coeur-balance.html /archives/2018 301
-/1772.html /archives/2018 301
-/la-fete-en-2018.html /archives/2018 301
-/un-geste-de-solidarite.html /archives/2018 301
-/un-bon-cru-savoyard.html /archives/2017 301
-/resultats-de-la-tombola-2017.html /archives/2017 301
-/soleil-soleil.html /archives/2016 301
-/la-fete-au-chef-lieu-dannecy-le-vieux.html /archives/2016 301
-/un-voyage-de-reve.html /archives/2016 301
-/la-fete-cest-aussi-la-solidarite.html /archives/2016 301
-/tout-un-programme.html /archives/2016 301
-/une-association-en-assemblee.html /archives/2016 301
-/saga-africa.html /archives/2015 301
-/fete-villageoise-2015-lafrique-sinvite.html /archives/2015 301
-/fete-villageoise-2015.html /archives/2015 301
-/1445.html /archives/2015 301
-/fete-villageoise-2014-du-soleil-bresilien.html /archives/2014 301
-/fete-villageoise-2014.html /archives/2014 301
-/fete-villageoise-2014-dimanche-14-septembre.html /archives/2014 301
-/entre-les-averses.html /archives/2013 301
-/fete-villageoise-2013-2.html /archives/2013 301
-/fete-villageoise-2013.html /archives/2013 301
-/sous-le-soleil.html /archives/2012 301
-/fete-villageoise-2012-2.html /archives/2012 301
-/dimanche-9-septembre-2012-cest-la-fete.html /archives/2012 301
-/9-septembre-2012-prenez-date.html /archives/2012 301
-/fete-villageoise-2012.html /archives/2012 301
-/12-decembre-2011-remise-cheque-en-mairie.html /archives/2011 301
-/actualites.html /archives/2011 301
-/animations-2011.html /archives/2011 301
-/ils-nous-aident-reservez-leur-vos-achats.html /partenaires 301
-
-# Pages structurelles
-/programme-de-la-fete /edition-2026 301
-/tombola /edition-2026/tombola 301
-/category/* /archives 301
-/tag/* /archives 301
-/photo-videotheque/* /galerie 301
-
-# Archives par année
-/2025/* /archives/2025 301
-/2024/* /archives/2024 301
-/2023/* /archives/2023 301
-/2022/* /archives/2022 301
-/2019/* /archives/2019 301
-/2018/* /archives/2018 301
-/2017/* /archives/2017 301
-/2016/* /archives/2016 301
-/2015/* /archives/2015 301
-/2014/* /archives/2014 301
-/2013/* /archives/2013 301
-/2012/* /archives/2012 301
-/2011/* /archives/2011 301
-
-# WordPress artefacts
-/wp-login.php / 301
-/wp-admin/* / 301
-/feed/* / 301
-/xmlrpc.php / 301
+src/_content/
+├── pages/                  # Contenu textuel des pages publiques
+│   ├── accueil.yml         # hero, stats, blocs édition/solidarité/partenaires
+│   ├── edition-2026.yml    # programme + restauration + animations
+│   ├── histoire.yml        # 5 sections chronologiques
+│   ├── partenaires.yml     # textes de page (catégories, plaquette)
+│   ├── benevoles.yml       # appel + postes + inscription
+│   ├── contact.yml         # adresse, liens utiles
+│   ├── presse.yml          # boilerplate, kit média
+│   └── foire-aux-questions.yml
+├── archives/               # 1 fichier par année 2011-2025 (sauf COVID)
+│   └── YYYY.yml            # année, n° édition, titre, thème, affiche, résumé,
+│                           # tombola { lots[] }, retrait_lots, partenaires[], solidarité
+├── partenaires/            # 1 fichier par partenaire (~47)
+│   └── slug.yml            # nom, catégorie, description, url, ordre, actif
+├── programme/              # 7 moments du jour J
+│   └── XX-HHhMM-slug.yml   # heure, titre, description, catégorie
+├── faq/                    # 12 questions
+│   └── XX-slug.yml         # question, réponse (Markdown), catégorie, ordre
+└── config/
+    ├── site.yml            # date prochaine édition, chiffres-clés, horaires
+    └── reseaux.yml         # URLs Instagram, Facebook, HelloAsso
 ```
 
----
+### 3.3 Architecture YAML ↔ HTML
 
-## 5. Exigences non fonctionnelles
+Chaque page HTML contient le contenu **initial** (SEO + fallback) sur les éléments marqués :
+- `data-cms="cle"` → remplacé par `textContent` (texte brut)
+- `data-cms-html="cle"` → remplacé par `innerHTML` (HTML interprété)
+- `data-cms-href="cle"` → remplace `<a href>`
+- `data-cms-src="cle"` → remplace `<img src>`
+- `data-cms-list="cle"` → génère une liste depuis un array YAML
 
-### Performance
-- Lighthouse score > 90 sur les 4 métriques
-- Poids total page d'accueil < 500 Ko (hors images lazy-loaded)
-- Toutes les images en WebP/AVIF avec fallback
-- Lazy loading pour images sous le fold
+Au chargement, `initCmsContent()` (`src/js/main.js`) :
+1. Détecte la page courante via `window.location.pathname`
+2. Fetch le YAML correspondant (mapping URL → fichier)
+3. Charge `js-yaml` depuis CDN si pas encore chargé
+4. Remplace tous les éléments marqués
 
-### Accessibilité (WCAG 2.1 AA)
-- Contraste minimum 4.5:1 (corps de texte)
-- Navigation clavier complète
-- Taille de police minimum 16px pour le corps
-- Boutons minimum 44x44px de zone cliquable
-- Structure sémantique HTML5 (header, nav, main, article, aside, footer)
-- Skip link vers le contenu principal
-- Alt text sur toutes les images
+**Règle critique** : le contenu HTML par défaut doit rester valide pour SEO/no-JS. Le YAML est une couche de superposition.
 
-### SEO
-- Balises meta (title, description) uniques par page
-- Schema.org Event pour l'édition 2026
-- Schema.org Organization pour le CŒSPC
-- Open Graph / Twitter Cards pour le partage social
-- Sitemap.xml
-- robots.txt
+### 3.4 Galerie photos
 
-### Sécurité
-- HTTPS (auto via Cloudflare)
-- Headers de sécurité (CSP, X-Frame-Options, etc.)
-- Pas de JavaScript tiers non contrôlé
-- Pas de cookies (analytics Cloudflare = cookieless)
+Pour chaque année dans `src/assets/images/galerie/YYYY/`, un fichier `galerie.json` liste les photos :
 
-### RGPD
-- Pas de cookie tiers → pas de bandeau cookies nécessaire
-- Mentions légales avec identité du CŒSPC
-- Contact : contact@fetevillageoise.com
+```json
+[
+  { "file": "01-cor-des-alpes.jpg",     "alt": "Les Sonneurs de Savoye" },
+  { "file": "02-remise-cheque-2011.jpg","alt": "Remise chèque mairie 12 dec 2011" }
+]
+```
+
+Le JS `initGallery()` lit ce manifest et génère le grid + lightbox automatiquement. **81 photos** importées depuis l'ancien WordPress (2011-2025).
 
 ---
 
-## 6. Médias à migrer depuis WordPress
+## 4. Design system « Kermesse Éternelle »
 
-### Priorité 1 — Essentiels (à télécharger et optimiser)
-- Logo CŒSPC : `wp-content/uploads/2025/08/Comite_des_OEuvres_..._Logo.png`
-- Affiches : une par année (2011→2025)
-- Bannière du site : `wp-content/uploads/2011/07/cropped-Bandeau-ecran-accueil1.jpg`
-- Photos des remises de chèques (solidarité)
+Conçu par Anthropic pour le projet (avril 2026), basé sur l'affiche 2025 de F. Garreau.
 
-### Priorité 2 — Archives enrichies
-- Photos d'événement (sélection des meilleures par année)
-- PDFs résultats tombola
-- Vidéo 2018 (22 Mo — héberger sur YouTube puis embed)
-- PV d'AG (2005→2016)
+### 4.1 Palette
 
-### Priorité 3 — Historique
-- Coupures de presse 1950s (à numériser — Colomban les a récupérées)
-- Affiches historiques (2000→2010 dans wp-content/uploads/2011/06/)
-- Photo historique du village : `Annecy-le-Vx-1920-R`
+**Primaires** (5 piliers identitaires) :
+- `--bleu-logo` `#142477` — Bleu Clocher (logos, headers, fond dark)
+- `--or-logo` `#F4B365` — Or chaud (texte sur fond bleu, **uniquement**)
+- `--ambre-fete` `#D4760A` — CTA, liens, accents chauds
+- `--or-girouette` `#D4AF37` — Cocardes, badges (jamais texte sur bleu)
+- `--rouge-guirlande` `#C0392B` — Fanions, drapeau Savoie
+
+**Secondaires** (touches du peintre) : Vert Tilleul, Jaune Ballon, Bleu Lac, Corail Fleur
+
+**Neutres papier** : Crème Lin `#FDF6E8` (fond), Papier Vieilli, Bois Chaud, Encre
+
+### 4.2 Typographie
+
+- **Display** : Fraunces (400-900 + italic) — titres uniquement
+- **Body** : DM Sans (400/500/700) — corps, UI
+- **Accent** : Instrument Serif (italic) — citations, exergues
+
+Échelle Major Third (1.25), `--text-xs` 12px → `--text-5xl` 49px.
+
+### 4.3 Règles d'usage
+
+1. **Italique signature** : `<h1>La <em>Fête Villageoise</em>...</h1>`
+2. **8px grid** : tous espacements multiples de 8 (`--space-1` à `--space-24`)
+3. **Radii** : 4/8/12/16, **`--radius-full` 100px** pour boutons/pills
+4. **Shadows bleu-tinted** : `rgba(5,22,130,0.04 → 0.12)`, jamais gris froid
+5. **Motion gentle** : `cubic-bezier(.2,.8,.2,1)`, durées 150/200/400ms
+6. **Max 3 éléments décoratifs par page** (fanions + 2 décos)
+
+### 4.4 Éléments signature
+
+- **Fanions** triangulaires sticky transparents en haut (overlay header)
+- **Coq emoji** 🐓 — favicon (emoji officiel, pas de SVG custom) + animation cocoricoFade après Instagram
+- **Verres qui trinquent** 🥂 — séparateur entre blocs avec sparkles
+- **Ballons pastel** — pluie continue dans les hero (8 desktop, 4 mobile)
+- **Silhouette montagne** SVG dans hero/footer (parallax léger sur home)
+- **Archive press** : papier vieilli + rotation -0.3°, sépia 15%
 
 ---
 
-## 7. Intégrations externes
+## 5. Workflow éditorial CMS
 
-| Service | Usage | Méthode |
-|---|---|---|
-| HelloAsso | Tombola en ligne, dons, adhésions | Lien externe + bouton CTA |
-| Facebook | Page/groupe CŒSPC | Embed plugin Facebook |
-| Instagram | Futur compte | Lien icône (pas d'embed pour l'instant) |
-| YouTube | Vidéo 2018 (à uploader) | Embed iframe |
-| SwissTransfer | Dossier de presse | Lien externe (temporaire) |
+### 5.1 Activation (à faire une fois)
+
+Voir `docs/CMS-ACTIVATION.md` (5 étapes, ~10 min) :
+1. Créer GitHub OAuth App (callback `/oauth/callback`)
+2. Ajouter `OAUTH_GITHUB_CLIENT_ID` + `_SECRET` aux secrets Cloudflare Pages
+3. Inviter bénévoles comme collaborators GitHub (Write)
+4. Tester sur `/admin/`
+5. Première modification de test
+
+### 5.2 Workflow
+
+1. Bénévole → `coespc.org/admin/` → « Login with GitHub »
+2. Sélectionne une collection (Archives, Partenaires, Programme, FAQ...)
+3. Modifie via formulaire web (champs typés : string, markdown, image, list, datetime, select)
+4. Clique « Save » (draft) ou « Publish »
+5. Decap commit automatiquement sur GitHub (mode `editorial_workflow` = via PR)
+6. Cloudflare Pages redéploie en ~1 min
+7. Site à jour en moins de 5 min sans purge cache (grâce aux nouveaux headers)
+
+### 5.3 Limites du CMS
+
+- Le CMS n'édite que les fichiers `_content/*.yml` (pas le HTML brut)
+- Pour ajouter une nouvelle **structure** (nouveau bloc, nouvelle page), édition manuelle du HTML + création/modif de la collection dans `/admin/config.yml`
+- Les images uploadées via le CMS vont dans `src/assets/images/uploads/`
 
 ---
 
-## 8. Workflow de mise à jour annuel
+## 6. Stratégie SEO
 
-Chaque année, le responsable site (Colomban) doit :
-1. Créer la page `/archives/{année}` avec le contenu de l'édition
-2. Mettre à jour `/edition-{année+1}` avec le nouveau programme
-3. Mettre à jour `/partenaires` avec la nouvelle liste
-4. Mettre à jour `/tombola` avec les nouveaux lots
-5. Ajouter l'affiche de l'année dans `/assets/archives/`
-6. Commit + push → déploiement automatique via Cloudflare Pages
+### 6.1 On-page
+
+- **Title + meta description** spécifiques par page
+- **Canonical** systématique
+- **OG tags** + **Twitter Card** (image affiche-2025.png, 1200×630)
+- **JSON-LD** : Organization (CŒSPC) + Event (74e édition) + FAQPage
+
+### 6.2 Performance
+
+- HTML 5 min cache + s-maxage 60s + SWR (modifs visibles vite)
+- Fonts 1 an immutable (URLs stables)
+- Images : WebP pour affiche 2025, JPEG progressive ailleurs
+- `loading="lazy"` sur toutes les images sous le fold
+- `js-yaml` chargé dynamiquement, pas pour le first paint
+
+### 6.3 Migration WordPress
+
+Le fichier `src/_redirects` contient les redirections 301 des anciennes URLs WP vers les nouvelles. Tout le contenu archives est conservé (13 éditions enrichies depuis le scrape WP).
+
+### 6.4 Search Console
+
+- Sitemap : `src/sitemap.xml` (24 URLs, changefreq + priority)
+- robots.txt : Allow all + sitemap
+- À faire : soumettre à Google Search Console + monitoring 404
 
 ---
 
-## 9. Timeline projet
+## 7. Cache Cloudflare
 
-| Phase | Contenu | Statut |
-|---|---|---|
-| 1. Collecte | Données, archives, scan site | ✅ Terminé |
-| 2. Spécification | CLAUDE.md, HANDOFF.md, architecture | ✅ Terminé |
-| 3. Contenu | Rédaction de toutes les pages | ✅ Terminé |
-| 4. Design | Direction créative → maquette CSS | ⏳ En attente choix |
-| 5. Développement | HTML/CSS/JS, intégration contenu | 🔜 Prochain |
-| 6. Migration | GitHub, Cloudflare, DNS, redirections | 🔜 |
-| 7. Lancement | Tests, QA, mise en prod | 🔜 |
+Stratégie dans `src/_headers` :
+
+```
+/*.html          → max-age=300, s-maxage=60, SWR=60
+/_content/*      → max-age=60, s-maxage=30, SWR=30
+/css/*, /js/*    → max-age=3600, s-maxage=300, SWR=60
+/assets/fonts/*  → max-age=31536000, immutable
+/assets/images/{archives,galerie,partenaires-portraits,uploads}/* → max-age=86400, SWR=3600
+/assets/images/* → max-age=31536000, immutable (affiches stables)
+/admin/*         → no-store, no-cache
+/oauth*          → no-store, no-cache
+```
+
+**Conséquence** : aucune purge manuelle nécessaire après push. Les modifs apparaissent en <5 min côté visiteur.
+
+---
+
+## 8. Accessibilité
+
+- Skip link `Aller au contenu principal`
+- Contraste WCAG AA validé (Bois Chaud sur Crème Lin = 7.8:1)
+- Min font-size 16px (corps)
+- Touch targets ≥ 44px (mobile)
+- `aria-label`, `aria-hidden`, `role` adaptés
+- `prefers-reduced-motion` désactive toutes les animations
+- Logo CŒSPC : zone de protection = largeur lettre C, taille min 48px
+
+---
+
+## 9. Sécurité
+
+`src/_headers` :
+- `X-Frame-Options: DENY`
+- `X-Content-Type-Options: nosniff`
+- `Referrer-Policy: strict-origin-when-cross-origin`
+- `Permissions-Policy: camera=(), microphone=(), geolocation=()`
+- `X-XSS-Protection: 1; mode=block`
+
+OAuth GitHub : secrets stockés en variables Cloudflare Pages chiffrées, jamais commitées.
+
+---
+
+## 10. Maintenance
+
+### Mise à jour annuelle (chaque septembre)
+
+Avant l'édition N+1 :
+1. Créer `src/_content/archives/YYYY.yml` pour l'édition N qui vient de passer
+2. Ajouter affiche `src/assets/images/affiche-YYYY.png` (ou jpg)
+3. Ajouter dossier `src/assets/images/galerie/YYYY/` + photos + `galerie.json`
+4. Mettre à jour `src/_content/config/site.yml` :
+   - `edition_prochaine_date`
+   - `edition_prochaine_numero`
+   - `annees_depuis_creation`
+   - `total_editions`
+5. Ajouter une carte dans `src/archives/index.html` pour la nouvelle année
+6. Créer la page `src/archives/YYYY.html` (copier le template d'une année précédente)
+
+Le CMS Decap simplifie tout ça via l'interface web (sauf création de la page HTML qui reste en code).
+
+### Dépendances externes
+
+- Polices : OFL, copies locales ne dépendent de rien
+- js-yaml : CDN jsDelivr (versionné `@4.1.0`)
+- Decap CMS : CDN unpkg (versionné `@^3.3.3`)
+- Open-Meteo : API publique gratuite
+- Elfsight : widget Instagram (à activer après création compte)
+
+---
+
+## 11. Documentation associée
+
+- `CLAUDE.md` — Vue d'ensemble + état d'avancement
+- `BACKLOG-CREATIF.md` — Roadmap idées non-prioritaires
+- `docs/CMS-ACTIVATION.md` — Procédure activation CMS
+- `src/assets/images/{galerie,archives,partenaires-portraits}/README.md` — Comment ajouter des médias
+
+---
+
+*Dernière révision : 24 avril 2026 — par Colomban + Claude*

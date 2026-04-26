@@ -229,34 +229,29 @@ Workflow éditorial : draft → review → publish via Pull Request GitHub.
 - [x] **Fix RSS entities partenaires** : décodeur d'entités HTML (`&#8211;`, `&#8217;`, etc.) dans `partners-feed.js` + invalidation cache Edge via `CACHE_VERSION`
 - [x] Merge branche externe `claude/fix-preview-content-quality` (Unicode brut OG/Twitter, 74e plat, 40+ accents, unification domaine coespc.org, Schema.org cleanup, llms.txt)
 
-### 🚧 À faire / surveillance
+### 🚧 À faire — voir `TODO.md` pour le détail actionnable
 
-**Court terme (mai 2026)**
-- [ ] **Activation OAuth bénévoles** : créer comptes GitHub partagés ou inviter individuellement (voir `docs/CMS-ACTIVATION.md`)
-- [ ] **Validation contenu** par bureau CŒSPC sur coespc.org
-- [ ] **Affiche 2026** : décliner dès réception de l'artiste, remplacer `affiche-2025.webp` partout en image OG
+Roadmap par horizon (résumé — détail dans `TODO.md`) :
 
-**Référencement / monitoring**
-- [ ] **Search Console** : soumission sitemap + indexation
-- [ ] **Search Console** : monitoring erreurs 404 (anciennes URLs WP)
-- [ ] **Plan migration WP fetevillageoise.com** : redirect 301 permanent vers coespc.org dès que le WP est arrêté
+| Horizon | Items | Priorité |
+|---|---|---|
+| **Court terme (mai 2026)** | Activation OAuth bénévoles · Validation contenu bureau · Affiche 2026 · Search Console | 🔴 Action immédiate sur OAuth |
+| **Moyen terme (été 2026)** | Comm réseaux sociaux pré-fête · Décision migration `fetevillageoise.com` | 🟢 Non bloquant |
+| **Refactoring vague 2 (post-13 sept 2026)** | WebP images · Modules JS dynamiques · PurgeCSS · Tests Playwright · Lighthouse CI · Sitemap dynamique · PWA | ⏳ Attendre fin événement |
 
-**Refactoring / qualité (post-événement 13 sept 2026)**
-- [ ] **Audit images** : convertir `affiche-YYYY.png` (953 KB) en WebP, référencer `.webp` partout au lieu de `.png` ; `<picture>` avec fallback JPG pour vieux Safari
-- [ ] **Audit JS** : extraire les fonctions optionnelles (météo, gallery lightbox) en modules dynamiques (`import()` à la demande)
-- [ ] **Audit CSS** : passe PurgeCSS pour traquer les utility classes orphelines (probable : <5 % du fichier)
-- [ ] **Tests** : ajouter Playwright smoke tests (homepage charge, CMS reader applique YAML, partners-feed parse OK)
-- [ ] **Lighthouse** : valider tous critères ≥ 95 (perf/a11y/SEO/best-practices)
-- [ ] **PWA** : manifest + service worker pour install mobile (faible priorité)
+Dette technique surveillée (3 points) : voir `TODO.md` § « Dette technique surveillée ».
 
 ## Documentation associée
 
-- `HANDOFF.md` — Spécification technique complète (architecture, choix de stack, contenu)
-- `BACKLOG-CREATIF.md` — Roadmap créative + idées non-prioritaires
-- `docs/CMS-ACTIVATION.md` — Procédure activation OAuth + invitation bénévoles
+- **`TODO.md`** — Roadmap actionnable (3 horizons, owner, effort, statut) — **point d'entrée pour reprendre le projet**
+- `HANDOFF.md` — Spécification technique complète (architecture, choix de stack, sécurité, cache)
+- `BACKLOG-CREATIF.md` — Idées créatives long terme + historique design + dette technique
+- `docs/CMS-ACTIVATION.md` — Procédure activation OAuth GitHub (5 étapes)
 - `src/assets/images/galerie/README.md` — Comment ajouter des photos
 - `src/assets/images/archives/README.md` — Comment ajouter des coupures presse
 - `src/assets/images/partenaires-portraits/README.md` — Comment ajouter des portraits
+
+> **Reprendre le projet plus tard ?** Lis `CLAUDE.md` (3 min) puis `TODO.md` (2 min). Tout est là.
 
 ---
 

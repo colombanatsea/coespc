@@ -1,6 +1,9 @@
-# BACKLOG CRÉATIF — Idées et roadmap
-> Historique des pistes créatives + roadmap des évolutions futures.
-> Sert de mémoire pour ne rien perdre des décisions passées.
+# BACKLOG CRÉATIF — Idées long terme + historique design
+
+> Historique des pistes créatives + idées non-prioritaires + dette technique surveillée.
+> Sert de **mémoire** pour ne rien perdre des décisions passées.
+>
+> **⚠️ Pour la roadmap actionnable (court/moyen/long terme avec owner et effort), voir `TODO.md`.** Ce fichier-ci ne fait qu'archiver le « pourquoi » et les pistes long terme.
 
 ---
 
@@ -17,36 +20,24 @@ Idées non-prioritaires conservées ci-dessous (historique + roadmap).
 
 ---
 
-## 🛠 Roadmap refactoring & dette technique
+## 🛠 Roadmap refactoring
 
-### ✅ Refactoring fait (avril 2026)
+> Détail actionnable avec effort/impact/owner : voir `TODO.md` § « Horizon 3 — Refactoring vague 2 ».
+>
+> Résumé :
+> - **Fait avril 2026** (7 lots, ~280 lignes de dead code purgées, fix RSS entities, perf guard) — détail dans le tableau de `TODO.md`.
+> - **Prochaine vague (post-13 sept 2026)** : WebP, modules JS dynamiques, PurgeCSS, tests Playwright, Lighthouse CI, sitemap dynamique, PWA.
+> - **Pourquoi attendre l'événement ?** Le site est stable/performant ; refactorer avant l'événement principal = risque de régression évitable. 3 mois d'attente = zéro coût utilisateur.
 
-| Lot | Bénéfice |
-|---|---|
-| Suppression `.page-decorations` + 11 `@keyframes` orphelines | -212 lignes CSS, élimine du CSS jamais utilisé depuis le commit 624a86a |
-| Suppression `_initPageDecorationsDisabled` JS | -68 lignes JS mortes |
-| Guard `data-cms` early-return dans `initCmsContent` | -45 KB sur les pages statiques (pas de fetch js-yaml inutile) |
-| Décodeur HTML entities dans `partners-feed.js` | Plus de `&#8211;` brut affiché ; cache versionné pour invalidation |
-| `X-XSS-Protection` obsolète retiré | Conforme aux recos OWASP/CSP modernes |
-| Lien footer `/devenir-partenaire.html` (404) → ancre | -1 lien cassé |
+---
 
-### 🔜 Prochaine vague (post-événement 13 sept 2026)
+## 🧹 Dette technique surveillée (long terme)
 
-| Lot | Effort | Impact |
-|---|---|---|
-| **Audit images** : convertir tous les `affiche-YYYY.png` (953 KB) en WebP, référencer `.webp` partout, `<picture>` avec fallback JPG | M | -70 % poids hero |
-| **Modules JS dynamiques** : `import()` à la demande pour météo, gallery lightbox, ballons (chargés seulement quand besoin) | M | -10 KB JS first paint |
-| **Audit CSS** : passe PurgeCSS pour traquer utility classes orphelines | S | <5 % du fichier (faible mais bon hygiène) |
-| **Tests Playwright** : smoke tests (homepage, CMS reader applique YAML, partners-feed parse) | L | Filet de sécurité avant maintenance bénévoles |
-| **Lighthouse CI** : audit auto sur chaque PR via GitHub Actions | M | Garantit perf/a11y/SEO ≥ 95 dans la durée |
-| **Sitemap dynamique** : générer `sitemap.xml` depuis YAML (script Node) au lieu de l'éditer à la main | S | Moins d'oublis quand on ajoute une archive |
-| **PWA** : manifest + service worker pour install mobile | M | Faible priorité, nice-to-have |
+À garder en tête, **pas urgent** mais à pas aggraver :
 
-### 🧹 Dette technique surveillée
-
-- `data-cms-html` peut écraser des sous-arbres entiers si la valeur YAML englobe trop d'éléments (cas du bug 2e coupure presse `histoire.html` corrigé). À documenter en HTML par un commentaire `<!-- DON'T WRAP -->` autour des zones sensibles.
-- Les flux RSS partenaires sont fragiles à un changement de format WordPress → garder le parser tolérant et logger les erreurs en `console.warn`.
-- Le mapping URL→YAML dans `initCmsContent` est codé en dur. À 30+ pages ce sera lourd ; pour l'instant 8 pages, OK.
+- **`data-cms-html` peut écraser un sous-arbre entier** si la valeur YAML englobe trop d'éléments (cas du bug 2e coupure presse `histoire.html` corrigé en avril 2026). Documenter par un commentaire HTML `<!-- DON'T WRAP -->` autour des zones sensibles si tu ajoutes des `data-cms-html`.
+- **Parsers RSS partenaires fragiles** à un changement de format WordPress → garder le parser tolérant et logger les erreurs en `console.warn`. Si un flux casse, on retombe juste sur l'autre via `Promise.allSettled`.
+- **Mapping URL→YAML codé en dur** dans `initCmsContent`. À 30+ pages ce sera lourd ; pour l'instant 8 pages, OK.
 
 ---
 

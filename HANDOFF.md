@@ -301,9 +301,10 @@ Le CMS Decap simplifie tout ça via l'interface web (sauf création de la page H
 
 ## 11. Documentation associée
 
-- `CLAUDE.md` — Vue d'ensemble + état d'avancement
-- `BACKLOG-CREATIF.md` — Roadmap idées non-prioritaires
-- `docs/CMS-ACTIVATION.md` — Procédure activation CMS
+- **`TODO.md`** — Roadmap actionnable (3 horizons : court terme, moyen terme, refactoring vague 2) avec owner, effort, statut. **Point d'entrée si tu reprends le projet plus tard.**
+- `CLAUDE.md` — Vue d'ensemble (vision, stack, design system) + état d'avancement (snapshot)
+- `BACKLOG-CREATIF.md` — Idées créatives long terme + historique design + dette technique surveillée
+- `docs/CMS-ACTIVATION.md` — Procédure activation OAuth GitHub (5 étapes manuelles)
 - `src/assets/images/{galerie,archives,partenaires-portraits}/README.md` — Comment ajouter des médias
 
 ---

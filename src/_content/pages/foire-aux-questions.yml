@@ -1,5 +1,5 @@
 # Page Foire aux questions — contenu editable via /admin/
-# Chaque cle correspond a un attribut data-cms="cle" sur foire-aux-questions.html
+# Chaque clé correspond à un attribut data-cms="clé" sur foire-aux-questions.html
 # Les questions individuelles sont dans /src/_content/faq/
 
 # ══ HERO ══

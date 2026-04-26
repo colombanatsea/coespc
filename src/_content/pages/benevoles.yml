@@ -1,5 +1,5 @@
 # Page Bénévoles — contenu editable via /admin/
-# Chaque cle correspond a un attribut data-cms="cle" sur benevoles.html
+# Chaque clé correspond à un attribut data-cms="clé" sur benevoles.html
 
 # ══ HERO ══
 heroBadge: "74e édition – 13 septembre 2026"
@@ -12,8 +12,8 @@ pourquoiTexte: |
   <p>La Fête Villageoise existe grace a ses bénévoles. Pas de salaries, pas de prestataires : tout repose sur l'engagement de celles et ceux qui donnent de leur temps pour que la fête ait lieu.</p>
   <p>Devenir bénévole, c'est :</p>
   <ul>
-    <li><strong>Participer a une tradition</strong> – contribuer a un événement qui rassemble le village depuis 76 ans</li>
-    <li><strong>Creer du lien</strong> – rencontrer ses voisins, travailler en equipe, partager un moment convivial</li>
+    <li><strong>Participer à une tradition</strong> – contribuer à un événement qui rassemble le village depuis 76 ans</li>
+    <li><strong>Créer du lien</strong> – rencontrer ses voisins, travailler en équipe, partager un moment convivial</li>
     <li><strong>Agir pour la solidarite</strong> – les bénéfices de la fête sont integralement reversés aux œuvres sociales (CCAS et paroisse)</li>
     <li><strong>Passer un bon moment</strong> – repas des bénévoles, ambiance festive, et la satisfaction du travail accompli</li>
   </ul>

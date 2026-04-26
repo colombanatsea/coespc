@@ -1,8 +1,8 @@
 # Page d'accueil — contenu editable via /admin/
-# Chaque cle correspond a un attribut data-cms="cle" sur index.html
+# Chaque clé correspond à un attribut data-cms="clé" sur index.html
 
 # ══ HERO ══
-heroEdition: "74e édition"
+heroEdition: "74<sup>e</sup> édition"
 heroTitre: 'La <em>Fête Villageoise</em><br>d''Annecy-le-Vieux'
 heroSousTitre: "Depuis 1950, la fête qui réunit tout le village au pied du vieux clocher."
 heroDate: "13 septembre 2026"

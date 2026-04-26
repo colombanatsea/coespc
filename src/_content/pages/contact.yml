@@ -1,5 +1,5 @@
 # Page Contact — contenu editable via /admin/
-# Chaque cle correspond a un attribut data-cms="cle" sur contact.html
+# Chaque clé correspond à un attribut data-cms="clé" sur contact.html
 
 # ══ HERO ══
 heroBadge: "74e édition – 13 septembre 2026"

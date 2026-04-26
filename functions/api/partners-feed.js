@@ -9,9 +9,14 @@ const FEEDS = [
 
 const MAX_ITEMS_PER_FEED = 3;
 const CACHE_TTL_SECONDS  = 3600; // 1h
+// Bump cette version pour invalider tous les caches Cloudflare Edge
+// (ex: changement du parser, ajout d'un decodeur d'entites HTML).
+const CACHE_VERSION = 'v2';
 
 export async function onRequestGet({ request }) {
-  const cacheKey = new Request(new URL(request.url).toString(), request);
+  const u = new URL(request.url);
+  u.searchParams.set('_v', CACHE_VERSION);
+  const cacheKey = new Request(u.toString(), request);
   const cache = caches.default;
 
   // Sert depuis le cache si dispo
@@ -84,8 +89,36 @@ function extract(block, tag) {
   const re = new RegExp('<' + tag + '\\b[^>]*>([\\s\\S]*?)<\\/' + tag + '>', 'i');
   const m = block.match(re);
   if (!m) return '';
-  return m[1]
-    .replace(/<!\[CDATA\[([\s\S]*?)\]\]>/g, '$1')
-    .replace(/<[^>]+>/g, '')
-    .trim();
+  return decodeEntities(
+    m[1]
+      .replace(/<!\[CDATA\[([\s\S]*?)\]\]>/g, '$1')
+      .replace(/<[^>]+>/g, '')
+      .trim()
+  );
+}
+
+// Decode entites HTML emises par WordPress (numeriques + nommees courantes).
+// Sans ca, les titres contiennent &#8211; (en-dash), &#8217; (apostrophe typo), etc.
+const NAMED_ENTITIES = {
+  amp: '&', lt: '<', gt: '>', quot: '"', apos: "'", nbsp: '\u00A0',
+  laquo: '\u00AB', raquo: '\u00BB', hellip: '\u2026',
+  ndash: '\u2013', mdash: '\u2014',
+  lsquo: '\u2018', rsquo: '\u2019', sbquo: '\u201A',
+  ldquo: '\u201C', rdquo: '\u201D', bdquo: '\u201E',
+  eacute: '\u00E9', egrave: '\u00E8', ecirc: '\u00EA', euml: '\u00EB',
+  agrave: '\u00E0', acirc: '\u00E2', auml: '\u00E4',
+  iuml: '\u00EF', icirc: '\u00EE',
+  ouml: '\u00F6', ocirc: '\u00F4',
+  uuml: '\u00FC', ucirc: '\u00FB', ugrave: '\u00F9',
+  ccedil: '\u00E7', oelig: '\u0153', aelig: '\u00E6',
+  Eacute: '\u00C9', Egrave: '\u00C8', Agrave: '\u00C0', Ccedil: '\u00C7',
+  copy: '\u00A9', reg: '\u00AE', trade: '\u2122', deg: '\u00B0',
+  middot: '\u00B7', bull: '\u2022', euro: '\u20AC',
+};
+function decodeEntities(s) {
+  if (!s) return s;
+  return s
+    .replace(/&#x([0-9a-fA-F]+);/g, (_, h) => String.fromCodePoint(parseInt(h, 16)))
+    .replace(/&#(\d+);/g, (_, d) => String.fromCodePoint(parseInt(d, 10)))
+    .replace(/&([a-zA-Z]+);/g, (m, name) => NAMED_ENTITIES[name] != null ? NAMED_ENTITIES[name] : m);
 }

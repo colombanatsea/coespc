@@ -210,7 +210,7 @@ Workflow éditorial : draft → review → publish via Pull Request GitHub.
 - [x] 5 portraits partenaires en marquee (Le Binôme, AVOC, Bora Bora, Maison Vidal, Bistrot Green)
 - [x] Coupures presse 1953 dans Histoire (bulletin paroissial + article)
 - [x] CMS Decap installé + OAuth GitHub fonctionnel
-- [x] 6 collections CMS définies + ~120 fichiers YAML migrés
+- [x] 6 collections CMS définies + 89 fichiers YAML migrés (47 partenaires, 13 archives, 12 FAQ, 8 pages, 7 programme, 2 config)
 - [x] PPTX partenaires 2026 corrigé (date, 76 ans, 74 éditions)
 - [x] Sitemap.xml + robots.txt + JSON-LD (Organization + Event + FAQPage)
 - [x] _redirects WordPress legacy
@@ -225,16 +225,29 @@ Workflow éditorial : draft → review → publish via Pull Request GitHub.
 - [x] Lien Admin discret dans footer
 - [x] ~500 corrections d'accents français (3 passes)
 - [x] Bug data-cms-html (HTML brut affiché) corrigé
+- [x] **Refactoring qualité (avril 2026)** : -278 lignes de dead code (CSS décorations orphelines, JS `_initPageDecorationsDisabled`), guard `data-cms` early-return dans `initCmsContent` (-45 KB sur pages statiques), `X-XSS-Protection` obsolète retiré, lien footer cassé `/devenir-partenaire.html` (404) corrigé
+- [x] **Fix RSS entities partenaires** : décodeur d'entités HTML (`&#8211;`, `&#8217;`, etc.) dans `partners-feed.js` + invalidation cache Edge via `CACHE_VERSION`
+- [x] Merge branche externe `claude/fix-preview-content-quality` (Unicode brut OG/Twitter, 74e plat, 40+ accents, unification domaine coespc.org, Schema.org cleanup, llms.txt)
 
 ### 🚧 À faire / surveillance
 
+**Court terme (mai 2026)**
 - [ ] **Activation OAuth bénévoles** : créer comptes GitHub partagés ou inviter individuellement (voir `docs/CMS-ACTIVATION.md`)
 - [ ] **Validation contenu** par bureau CŒSPC sur coespc.org
+- [ ] **Affiche 2026** : décliner dès réception de l'artiste, remplacer `affiche-2025.webp` partout en image OG
+
+**Référencement / monitoring**
 - [ ] **Search Console** : soumission sitemap + indexation
 - [ ] **Search Console** : monitoring erreurs 404 (anciennes URLs WP)
-- [ ] **Plan migration ancien WP fetevillageoise.com** → redirect 301 permanent vers coespc.org si plus utilisé
-- [ ] **Version 2026 affiche** : générer + remplacer dès qu'elle existe
-- [ ] **PWA** : ajouter manifest + service worker pour install sur mobile (faible priorité)
+- [ ] **Plan migration WP fetevillageoise.com** : redirect 301 permanent vers coespc.org dès que le WP est arrêté
+
+**Refactoring / qualité (post-événement 13 sept 2026)**
+- [ ] **Audit images** : convertir `affiche-YYYY.png` (953 KB) en WebP, référencer `.webp` partout au lieu de `.png` ; `<picture>` avec fallback JPG pour vieux Safari
+- [ ] **Audit JS** : extraire les fonctions optionnelles (météo, gallery lightbox) en modules dynamiques (`import()` à la demande)
+- [ ] **Audit CSS** : passe PurgeCSS pour traquer les utility classes orphelines (probable : <5 % du fichier)
+- [ ] **Tests** : ajouter Playwright smoke tests (homepage charge, CMS reader applique YAML, partners-feed parse OK)
+- [ ] **Lighthouse** : valider tous critères ≥ 95 (perf/a11y/SEO/best-practices)
+- [ ] **PWA** : manifest + service worker pour install mobile (faible priorité)
 
 ## Documentation associée
 
@@ -247,4 +260,4 @@ Workflow éditorial : draft → review → publish via Pull Request GitHub.
 
 ---
 
-*Dernière mise à jour : 24 avril 2026*
+*Dernière mise à jour : 26 avril 2026*

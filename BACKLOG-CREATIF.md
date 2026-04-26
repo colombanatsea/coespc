@@ -4,15 +4,49 @@
 
 ---
 
-## 📊 Statut (avril 2026)
+## 📊 Statut (26 avril 2026)
 
 - ✅ **Direction A « Kermesse Éternelle »** retenue + design system officiel Anthropic appliqué
-- ✅ **Site complet déployé** sur https://coespc.org
-- ✅ **CMS Decap actif** (workflow éditorial bénévoles via GitHub OAuth)
-- ✅ **13 archives années** + **47 partenaires** + **81 photos** + **12 FAQ** migrés
-- 🚧 **Activation OAuth bénévoles** = prochaine étape (voir `docs/CMS-ACTIVATION.md`)
+- ✅ **Site complet déployé** sur https://coespc.org (24 pages HTML + admin Decap)
+- ✅ **Architecture CMS Decap** branchée (config, OAuth proxy, 6 collections, 89 YAML)
+- ✅ **13 archives** + **47 partenaires** + **81 photos** + **12 FAQ** + **7 moments programme** migrés
+- ✅ **Refactoring qualité avril 2026** : -278 lignes dead code, perf guard data-cms, fix RSS entities, headers cleanup
+- 🚧 **Activation OAuth bénévoles** = prochaine étape opérationnelle (voir `docs/CMS-ACTIVATION.md`)
 
 Idées non-prioritaires conservées ci-dessous (historique + roadmap).
+
+---
+
+## 🛠 Roadmap refactoring & dette technique
+
+### ✅ Refactoring fait (avril 2026)
+
+| Lot | Bénéfice |
+|---|---|
+| Suppression `.page-decorations` + 11 `@keyframes` orphelines | -212 lignes CSS, élimine du CSS jamais utilisé depuis le commit 624a86a |
+| Suppression `_initPageDecorationsDisabled` JS | -68 lignes JS mortes |
+| Guard `data-cms` early-return dans `initCmsContent` | -45 KB sur les pages statiques (pas de fetch js-yaml inutile) |
+| Décodeur HTML entities dans `partners-feed.js` | Plus de `&#8211;` brut affiché ; cache versionné pour invalidation |
+| `X-XSS-Protection` obsolète retiré | Conforme aux recos OWASP/CSP modernes |
+| Lien footer `/devenir-partenaire.html` (404) → ancre | -1 lien cassé |
+
+### 🔜 Prochaine vague (post-événement 13 sept 2026)
+
+| Lot | Effort | Impact |
+|---|---|---|
+| **Audit images** : convertir tous les `affiche-YYYY.png` (953 KB) en WebP, référencer `.webp` partout, `<picture>` avec fallback JPG | M | -70 % poids hero |
+| **Modules JS dynamiques** : `import()` à la demande pour météo, gallery lightbox, ballons (chargés seulement quand besoin) | M | -10 KB JS first paint |
+| **Audit CSS** : passe PurgeCSS pour traquer utility classes orphelines | S | <5 % du fichier (faible mais bon hygiène) |
+| **Tests Playwright** : smoke tests (homepage, CMS reader applique YAML, partners-feed parse) | L | Filet de sécurité avant maintenance bénévoles |
+| **Lighthouse CI** : audit auto sur chaque PR via GitHub Actions | M | Garantit perf/a11y/SEO ≥ 95 dans la durée |
+| **Sitemap dynamique** : générer `sitemap.xml` depuis YAML (script Node) au lieu de l'éditer à la main | S | Moins d'oublis quand on ajoute une archive |
+| **PWA** : manifest + service worker pour install mobile | M | Faible priorité, nice-to-have |
+
+### 🧹 Dette technique surveillée
+
+- `data-cms-html` peut écraser des sous-arbres entiers si la valeur YAML englobe trop d'éléments (cas du bug 2e coupure presse `histoire.html` corrigé). À documenter en HTML par un commentaire `<!-- DON'T WRAP -->` autour des zones sensibles.
+- Les flux RSS partenaires sont fragiles à un changement de format WordPress → garder le parser tolérant et logger les erreurs en `console.warn`.
+- Le mapping URL→YAML dans `initCmsContent` est codé en dur. À 30+ pages ce sera lourd ; pour l'instant 8 pages, OK.
 
 ---
 

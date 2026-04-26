@@ -2,7 +2,7 @@
 ## Fête Villageoise d'Annecy-le-Vieux — coespc.org
 
 > **État** : production active sur https://coespc.org
-> **Dernière mise à jour** : 24 avril 2026
+> **Dernière mise à jour** : 26 avril 2026
 
 ---
 
@@ -263,7 +263,8 @@ Stratégie dans `src/_headers` :
 - `X-Content-Type-Options: nosniff`
 - `Referrer-Policy: strict-origin-when-cross-origin`
 - `Permissions-Policy: camera=(), microphone=(), geolocation=()`
-- `X-XSS-Protection: 1; mode=block`
+
+> **Note avril 2026** : `X-XSS-Protection` retiré car obsolète (ignoré par tous les navigateurs modernes depuis Chrome 78, peut créer des XS-leaks). Les protections XSS modernes reposent sur le sandboxing du navigateur et la non-injection de HTML brut côté JS (cf. `escapeHtml()` dans `main.js` + `decodeEntities()` dans le Worker partners-feed).
 
 OAuth GitHub : secrets stockés en variables Cloudflare Pages chiffrées, jamais commitées.
 
@@ -290,10 +291,11 @@ Le CMS Decap simplifie tout ça via l'interface web (sauf création de la page H
 ### Dépendances externes
 
 - Polices : OFL, copies locales ne dépendent de rien
-- js-yaml : CDN jsDelivr (versionné `@4.1.0`)
+- js-yaml : CDN jsDelivr (versionné `@4.1.0`) — chargé **uniquement** si la page contient `[data-cms*]` (guard early-return dans `initCmsContent`)
 - Decap CMS : CDN unpkg (versionné `@^3.3.3`)
 - Open-Meteo : API publique gratuite
 - Elfsight : widget Instagram (à activer après création compte)
+- RSS partenaires : flux WordPress AVOC (`avoc.fr/feed/`) + Ancilevienne (`ancilevienne.fr/feed/`), agrégés et décodés (entités HTML) par le Worker `partners-feed.js`, mis en cache 1 h via Cache API Cloudflare (clé versionnée pour invalidation explicite)
 
 ---
 
@@ -306,4 +308,4 @@ Le CMS Decap simplifie tout ça via l'interface web (sauf création de la page H
 
 ---
 
-*Dernière révision : 24 avril 2026 — par Colomban + Claude*
+*Dernière révision : 26 avril 2026 — par Colomban + Claude*

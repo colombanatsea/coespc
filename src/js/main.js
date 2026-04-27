@@ -211,6 +211,9 @@ function initBalloonsHero() {
   // Moins de ballons sur mobile pour eviter le serrement visuel
   var isMobile = window.innerWidth < 640;
   var NB_BALLOONS = isMobile ? 4 : 8;
+  // Identité CŒSPC : chaque ballon porte une lettre blanche (C Œ S P C)
+  // Cycle de 5 lettres réparti sur les ballons.
+  var LETTERS = ['C', 'Œ', 'S', 'P', 'C'];
 
   var heroes = document.querySelectorAll('.hero, .page-hero');
   heroes.forEach(function(hero) {
@@ -221,6 +224,8 @@ function initBalloonsHero() {
     for (var i = 0; i < NB_BALLOONS; i++) {
       var b = document.createElement('span');
       b.className = 'balloon-hero';
+      b.textContent = LETTERS[i % LETTERS.length];
+      b.setAttribute('data-letter', LETTERS[i % LETTERS.length]);
       b.style.background = COLORS[Math.floor(Math.random() * COLORS.length)];
       // Repartition reguliere + jitter : evite que 2 ballons soient l'un sur l'autre
       var basePos = (i / NB_BALLOONS) * 100;

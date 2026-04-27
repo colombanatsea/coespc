@@ -121,9 +121,10 @@ Toutes les fonts en local `src/assets/fonts/*.woff2` (zéro Google Fonts).
 - 🎀 **Fanions** sticky transparents en haut (overlay header bleu)
 - 🐓 **Coq emoji** sur favicon + animation roosterBob/cocoricoFade après Instagram
 - 🥂 **Verres qui trinquent** séparateur entre blocs (clink + sparkles)
-- 🎈 **Ballons pastel** qui montent dans hero (mesure dynamique hauteur via JS)
+- 🎈 **Ballons pastel** qui montent dans hero, chacun portant une **lettre blanche** du cycle `C Œ S P C` (mesure dynamique hauteur via JS)
 - ⛪ **Silhouette montagne** SVG dans hero/footer
 - 📜 **Archive press** style papier vieilli (rotation -0.3°, sépia léger)
+- 🎨 **Section affiche 2026** sur la home (placeholder rayures papier vieilli quand l'image officielle n'est pas encore livrée par l'artiste)
 
 ## Conventions
 
@@ -157,7 +158,7 @@ Toutes les fonts en local `src/assets/fonts/*.woff2` (zéro Google Fonts).
 
 - `initFanions()` — génère les triangles colorés
 - `initStickyHeader()` — header sticky + classe scrolled
-- `initBalloonsHero()` — ballons pastel par hero, hauteur mesurée dynamiquement
+- `initBalloonsHero()` — ballons pastel par hero avec lettres blanches `C Œ S P C` (cycle de 5), hauteur mesurée dynamiquement
 - `initCountdown()` — J-N jours avant 13 sept 2026
 - `initMeteo()` — Open-Meteo API (gratuit, sans clé) — fallback à 14 jours
 - `initBalloonsOnDayJ()` — pluie de ballons UNIQUEMENT le 13/09/2026
@@ -165,6 +166,7 @@ Toutes les fonts en local `src/assets/fonts/*.woff2` (zéro Google Fonts).
 - `initPartnersFeed()` — consomme `/api/partners-feed`
 - `initCmsContent()` — lit `_content/pages/{slug}.yml` + `config/site.yml` (js-yaml CDN)
 - `applyCmsContent(data)` — remplace les éléments `data-cms`, `data-cms-html`, `data-cms-href`, `data-cms-src`, `data-cms-list`
+- *Pas de JS dédié pour l'affiche 2026* : swap basé sur `<img onload>` / `onerror` inline (placeholder CSS si fichier absent)
 
 ## CMS Decap
 
@@ -191,16 +193,28 @@ Workflow éditorial : draft → review → publish via Pull Request GitHub.
 
 - **CŒSPC** s'écrit toujours `C&OElig;SPC` en HTML (entité, pas Unicode `Œ`)
 - **Date 2026** : 13 septembre 2026 (dimanche). 74e édition. 76 ans depuis 1950.
-- **2 annulations** COVID (2020 + 2021) → 76 ans, 74 éditions
-- **Email contact** : masqué partout (anti-spam) → Instagram + Facebook prioritaires
+- **Aucune mention Covid** sur le site (décision bureau 27/04/2026 : « c'est du passé »). Pas d'archive 2020/2021, pas de « post-COVID ».
+- **Email contact** : `fetevillageoise@pcr74.fr` **affiché en clair** sur la page Contact + footer global (décision 27/04/2026, l'adresse est redirigée vers Gmail). Réseaux sociaux relégués en « suivez-nous » (pas en canal de contact principal).
+- **Téléphone** : pas affiché tant que Prune n'a pas donné son accord pour exposer le sien.
+- **Adresse postale officielle** affichée partout (footer + contact + mentions légales) :
+  ```
+  Comité des Œuvres Sociales Paroissiales et Communales
+  Mairie déléguée d'Annecy-le-Vieux
+  Chef-lieu
+  74940 Annecy-le-Vieux
+  ```
 - **HelloAsso** : seul lien de billetterie/tombola (PAS de form interne)
-- **`data-cms-html`** vs `data-cms` : si la valeur YAML contient des balises HTML (`<sup>`, `<em>`, `<br>`, `<strong>`), utiliser `data-cms-html` ; sinon `data-cms` (textContent)
+- **`data-cms-html`** vs `data-cms` : si la valeur YAML contient des balises HTML (`<sup>`, `<em>`, `<br>`, `<strong>`), utiliser `data-cms-html` ; sinon `data-cms` (textContent). Bug typique si on oublie : `<br>` ou `<sup>` apparaissent en texte brut.
 - **Architecture YAML/HTML** : le HTML contient le contenu initial (SEO + fallback). Le JS `initCmsContent` remplace seulement si le YAML existe. Si un div `data-cms-html` englobe trop d'éléments, le contenu YAML écrasera tout (cas du bug 2e coupure presse `histoire.html` corrigé en avril 2026)
+- **Tirets em-dash (—) interdits dans la prose** : décision 27/04/2026 (« tic IA »). Remplacer par virgule, deux-points ou point. Em-dash autorisés uniquement comme placeholder de donnée vide (ex. `<td>—</td>`).
+- **Pas de plaquette programme** : support arrêté (décision bureau 27/04/2026). Remplacer toute mention par « offre partenaires premium » (banderole, sacs, gilets perso, etc.).
+- **Header / footer / acronyme C Œ S P C** : letter-spacing 0.18em pour l'acronyme (préférence bureau 27/04/2026 : « petit espace »).
 
 ## État d'avancement (avril 2026)
 
 ### ✅ Fait
 
+#### Fondations (jusqu'à avril 2026)
 - [x] Site complet 26 pages HTML + CSS + JS
 - [x] Design system Kermesse Éternelle officiel (fourni par Anthropic)
 - [x] Fonts locales WOFF2 (Fraunces, DM Sans, Instrument Serif)
@@ -229,14 +243,66 @@ Workflow éditorial : draft → review → publish via Pull Request GitHub.
 - [x] **Fix RSS entities partenaires** : décodeur d'entités HTML (`&#8211;`, `&#8217;`, etc.) dans `partners-feed.js` + invalidation cache Edge via `CACHE_VERSION`
 - [x] Merge branche externe `claude/fix-preview-content-quality` (Unicode brut OG/Twitter, 74e plat, 40+ accents, unification domaine coespc.org, Schema.org cleanup, llms.txt)
 
+#### Feedback bureau du 27 avril 2026 (5 lots — `claude/resume-coespc-project-rpzS1`)
+
+**Lot 1 — Bugs & corrections factuelles** *(commit `d3412e8`, 40 fichiers)*
+- [x] Bug encoding `encoreétéeacute;t…` corrigé sur `/archives/`
+- [x] Bug `<br>` brut accueil corrigé (`data-cms` → `data-cms-html` sur `editionLieu` + `editionTexte`)
+- [x] AVOC : « Anciens d'Annecy-le-Vieux » → « Annecy-le-Vieux Of Course » (5 fichiers)
+- [x] L'Ancilevienne : « Course piédestre fédératrice » → « Un relais solidaire »
+- [x] BlackSheep Van : catégorie `gastronomie` → `entreprises`
+- [x] Agglomération → région (histoire, edition-2026)
+- [x] Tir 22LR / tir à la carabine → « concours de tir pour grands et petits » (8 fichiers)
+- [x] Messe 15h : ajout du célébrant Mgr Yves Le Saux
+- [x] Tirage tombola « 2 000 personnes » → « 100 personnes » + reformulation « chaque partenaire est remercié au micro »
+- [x] Citation IA partenaire « depuis 15 ans » : supprimée (en attendant un vrai témoignage)
+- [x] Plaquette programme : section supprimée + remplacée par « Devenir partenaire premium » (banderole, sacs, gilets perso)
+- [x] Mention Covid retirée des archives (2019 résumé, 2020-2021 card supprimée, 2022 « post-COVID » → « rentrée familiale », chronologie histoire)
+- [x] Lien paroisse → page Christ Ressuscité sur `diocese-annecy.fr` + ajout lien CCAS Annecy
+- [x] ~90 em-dashes (—) et en-dashes (–) prose → virgule / deux-points / point / `·`
+- [x] ~25 accents rétablis (grâce, à, salariés, solidarité, intégralement, gérée, démontage, matériel, fidèle, préparer, véritable, changé, âgées, précarité, reversée, fraîches, activités, etc.)
+
+**Lot 2 — Email + adresse postale** *(commit `f074d38`, 30 fichiers)*
+- [x] Page contact restructurée : email en hero, réseaux sociaux relégués en « Suivez-nous »
+- [x] Email `fetevillageoise@pcr74.fr` affiché en clair (cliquable `mailto:`) sur 24 pages
+- [x] Adresse postale complète (Mairie déléguée + Chef-lieu + 74940 Annecy-le-Vieux) sur 24 pages footer + page contact
+- [x] FAQ + bénévoles : email primaire pour s'inscrire, Insta/FB en secondaire
+- [x] Mentions légales : RGPD via email, contact = email
+- [x] Schema.org Organization : ajout `email` + `contactPoint` + `streetAddress`
+- [x] Liens utiles contact : ajout CCAS Annecy + paroisse Christ Ressuscité (page fete-villageoise du diocèse)
+- [x] Nouvelles classes CSS : `.contact-email`, `.postal-address`, `.footer-address`, `.footer-email`
+- ⏳ Téléphone Prune : non affiché (en attente d'accord)
+
+**Lot 3 — Identité visuelle (header + footer + acronyme)** *(commit `f94565d`, 25 fichiers)*
+- [x] Header (24 pages) : logo 48×48 → 64×64
+- [x] Header desktop : ajout texte complet 2 lignes « Comité des Œuvres Sociales / Paroissiales et Communales » à droite du logo
+- [x] Header tablette/mobile : acronyme `CŒSPC` avec letter-spacing
+- [x] Footer logo 60×60 → 96×96
+- [x] Footer h3 « CŒSPC » : font-weight 700 → 800, font-size xl → 2xl, letter-spacing 0.18em
+- [x] Acronyme `C Œ S P C` letter-spacing 0.18em (préférence bureau « petit espace »)
+- [x] Hauteur header augmentée → guirlande haute moins devant le logo
+- [x] Breakpoints : `>1024px` texte complet, `768-1024px` acronyme lg, `<768px` logo réduit + acronyme base
+- [x] aria-label sur lien logo pour l'accessibilité
+
+**Lot 4 — Galerie + UX mobile** *(commit `1b3c475`, 2 fichiers)*
+- [x] Galerie « 76 ans de fête au village » (accueil) : remplacement affiche 2023 par 2014 « Viva Brasil » (6 affiches diversifiées)
+- [x] « Visages de la fête » sur mobile : marquee animée → scroll horizontal swipable (overflow-x + scroll-snap), animation conservée sur desktop
+- [x] Correction accent : « decennies » → « décennies »
+
+**Lot 5 — Identité ballons + affiche 2026** *(commit `212611a`, 3 fichiers)*
+- [x] Lettres blanches `C Œ S P C` sur les ballons hero (cycle de 5 lettres, Fraunces 800, opacity 0.85, text-shadow subtil)
+- [x] Section « Affiche 2026 » entre countdown et météo de la home
+- [x] Placeholder élégant tant que `/assets/images/affiche-2026.jpg` n'existe pas (rayures papier vieilli + emoji palette + texte WIP)
+- [x] Onload swap : dès que le fichier est ajouté, l'affiche apparait sans flash (visibility:hidden initial)
+
 ### 🚧 À faire — voir `TODO.md` pour le détail actionnable
 
 Roadmap par horizon (résumé — détail dans `TODO.md`) :
 
 | Horizon | Items | Priorité |
 |---|---|---|
-| **Court terme (mai 2026)** | Activation OAuth bénévoles · Validation contenu bureau · Affiche 2026 · Search Console | 🔴 Action immédiate sur OAuth |
-| **Moyen terme (été 2026)** | Comm réseaux sociaux pré-fête · Décision migration `fetevillageoise.com` | 🟢 Non bloquant |
+| **Court terme (mai 2026)** | Activation OAuth bénévoles · Téléphone Prune (accord) · Affiche 2026 (artiste) · Search Console · Photos foule/remise chèque (album partagé) | 🔴 Action sur OAuth |
+| **Moyen terme (été 2026)** | Comm réseaux sociaux pré-fête · Décision migration `fetevillageoise.com` · Vidéo filigrane Goret 1953 | 🟢 Non bloquant |
 | **Refactoring vague 2 (post-13 sept 2026)** | WebP images · Modules JS dynamiques · PurgeCSS · Tests Playwright · Lighthouse CI · Sitemap dynamique · PWA | ⏳ Attendre fin événement |
 
 Dette technique surveillée (3 points) : voir `TODO.md` § « Dette technique surveillée ».
@@ -255,4 +321,4 @@ Dette technique surveillée (3 points) : voir `TODO.md` § « Dette technique su
 
 ---
 
-*Dernière mise à jour : 26 avril 2026*
+*Dernière mise à jour : 27 avril 2026 (5 lots du feedback bureau intégrés)*

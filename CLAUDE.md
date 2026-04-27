@@ -34,7 +34,7 @@ coespc/
 │   ├── histoire.html          # 76 ans d'histoire (avec coupures presse 1953)
 │   ├── association.html       # Le CŒSPC, ses missions
 │   ├── edition-2026.html      # Programme jour J
-│   ├── partenaires.html       # 47 partenaires + portraits + plaquette
+│   ├── partenaires.html       # 48 partenaires + portraits
 │   ├── benevoles.html         # Devenir bénévole
 │   ├── contact.html           # Contact
 │   ├── presse.html            # Espace presse + kit média
@@ -49,7 +49,7 @@ coespc/
 │   ├── _content/              # Contenu YAML édité par le CMS
 │   │   ├── pages/*.yml        # 8 pages éditables
 │   │   ├── archives/*.yml     # 13 années (tombola, retrait, partenaires...)
-│   │   ├── partenaires/*.yml  # 47 partenaires
+│   │   ├── partenaires/*.yml  # 48 partenaires
 │   │   ├── programme/*.yml    # 7 moments du jour J
 │   │   ├── faq/*.yml          # 12 questions
 │   │   └── config/*.yml       # site.yml + reseaux.yml
@@ -229,7 +229,7 @@ Workflow éditorial : draft → review → publish via Pull Request GitHub.
 - [x] 5 portraits partenaires en marquee (Le Binôme, AVOC, Bora Bora, Maison Vidal, Bistrot Green)
 - [x] Coupures presse 1953 dans Histoire (bulletin paroissial + article)
 - [x] CMS Decap installé + OAuth GitHub fonctionnel
-- [x] 6 collections CMS définies + 89 fichiers YAML migrés (47 partenaires, 13 archives, 12 FAQ, 8 pages, 7 programme, 2 config)
+- [x] 6 collections CMS définies + 90 fichiers YAML migrés (48 partenaires, 13 archives, 12 FAQ, 8 pages, 7 programme, 2 config)
 - [x] PPTX partenaires 2026 corrigé (date, 76 ans, 74 éditions)
 - [x] Sitemap.xml + robots.txt + JSON-LD (Organization + Event + FAQPage)
 - [x] _redirects WordPress legacy

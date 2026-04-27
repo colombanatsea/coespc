@@ -252,17 +252,41 @@ button { cursor: pointer; font-family: inherit; }
 .site-header.scrolled { box-shadow: 0 2px 20px rgba(0,0,0,0.2); }
 .header-inner {
   display: flex; align-items: center; justify-content: space-between;
-  padding: 0.75rem 0;
+  padding: 0.9rem 0;
 }
 .header-logo {
   display: flex; align-items: center; gap: var(--space-3);
   text-decoration: none;
 }
-.logo-img { border-radius: var(--radius-sm); }
+.logo-img {
+  border-radius: var(--radius-sm);
+  width: 64px; height: 64px;
+  flex-shrink: 0;
+}
+.logo-fullname {
+  display: flex; flex-direction: column;
+  font-family: var(--font-display); font-weight: 700;
+  color: var(--or-logo);
+  line-height: 1.15;
+  font-size: 0.95rem;
+  letter-spacing: 0.005em;
+}
+.logo-fullname .logo-line1,
+.logo-fullname .logo-line2 { display: block; }
 .logo-text {
-  font-family: var(--font-display); font-weight: 900;
+  font-family: var(--font-display); font-weight: 800;
   font-size: var(--text-lg); color: var(--or-logo);
-  letter-spacing: 0.03em;
+  letter-spacing: 0.18em;
+  display: none;
+}
+@media (max-width: 1024px) {
+  .logo-fullname { display: none; }
+  .logo-text { display: inline-block; }
+}
+@media (max-width: 768px) {
+  .logo-img { width: 48px; height: 48px; }
+  .header-inner { padding: 0.6rem 0; }
+  .logo-text { font-size: var(--text-base); letter-spacing: 0.15em; }
 }
 .nav-links {
   display: flex; align-items: center; gap: var(--space-1);
@@ -674,9 +698,15 @@ blockquote cite {
   border-bottom: 1px solid rgba(255,255,255,0.08);
   position: relative;
 }
+.footer-brand img {
+  width: 96px; height: 96px;
+  border-radius: var(--radius-md);
+  display: block;
+}
 .footer-brand h3 {
-  font-family: var(--font-display); font-weight: 700;
-  color: var(--or-logo); font-size: var(--text-xl);
+  font-family: var(--font-display); font-weight: 800;
+  color: var(--or-logo); font-size: var(--text-2xl);
+  letter-spacing: 0.18em;
   margin: var(--space-4) 0 var(--space-2);
 }
 .footer-brand p { color: rgba(244,179,101,0.6); font-size: var(--text-sm); line-height: var(--leading-normal); }

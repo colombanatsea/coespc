@@ -25,10 +25,18 @@
     "description": "Association loi 1901 organisant la F\u00eate Villageoise d'Annecy-le-Vieux depuis 1950. Les b\u00e9n\u00e9fices sont int\u00e9gralement revers\u00e9s aux familles en difficult\u00e9.",
     "address": {
       "@type": "PostalAddress",
+      "streetAddress": "Mairie déléguée d'Annecy-le-Vieux, Chef-lieu",
       "addressLocality": "Annecy-le-Vieux",
       "postalCode": "74940",
       "addressRegion": "Haute-Savoie",
       "addressCountry": "FR"
+    },
+    "email": "fetevillageoise@pcr74.fr",
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "contactType": "Information générale",
+      "email": "fetevillageoise@pcr74.fr",
+      "availableLanguage": "fr"
     },
     "sameAs": [
       "https://www.instagram.com/fetevillageoise/",
@@ -68,7 +76,7 @@
       }
     },
     "image": "https://coespc.org/assets/images/affiche-2025.png",
-    "description": "Kermesse familiale caritative depuis 1950. Tartiflette g\u00e9ante, tombola solidaire, jeux pour enfants, tir \u00e0 la carabine, animations. 100% des b\u00e9n\u00e9fices revers\u00e9s aux familles en difficult\u00e9 (1/3 CCAS, 2/3 paroisse).",
+    "description": "Kermesse familiale caritative depuis 1950. Tartiflette g\u00e9ante, tombola solidaire, jeux pour enfants, concours de tir, animations. 100% des b\u00e9n\u00e9fices revers\u00e9s aux familles en difficult\u00e9 (1/3 CCAS, 2/3 paroisse).",
     "organizer": {
       "@type": "Organization",
       "name": "C\u0152SPC \u2014 Comit\u00e9 des \u0152uvres Sociales Paroissiales et Communales",
@@ -110,8 +118,12 @@
   <!-- HEADER -->
   <header class="site-header" id="siteHeader">
     <div class="container header-inner">
-      <a href="/" class="header-logo">
-        <img src="/assets/images/logo-coespc.png" alt="CŒSPC" width="48" height="48" class="logo-img">
+      <a href="/" class="header-logo" aria-label="Accueil — Fête Villageoise CŒSPC">
+        <img src="/assets/images/logo-coespc.png" alt="Logo CŒSPC" width="64" height="64" class="logo-img">
+        <span class="logo-fullname">
+          <span class="logo-line1">Comité des Œuvres Sociales</span>
+          <span class="logo-line2">Paroissiales et Communales</span>
+        </span>
         <span class="logo-text">CŒSPC</span>
       </a>
       <nav class="nav-links" id="navLinks" aria-label="Navigation principale">
@@ -175,6 +187,31 @@
       </div>
     </section>
 
+    <!-- AFFICHE 2026 (visuel work-in-progress, à remplacer dès réception de l'artiste) -->
+    <section class="section affiche-2026-section" id="affiche-2026-section" aria-label="Visuel de l'affiche 2026">
+      <div class="container">
+        <div class="affiche-2026-card">
+          <span class="section-tag">À paraître</span>
+          <h2 class="affiche-2026-title">L'affiche 2026</h2>
+          <div class="affiche-2026-frame affiche-2026-pending" id="affiche-2026-frame">
+            <img
+              src="/assets/images/affiche-2026.jpg"
+              alt="Affiche officielle de la 74e Fête Villageoise"
+              loading="lazy"
+              onload="this.parentNode.classList.remove('affiche-2026-pending');"
+              onerror="this.style.display='none';">
+            <div class="affiche-2026-placeholder" aria-hidden="true">
+              <span class="affiche-2026-emoji">🎨</span>
+              <p class="affiche-2026-pending-title">Visuel en cours</p>
+              <p class="affiche-2026-pending-sub">L'affiche officielle est en préparation</p>
+              <p class="affiche-2026-pending-hint">Elle sera dévoilée dans les prochaines semaines.</p>
+            </div>
+          </div>
+          <p class="affiche-2026-caption">Comme chaque année, l'affiche est dessinée par un artiste local. Découvrez la <a href="/archives/">collection des éditions précédentes</a>.</p>
+        </div>
+      </div>
+    </section>
+
     <!-- METEO JOUR J -->
     <section class="section" id="meteo-section" aria-label="Météo du jour J">
       <div class="container">
@@ -188,18 +225,18 @@
         <div class="section-header fade-in">
           <span class="section-tag">Prochaine édition</span>
           <h2 class="section-title" data-cms="editionTitre">Rendez-vous le 13 septembre 2026</h2>
-          <p class="section-desc" data-cms="editionTexte">La 74<sup>e</sup> édition de la Fête Villageoise se prépare. Jeux pour toute la famille, tartiflette géante, tombola, tir à la carabine, jambon perché, musique...</p>
+          <p class="section-desc" data-cms-html="editionTexte">La 74<sup>e</sup> édition de la Fête Villageoise se prépare. Jeux pour toute la famille, tartiflette géante, tombola, concours de tir, jambon perché, musique…</p>
         </div>
         <div class="cards-grid fade-in">
           <div class="card">
             <div class="card-icon">&#x1F4CD;</div>
             <h3>Lieu</h3>
-            <p data-cms="editionLieu">Chef-lieu d'Annecy-le-Vieux<br>Place de l'Église &amp; Parc Gabriel Fauré</p>
+            <p data-cms-html="editionLieu">Chef-lieu d'Annecy-le-Vieux<br>Place de l'Église &amp; Parc Gabriel Fauré</p>
           </div>
           <div class="card">
             <div class="card-icon">&#x1F3AA;</div>
             <h3>Animations</h3>
-            <p data-cms="editionAnimations">Tartiflette géante, tir à la carabine, jeux en bois, jeux gonflables, maquillage, pêche à la ligne, tombola...</p>
+            <p data-cms="editionAnimations">Tartiflette géante, concours de tir, jeux en bois, jeux gonflables, maquillage, pêche à la ligne, tombola…</p>
           </div>
           <div class="card">
             <div class="card-icon">&#x2764;&#xFE0F;</div>
@@ -230,10 +267,10 @@
           <div class="solidarite-block">
             <span class="solidarite-fraction">1/3</span>
             <h3 data-cms="solidarite13Titre">1/3 au CCAS d'Annecy</h3>
-            <p data-cms="solidarite13Texte">Centre Communal d'Action Sociale : aide aux personnes agees, aux personnes en situation de handicap et aux familles en precarite.</p>
+            <p data-cms="solidarite13Texte">Centre Communal d'Action Sociale : aide aux personnes âgées, aux personnes en situation de handicap et aux familles en précarité.</p>
           </div>
         </div>
-        <p class="solidarite-cta fade-in" data-cms="solidariteConclusion">La Fête Villageoise est à vocation caritative. Depuis 1950, l'intégralité des bénéfices est reversee aux plus démunis : 1/3 au CCAS, 2/3 à la paroisse. Venir à la fête, c'est aider ses voisins.</p>
+        <p class="solidarite-cta fade-in" data-cms="solidariteConclusion">La Fête Villageoise est à vocation caritative. Depuis 1950, l'intégralité des bénéfices est reversée aux plus démunis : 1/3 au CCAS, 2/3 à la paroisse. Venir à la fête, c'est aider ses voisins.</p>
       </div>
     </section>
 
@@ -251,6 +288,7 @@
       <div class="marquee-container fade-in">
         <div class="marquee-track">
           <!-- Liste complete des 45 partenaires 2026 -->
+          <span class="marquee-item">Mairie déléguée d'Annecy-le-Vieux</span>
           <span class="marquee-item">Mairie d'Annecy</span>
           <span class="marquee-item">Mairie de Veyrier</span>
           <span class="marquee-item">Paroisse Christ Ressuscité</span>
@@ -298,6 +336,7 @@
           <span class="marquee-item">Salon du Clocher</span>
           <span class="marquee-item">Laulab</span>
           <!-- Duplicat pour boucle infinie -->
+          <span class="marquee-item">Mairie déléguée d'Annecy-le-Vieux</span>
           <span class="marquee-item">Mairie d'Annecy</span>
           <span class="marquee-item">Mairie de Veyrier</span>
           <span class="marquee-item">Paroisse Christ Ressuscité</span>
@@ -361,12 +400,12 @@
         <div class="section-header fade-in">
           <span class="section-tag">Archives</span>
           <h2 class="section-title" data-cms="archivesTitre">76 ans de fête au village</h2>
-          <p class="section-desc" data-cms="archivesTexte">Du petit goret en lot de tombola dans les années 1950 à la tartiflette géante d'aujourd'hui, la Fête Villageoise a traversé les decennies.</p>
+          <p class="section-desc" data-cms="archivesTexte">Du petit goret en lot de tombola dans les années 1950 à la tartiflette géante d'aujourd'hui, la Fête Villageoise a traversé les décennies.</p>
         </div>
         <div class="archives-mosaic fade-in">
           <a href="/archives/2025.html" class="archive-thumb"><img src="/assets/images/affiche-2025.png" alt="Affiche 2025" width="400" height="566" loading="lazy" data-cms-src="affiche2025"><span class="archive-year">2025</span></a>
           <a href="/archives/2024.html" class="archive-thumb"><img src="/assets/images/affiche-2024.jpg" alt="Affiche 2024" width="400" height="566" loading="lazy" data-cms-src="affiche2024"><span class="archive-year">2024</span></a>
-          <a href="/archives/2023.html" class="archive-thumb"><img src="/assets/images/affiche-2023.jpg" alt="Affiche 2023" width="400" height="566" loading="lazy" data-cms-src="affiche2023"><span class="archive-year">2023</span></a>
+          <a href="/archives/2014.html" class="archive-thumb"><img src="/assets/images/affiche-2014.jpg" alt="Affiche 2014 — Viva Brasil" width="400" height="566" loading="lazy" data-cms-src="affiche2014"><span class="archive-year">2014</span></a>
           <a href="/archives/2022.html" class="archive-thumb"><img src="/assets/images/affiche-2022.jpg" alt="Affiche 2022" width="400" height="566" loading="lazy" data-cms-src="affiche2022"><span class="archive-year">2022</span></a>
           <a href="/archives/2019.html" class="archive-thumb"><img src="/assets/images/affiche-2019.jpg" alt="Affiche 2019" width="400" height="566" loading="lazy" data-cms-src="affiche2019"><span class="archive-year">2019</span></a>
           <a href="/archives/2018.html" class="archive-thumb"><img src="/assets/images/affiche-2018.jpg" alt="Affiche 2018" width="400" height="566" loading="lazy" data-cms-src="affiche2018"><span class="archive-year">2018</span></a>
@@ -460,10 +499,11 @@
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <img src="/assets/images/logo-coespc.png" alt="Logo COESPC" width="60" height="60">
+          <img src="/assets/images/logo-coespc.png" alt="Logo CŒSPC" width="96" height="96">
           <h3>CŒSPC</h3>
           <p>Comité des Œuvres Sociales<br>Paroissiales et Communales</p>
-          <p class="footer-location">Annecy-le-Vieux – depuis 1950</p>
+          <address class="footer-address">Mairie déléguée d'Annecy-le-Vieux<br>Chef-lieu · 74940 Annecy-le-Vieux</address>
+          <p class="footer-email"><a href="mailto:fetevillageoise@pcr74.fr">fetevillageoise@pcr74.fr</a></p>
         </div>
         <div class="footer-nav">
           <h4>Navigation</h4>
@@ -483,14 +523,14 @@
           <div class="footer-partners-logos">
             <span>Avec le soutien de :</span>
             <a href="https://www.annecy.fr/" target="_blank" rel="noopener">Ville d'Annecy</a> &#xB7;
-            <a href="https://www.diocese-annecy.fr/" target="_blank" rel="noopener">Paroisse</a> &#xB7;
+            <a href="https://www.diocese-annecy.fr/le-diocese/les-paroisses/paroisse-le-christ-ressuscite-entre-lac-et-colline" target="_blank" rel="noopener">Paroisse</a> &#xB7;
             <a href="https://www.avoc.fr/" target="_blank" rel="noopener">AVOC</a> &#xB7;
             <a href="https://www.ancilevienne.fr/" target="_blank" rel="noopener">Ancilevienne</a>
           </div>
         </div>
       </div>
       <div class="footer-bottom">
-        <p>&#xA9; 2026 C&#338;SPC – Annecy-le-Vieux. Tous droits réservés.</p>
+        <p>&#xA9; 2026 C&#338;SPC · Annecy-le-Vieux. Tous droits réservés.</p>
         <p><a href="/mentions-legales.html">Mentions légales</a> · <a href="/admin/" class="footer-admin-link">Admin</a></p>
         <p class="footer-credits">Conçu avec &#128153; par <a href="https://colombanatsea.com" target="_blank" rel="noopener">Colomban</a> · Propulsé et protégé par <a href="https://vaiata-dynamics.com/fr/cyber/" target="_blank" rel="noopener">VAIATA Cyber</a></p>
       </div>

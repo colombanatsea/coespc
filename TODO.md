@@ -4,7 +4,7 @@
 > Pour le « pourquoi » : voir `CLAUDE.md` (vision + état) et `BACKLOG-CREATIF.md` (idées long terme + dette technique surveillée).
 > Pour le « comment » technique : voir `HANDOFF.md`.
 >
-> *Dernière mise à jour : 26 avril 2026*
+> *Dernière mise à jour : 27 avril 2026 (5 lots feedback bureau + audit authenticité)*
 
 ---
 
@@ -12,7 +12,7 @@
 
 1. **Lis `CLAUDE.md`** (3 min) → vision, stack, design system, état actuel
 2. **Lis ce fichier `TODO.md`** (2 min) → ce qui est en attente, par horizon
-3. **Action immédiate prioritaire** : 🔴 [Activation OAuth bénévoles](#activation-oauth-benevoles) (~10 min, action **Colomban**)
+3. **Action immédiate prioritaire** : 🔴 [Activation OAuth bénévoles](#-activation-oauth-benevoles) (~10 min, action **Colomban**)
 
 URLs utiles :
 - Production : https://coespc.org
@@ -31,19 +31,27 @@ URLs utiles :
 - **Procédure** : `docs/CMS-ACTIVATION.md`
 - **Critère de succès** : un bénévole peut se connecter sur `/admin/`, modifier une FAQ, publier, voir le changement live en <5 min
 
-### 🟠 Validation contenu par le bureau CŒSPC
-- **Owner** : Colomban (envoi) + bureau (relecture)
-- **Effort** : 1 réunion de bureau (1 h)
-- **Livrable attendu** : feedback qualifié sur les 24 pages publiques (typos, infos obsolètes, formulations à modifier)
-- **Process** : capture d'écran + commentaire → ticket GitHub ou note Notion
+### 🟠 Téléphone Prune (en attente d'accord)
+- **Owner** : Colomban (demande) + Prune (accord)
+- **Effort** : <5 min côté code, dès l'accord obtenu
+- **Action une fois l'accord obtenu** :
+  1. Créer une nouvelle classe CSS `.contact-phone` (équivalent `.contact-email`) dans `src/css/style.css`
+  2. Ajouter dans `src/_content/pages/contact.yml` les clés `telTitre`, `tel`, `telLien` (`tel:+33...`)
+  3. Insérer une section « Nous appeler » sur `contact.html`, juste sous la section email
+  4. Ajouter dans `src/index.html` le `Schema.org Organization → contactPoint → telephone`
+  5. Push → CF Pages redéploie auto
+- **Statut** : ⏳ pas encore affiché, conformément à la demande de Prune
 
 ### 🟡 Affiche 2026 (dès réception de l'artiste)
 - **Owner** : artiste local (à recruter, cf. `BACKLOG-CREATIF.md` § « Collection d'affiches »)
-- **Action une fois reçue** :
-  1. Optimiser en `affiche-2026.{webp,jpg}` (1200×630 pour OG/Twitter, plus grand pour hero)
-  2. Remplacer `affiche-2025.webp` partout dans les balises OG/Twitter (`<meta property="og:image">`)
-  3. Mettre à jour `_content/pages/accueil.yml` et `_content/pages/edition-2026.yml` si visuel intégré
-  4. Push → CF Pages redéploie auto
+- **Côté site** : section déjà en place dans la home (entre countdown et météo) avec placeholder élégant. Dès qu'on dépose le fichier, l'image apparait automatiquement.
+- **Action une fois l'affiche reçue** :
+  1. Optimiser l'affiche en `affiche-2026.jpg` (~1200×1697 pour le hero, ratio A4 / format affiche)
+  2. Déposer le fichier dans `src/assets/images/affiche-2026.jpg`
+  3. Optionnellement : créer une `affiche-2026.webp` 1200×630 pour les balises OG/Twitter (meilleur poids)
+  4. Remplacer toutes les références `affiche-2025.{png,webp}` dans les `<meta property="og:image">` (24 pages) par `affiche-2026.{jpg,webp}`
+  5. Mettre à jour `_content/pages/accueil.yml` et `_content/pages/edition-2026.yml` si visuel intégré ailleurs
+  6. Push → CF Pages redéploie auto, le placeholder rayé disparait, l'affiche réelle apparait sans flash (grâce au handler `onload`)
 
 ### 🟡 Search Console
 - **Owner** : Colomban
@@ -53,6 +61,17 @@ URLs utiles :
   - Ajouter property + valider via DNS (Cloudflare)
   - Configurer alertes 404 + erreurs d'indexation
   - Idem Bing Webmaster Tools (5 min de plus, gratuit)
+
+### 🟡 Photos foule + remise de chèque
+- **Owner** : Colomban (sélection) + bureau (validation)
+- **Source** : album partagé Samsung Cloud fourni par Colomban (vidéos + photos foule, ambiance, musique, tartiflette, billets tombola, rassemblement bénévoles)
+- **Effort** : 1-2 h pour curation + intégration
+- **Actions** :
+  1. Sélectionner ~10 photos représentatives : foule sur la place, tartiflette servie, tirage tombola, remise de chèque mairie/paroisse, rassemblement bénévoles au Clocher
+  2. Optimiser en JPG ~1200px de large
+  3. Ajouter dans `/src/assets/images/galerie/2025/` ou un nouveau dossier dédié
+  4. Mettre à jour `_content/archives/2025.yml` (champ `galerie` si nécessaire)
+  5. Pour la page Bénévoles : utiliser une photo du rassemblement comme hero ou illustration
 
 ---
 
@@ -86,6 +105,16 @@ URLs utiles :
 | `X-XSS-Protection` obsolète retiré | Conforme OWASP modern | `76529c7` |
 | Lien footer `/devenir-partenaire.html` (404) → ancre | -1 lien cassé | `76529c7` |
 
+### Lots feedback bureau du 27 avril 2026 (pour mémoire — déjà déployés)
+| Lot | Bénéfice | Commit | Fichiers |
+|---|---|---|---|
+| Lot 1 — bugs encoding + corrections factuelles + em-dash + tics IA | Crédibilité du contenu | `d3412e8` | 40 |
+| Lot 2 — email + adresse postale + retrait push Insta/FB | Contact direct possible | `f074d38` | 30 |
+| Lot 3 — header logo agrandi + texte complet + acronyme `C Œ S P C` | Identité forte | `f94565d` | 25 |
+| Lot 4 — galerie 76 ans (2014 Brésil) + swipe mobile portraits | UX mobile + diversité affiches | `1b3c475` | 2 |
+| Lot 5 — lettres `C Œ S P C` blanches sur ballons + section affiche 2026 placeholder | Identité ludique + slot pour artiste | `212611a` | 3 |
+| Audit authenticité — retrait des contenus invérifiables / prose IA | Crédibilité / tout sourcé | `4f7f12d` | 15 |
+
 ### Prochaine vague
 | # | Lot | Effort | Impact | Owner |
 |---|---|---|---|---|
@@ -103,7 +132,7 @@ Légende effort : S = <1 h · M = 2-4 h · L = 1 jour
 
 ## 🧹 Dette technique surveillée
 
-À garder en tête lors des prochaines évolutions, **pas urgent** mais à pas aggraver :
+À garder en tête lors des prochaines évolutions, **pas urgent** mais à ne pas aggraver :
 
 1. **`data-cms-html` peut écraser un sous-arbre entier** si la valeur YAML englobe trop d'éléments.
    *Exemple corrigé en avril 2026 : 2e coupure presse `histoire.html`.*
@@ -114,6 +143,10 @@ Légende effort : S = <1 h · M = 2-4 h · L = 1 jour
 
 3. **Mapping URL→YAML codé en dur** dans `initCmsContent` (`src/js/main.js` ~ligne 130).
    → Acceptable à 8 pages, à refondre vers 30+ (peu probable).
+
+4. **Authenticité du contenu rédigé** : règle décrétée le 27 avril 2026.
+   → Ne **jamais** rédiger une citation, un nom ou une statistique sans source vérifiable. Si pas de source, écrire des faits neutres et observables. Les tics IA à éviter : « véritable », « incontournable », « emblématique », « rendez-vous incontournable », « cœur de l'événement », « mobilisation exceptionnelle », « témoigne de l'attachement ». Ces termes sont à bannir de la prose éditoriale.
+   → Toute citation doit être attribuée à une source publique nommée (presse + date, ou personne nommée + fonction + année). Sans source explicite, paraphraser sans guillemets ou supprimer.
 
 ---
 

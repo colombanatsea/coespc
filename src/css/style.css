@@ -252,17 +252,41 @@ button { cursor: pointer; font-family: inherit; }
 .site-header.scrolled { box-shadow: 0 2px 20px rgba(0,0,0,0.2); }
 .header-inner {
   display: flex; align-items: center; justify-content: space-between;
-  padding: 0.75rem 0;
+  padding: 0.9rem 0;
 }
 .header-logo {
   display: flex; align-items: center; gap: var(--space-3);
   text-decoration: none;
 }
-.logo-img { border-radius: var(--radius-sm); }
+.logo-img {
+  border-radius: var(--radius-sm);
+  width: 64px; height: 64px;
+  flex-shrink: 0;
+}
+.logo-fullname {
+  display: flex; flex-direction: column;
+  font-family: var(--font-display); font-weight: 700;
+  color: var(--or-logo);
+  line-height: 1.15;
+  font-size: 0.95rem;
+  letter-spacing: 0.005em;
+}
+.logo-fullname .logo-line1,
+.logo-fullname .logo-line2 { display: block; }
 .logo-text {
-  font-family: var(--font-display); font-weight: 900;
+  font-family: var(--font-display); font-weight: 800;
   font-size: var(--text-lg); color: var(--or-logo);
-  letter-spacing: 0.03em;
+  letter-spacing: 0.18em;
+  display: none;
+}
+@media (max-width: 1024px) {
+  .logo-fullname { display: none; }
+  .logo-text { display: inline-block; }
+}
+@media (max-width: 768px) {
+  .logo-img { width: 48px; height: 48px; }
+  .header-inner { padding: 0.6rem 0; }
+  .logo-text { font-size: var(--text-base); letter-spacing: 0.15em; }
 }
 .nav-links {
   display: flex; align-items: center; gap: var(--space-1);
@@ -674,9 +698,15 @@ blockquote cite {
   border-bottom: 1px solid rgba(255,255,255,0.08);
   position: relative;
 }
+.footer-brand img {
+  width: 96px; height: 96px;
+  border-radius: var(--radius-md);
+  display: block;
+}
 .footer-brand h3 {
-  font-family: var(--font-display); font-weight: 700;
-  color: var(--or-logo); font-size: var(--text-xl);
+  font-family: var(--font-display); font-weight: 800;
+  color: var(--or-logo); font-size: var(--text-2xl);
+  letter-spacing: 0.18em;
   margin: var(--space-4) 0 var(--space-2);
 }
 .footer-brand p { color: rgba(244,179,101,0.6); font-size: var(--text-sm); line-height: var(--leading-normal); }
@@ -1277,6 +1307,19 @@ blockquote cite {
     inset -6px -8px 12px rgba(255, 255, 255, 0.35),
     inset 6px 4px 10px rgba(0, 0, 0, 0.08);
   will-change: transform, opacity;
+  /* Lettre C Œ S P C blanche écrite sur le ballon (identité du CŒSPC) */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-weight: 800;
+  color: rgba(255, 255, 255, 0.85);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+  font-size: 0.5em;
+  letter-spacing: 0;
+}
+.balloons-hero .balloon-hero[data-letter] {
+  font-size: 16px;
 }
 .balloons-hero .balloon-hero::after {
   content: '';
@@ -1304,6 +1347,93 @@ blockquote cite {
 
 @media (prefers-reduced-motion: reduce) {
   .balloons-hero { display: none; }
+}
+
+/* --- AFFICHE 2026 (placeholder ou visuel quand disponible) ---
+   Section entre countdown et météo. Si /assets/images/affiche-2026.jpg
+   n'existe pas encore (work-in-progress de l'artiste), on affiche
+   un placeholder élégant. Dès que le fichier est ajouté, l'image
+   prend la place du placeholder automatiquement (onerror handler). */
+.affiche-2026-section { text-align: center; }
+.affiche-2026-card {
+  max-width: 420px;
+  margin: 0 auto;
+}
+.affiche-2026-title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: var(--text-3xl);
+  color: var(--bleu-logo);
+  margin: var(--space-3) 0 var(--space-5);
+}
+.affiche-2026-title em { font-style: italic; }
+.affiche-2026-frame {
+  position: relative;
+  aspect-ratio: 1 / 1.414; /* format A4 / affiche */
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: 0 12px 40px rgba(20, 36, 119, 0.15);
+  border: 1px solid var(--papier-vieilli);
+  background: var(--creme-lin);
+}
+.affiche-2026-frame img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  display: block;
+}
+/* Tant que l'image n'a pas chargé, on cache l'image pour éviter le flash
+   d'icône cassée et on affiche le placeholder à la place. Onload retire
+   .affiche-2026-pending → l'image apparait, le placeholder se cache. */
+.affiche-2026-frame.affiche-2026-pending img {
+  visibility: hidden;
+}
+.affiche-2026-placeholder {
+  position: absolute;
+  inset: 0;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  text-align: center;
+  padding: var(--space-6);
+  background:
+    repeating-linear-gradient(
+      45deg,
+      var(--creme-lin),
+      var(--creme-lin) 14px,
+      var(--papier-vieilli) 14px,
+      var(--papier-vieilli) 16px
+    );
+  color: var(--bois-chaud);
+}
+.affiche-2026-frame.affiche-2026-pending .affiche-2026-placeholder {
+  display: flex;
+}
+.affiche-2026-emoji { font-size: 3rem; }
+.affiche-2026-pending-title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: var(--text-xl);
+  color: var(--bleu-logo);
+  margin: 0;
+}
+.affiche-2026-pending-sub {
+  font-size: var(--text-base);
+  color: var(--encre);
+  margin: 0;
+}
+.affiche-2026-pending-hint {
+  font-size: var(--text-sm);
+  font-style: italic;
+  color: var(--bois-chaud);
+  margin: 0;
+}
+.affiche-2026-caption {
+  margin-top: var(--space-4);
+  color: var(--bois-chaud);
+  font-size: var(--text-sm);
+  font-style: italic;
 }
 
 /* --- METEO WIDGET --- */
@@ -1371,6 +1501,56 @@ a.partner-tile::after {
 .social-card-facebook svg { color: #1877F2; }
 .social-card-instagram:hover { border-color: #E4405F; }
 .social-card-facebook:hover { border-color: #1877F2; }
+
+/* --- CONTACT EMAIL EN CLAIR --- */
+.contact-email {
+  font-family: var(--font-display);
+  font-size: var(--text-2xl);
+  font-weight: 600;
+  margin: var(--space-6) 0 var(--space-3);
+  letter-spacing: 0.01em;
+}
+.contact-email a {
+  color: var(--ambre-fete);
+  text-decoration: none;
+  border-bottom: 2px solid rgba(212, 118, 10, 0.3);
+  transition: border-color 200ms cubic-bezier(.2,.8,.2,1), color 200ms;
+  padding-bottom: 2px;
+}
+.contact-email a:hover {
+  color: var(--bleu-logo);
+  border-bottom-color: var(--bleu-logo);
+}
+
+/* --- ADRESSE POSTALE --- */
+.postal-address {
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  line-height: var(--leading-relaxed);
+  color: var(--encre);
+  margin: var(--space-4) auto;
+}
+
+/* --- FOOTER : ADRESSE + EMAIL --- */
+.footer-address {
+  font-style: normal;
+  color: rgba(244,179,101,0.7);
+  font-size: var(--text-sm);
+  line-height: 1.5;
+  margin-top: var(--space-3);
+}
+.footer-email {
+  margin-top: var(--space-3);
+  font-size: var(--text-sm);
+}
+.footer-email a {
+  color: var(--or-logo);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(244,179,101,0.3);
+}
+.footer-email a:hover {
+  border-bottom-color: var(--or-logo);
+}
 
 /* --- INSTAGRAM GRID --- */
 .ig-grid {
@@ -1952,6 +2132,27 @@ img { image-rendering: auto; -ms-interpolation-mode: bicubic; }
 @keyframes portraitsScroll {
   0%   { transform: translateX(0); }
   100% { transform: translateX(-50%); }
+}
+@media (max-width: 768px) {
+  /* Mobile : remplace la marquee animée par un scroll horizontal swipable
+     pour permettre à l'utilisateur de faire défiler rapidement tous les
+     portraits avec le doigt (au lieu d'attendre l'animation lente). */
+  .partners-portraits-marquee {
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;
+    -webkit-mask-image: none;
+            mask-image: none;
+    scrollbar-width: thin;
+  }
+  .partners-portraits-track {
+    animation: none !important;
+    padding: var(--space-4);
+  }
+  .partner-portrait {
+    scroll-snap-align: center;
+  }
 }
 @media (max-width: 640px) {
   .partner-portrait, .partner-portrait-img-wrap { width: 180px; }

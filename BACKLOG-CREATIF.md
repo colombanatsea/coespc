@@ -7,13 +7,15 @@
 
 ---
 
-## 📊 Statut (26 avril 2026)
+## 📊 Statut (27 avril 2026)
 
 - ✅ **Direction A « Kermesse Éternelle »** retenue + design system officiel Anthropic appliqué
 - ✅ **Site complet déployé** sur https://coespc.org (24 pages HTML + admin Decap)
-- ✅ **Architecture CMS Decap** branchée (config, OAuth proxy, 6 collections, 89 YAML)
-- ✅ **13 archives** + **47 partenaires** + **81 photos** + **12 FAQ** + **7 moments programme** migrés
+- ✅ **Architecture CMS Decap** branchée (config, OAuth proxy, 6 collections, 90 YAML)
+- ✅ **13 archives** + **48 partenaires** (ajout Mairie déléguée d'Annecy-le-Vieux) + **81 photos** + **12 FAQ** + **7 moments programme** migrés
 - ✅ **Refactoring qualité avril 2026** : -278 lignes dead code, perf guard data-cms, fix RSS entities, headers cleanup
+- ✅ **Feedback bureau du 27/04/2026** intégré : 5 lots livrés + audit authenticité (commits `d3412e8`, `f074d38`, `f94565d`, `1b3c475`, `212611a`, `4f7f12d`)
+- ✅ **Charte d'authenticité** : aucune citation/nom/statistique sans source vérifiable (règle 27/04/2026)
 - 🚧 **Activation OAuth bénévoles** = prochaine étape opérationnelle (voir `docs/CMS-ACTIVATION.md`)
 
 Idées non-prioritaires conservées ci-dessous (historique + roadmap).
@@ -31,13 +33,14 @@ Idées non-prioritaires conservées ci-dessous (historique + roadmap).
 
 ---
 
-## 🧹 Dette technique surveillée (long terme)
+## 🧹 Dette technique + éditoriale surveillée (long terme)
 
 À garder en tête, **pas urgent** mais à pas aggraver :
 
 - **`data-cms-html` peut écraser un sous-arbre entier** si la valeur YAML englobe trop d'éléments (cas du bug 2e coupure presse `histoire.html` corrigé en avril 2026). Documenter par un commentaire HTML `<!-- DON'T WRAP -->` autour des zones sensibles si tu ajoutes des `data-cms-html`.
 - **Parsers RSS partenaires fragiles** à un changement de format WordPress → garder le parser tolérant et logger les erreurs en `console.warn`. Si un flux casse, on retombe juste sur l'autre via `Promise.allSettled`.
 - **Mapping URL→YAML codé en dur** dans `initCmsContent`. À 30+ pages ce sera lourd ; pour l'instant 8 pages, OK.
+- **Authenticité éditoriale** (règle décrétée 27/04/2026) : ne **jamais** ajouter de citation, nom propre, statistique ou anecdote sans source vérifiable et nommée. Tics IA bannis : « véritable », « incontournable », « emblématique », « rendez-vous incontournable », « cœur de l'événement », « mobilisation exceptionnelle », « témoigne de l'attachement », « tradition ancestrale », « au cœur de ». Si on n'a pas la source, on écrit des faits neutres et observables (qui, où, quoi, quand, combien) plutôt que de la prose éditoriale puffy. Toute édition future doit respecter cette règle ; un audit régulier (`grep -r "véritable\|incontournable\|emblématique"`) permet de détecter les ré-introductions.
 
 ---
 
@@ -92,10 +95,11 @@ Mixer A + B : « Kermesse Éternelle » pour le site grand public et les affiche
 ## 3. Pistes de contenu enrichi
 
 ### Page « Histoire » — Frise chronologique interactive
-- Timeline verticale avec photos d'époque
+- Timeline verticale avec photos d'époque (sourcées et datées)
 - Les coupures de presse de 1953 en scan haute résolution
-- Témoignages vidéo de personnes âgées qui se souviennent des premières éditions
-- Section « Le saviez-vous ? » avec anecdotes (le petit goret, Louison Bobet, etc.)
+- Témoignages **réels** d'anciens bénévoles ou habitants (audio + transcription, accord signé)
+- Section « Le saviez-vous ? » avec anecdotes **uniquement si elles sont sourcées** (Le Vieux Clocher, La Fête au Village, archives papier)
+- ⚠️ **Pas de fabrication** : ne pas inventer de citations, de noms ou d'anecdotes pour étoffer la narration. Si la source manque, l'anecdote attend la prochaine trouvaille d'archives.
 
 ### Section « Solidarité en action »
 - Interview de Véronique Joly (Présidente du CCAS)

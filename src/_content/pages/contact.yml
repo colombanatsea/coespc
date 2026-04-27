@@ -4,16 +4,32 @@
 # ══ HERO ══
 heroBadge: "74e édition · 13 septembre 2026"
 heroTitre: "Contactez-nous"
-heroSousTitre: "Le canal principal pour nous joindre est nos réseaux sociaux. Vous y trouvez les dernières actus, les photos et l'équipe."
+heroSousTitre: "Le moyen le plus simple et direct pour nous joindre : l'email. Nous vous répondons rapidement."
+
+# ══ EMAIL CONTACT ══
+emailTitre: "Nous écrire"
+emailIntro: "Toute question, partenariat, demande presse ou souvenir à partager :"
+email: "fetevillageoise@pcr74.fr"
+emailLien: "mailto:fetevillageoise@pcr74.fr"
+emailNote: "Adresse officielle de l'association, redirigée vers notre boîte Gmail pour un suivi quotidien."
+
+# ══ SUIVRE SUR LES RESEAUX ══
+suivreTitre: "Suivez-nous"
+suivreIntro: "Pour les actualités, photos et coulisses de la fête."
 
 # ══ ENRICHISSEZ NOTRE HISTOIRE ══
 enrichissezTitre: "Enrichissez notre histoire"
 enrichissezTexte1: "Vous possédez des photos anciennes, des programmes, des articles de presse ou des témoignages liés à la Fête Villageoise ? Nous serions ravis de les intégrer à nos archives."
-enrichissezTexte2: "Envoyez-nous un message privé sur Instagram ou Facebook, ou apportez-les lors de la prochaine édition. Chaque souvenir compte pour préserver la mémoire du village."
+enrichissezTexte2: 'Écrivez-nous à <a href="mailto:fetevillageoise@pcr74.fr">fetevillageoise@pcr74.fr</a>, ou apportez-les lors de la prochaine édition. Chaque souvenir compte pour préserver la mémoire du village.'
 
 # ══ ADRESSE POSTALE ══
 adresseTitre: "Adresse postale"
-adresse: "CŒSPC<br>Chef-lieu d'Annecy-le-Vieux<br>74940 Annecy"
+adresse: |
+  Comité des Œuvres Sociales<br>
+  Paroissiales et Communales<br>
+  Mairie déléguée d'Annecy-le-Vieux<br>
+  Chef-lieu<br>
+  74940 Annecy-le-Vieux
 
 # ══ LIENS UTILES ══
 liensTitre: "Liens utiles"

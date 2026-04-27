@@ -1372,6 +1372,56 @@ a.partner-tile::after {
 .social-card-instagram:hover { border-color: #E4405F; }
 .social-card-facebook:hover { border-color: #1877F2; }
 
+/* --- CONTACT EMAIL EN CLAIR --- */
+.contact-email {
+  font-family: var(--font-display);
+  font-size: var(--text-2xl);
+  font-weight: 600;
+  margin: var(--space-6) 0 var(--space-3);
+  letter-spacing: 0.01em;
+}
+.contact-email a {
+  color: var(--ambre-fete);
+  text-decoration: none;
+  border-bottom: 2px solid rgba(212, 118, 10, 0.3);
+  transition: border-color 200ms cubic-bezier(.2,.8,.2,1), color 200ms;
+  padding-bottom: 2px;
+}
+.contact-email a:hover {
+  color: var(--bleu-logo);
+  border-bottom-color: var(--bleu-logo);
+}
+
+/* --- ADRESSE POSTALE --- */
+.postal-address {
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  line-height: var(--leading-relaxed);
+  color: var(--encre);
+  margin: var(--space-4) auto;
+}
+
+/* --- FOOTER : ADRESSE + EMAIL --- */
+.footer-address {
+  font-style: normal;
+  color: rgba(244,179,101,0.7);
+  font-size: var(--text-sm);
+  line-height: 1.5;
+  margin-top: var(--space-3);
+}
+.footer-email {
+  margin-top: var(--space-3);
+  font-size: var(--text-sm);
+}
+.footer-email a {
+  color: var(--or-logo);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(244,179,101,0.3);
+}
+.footer-email a:hover {
+  border-bottom-color: var(--or-logo);
+}
+
 /* --- INSTAGRAM GRID --- */
 .ig-grid {
   display: grid;

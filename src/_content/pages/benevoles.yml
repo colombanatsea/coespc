@@ -24,5 +24,5 @@ postesTitre: "Les postes à pourvoir"
 # ══ INSCRIPTION ══
 inscriptionTitre: "Comment s'inscrire ?"
 inscriptionTexte: |
-  <p>Contactez-nous en message privé sur Instagram ou Facebook. Précisez votre nom, le ou les postes qui vous intéressent et vos disponibilités. Nous revenons vers vous rapidement.</p>
+  <p>Écrivez-nous à <a href="mailto:fetevillageoise@pcr74.fr">fetevillageoise@pcr74.fr</a> en précisant votre nom, le ou les postes qui vous intéressent et vos disponibilités. Nous revenons vers vous rapidement.</p>
 inscriptionNote: "Aucune expérience requise, juste de la bonne volonté et le sourire !"

@@ -2,7 +2,7 @@
 
 ## Projet
 
-Site web officiel de la **Fête Villageoise d'Annecy-le-Vieux** organisée par le CŒSPC (Comité des Œuvres Sociales Paroissiales et Communales) — 1950-2026, 74 éditions.
+Site web officiel de la **Fête Villageoise d'Annecy-le-Vieux** organisée par le CŒSPC (Comité des Œuvres Sociales Paroissiales et Communales). 1950-2026, 74 éditions, 76 ans d'histoire. Siège social : Mairie déléguée d'Annecy-le-Vieux, Chef-lieu, 74940 Annecy-le-Vieux.
 
 **Production** : https://coespc.org
 **Repo** : https://github.com/colombanatsea/coespc
@@ -177,7 +177,7 @@ Toutes les fonts en local `src/assets/fonts/*.woff2` (zéro Google Fonts).
 1. **Archives** (`_content/archives/YYYY.yml`) — édition par année avec tombola, retrait, partenaires, galerie, solidarité
 2. **Pages** (`_content/pages/*.yml`) — 8 pages : accueil, édition-2026, histoire, partenaires, etc.
 3. **Paramètres** (`_content/config/{site,reseaux}.yml`) — date prochaine édition, chiffres-clés, URLs réseaux
-4. **Partenaires** (`_content/partenaires/*.yml`) — 47 partenaires (institutionnels, gastronomie, commerces, distribution, entreprises, services)
+4. **Partenaires** (`_content/partenaires/*.yml`) — 48 partenaires (institutionnels, gastronomie, commerces, distribution, entreprises, services). Institutionnels : Mairie déléguée d'Annecy-le-Vieux (siège social), Mairie d'Annecy, Mairie de Veyrier, Paroisse Christ Ressuscité, AVOC, L'Ancilevienne.
 5. **Programme** (`_content/programme/*.yml`) — 7 moments du jour J
 6. **FAQ** (`_content/faq/*.yml`) — 12 questions
 
@@ -209,6 +209,11 @@ Workflow éditorial : draft → review → publish via Pull Request GitHub.
 - **Tirets em-dash (—) interdits dans la prose** : décision 27/04/2026 (« tic IA »). Remplacer par virgule, deux-points ou point. Em-dash autorisés uniquement comme placeholder de donnée vide (ex. `<td>—</td>`).
 - **Pas de plaquette programme** : support arrêté (décision bureau 27/04/2026). Remplacer toute mention par « offre partenaires premium » (banderole, sacs, gilets perso, etc.).
 - **Header / footer / acronyme C Œ S P C** : letter-spacing 0.18em pour l'acronyme (préférence bureau 27/04/2026 : « petit espace »).
+- **Authenticité du contenu** (décision 27/04/2026, règle non négociable) :
+  - **Aucune citation, nom propre, statistique ou anecdote sans source vérifiable et nommée** (presse + date, personne nommée + fonction + année, archives papier identifiées). Si la source manque, on écrit des faits neutres et observables, ou on supprime.
+  - **Tics IA bannis dans la prose éditoriale** : « véritable », « incontournable », « emblématique », « rendez-vous incontournable », « cœur de l'événement », « mobilisation exceptionnelle », « témoigne de l'attachement », « tradition ancestrale », « au cœur de ».
+  - **Audit régulier** : `grep -rn "véritable\|incontournable\|emblématique"` sur `src/_content/` et `src/*.html` pour détecter les ré-introductions.
+  - Détail des suppressions effectuées le 27/04/2026 : voir commit `4f7f12d`.
 
 ## État d'avancement (avril 2026)
 
@@ -295,6 +300,17 @@ Workflow éditorial : draft → review → publish via Pull Request GitHub.
 - [x] Placeholder élégant tant que `/assets/images/affiche-2026.jpg` n'existe pas (rayures papier vieilli + emoji palette + texte WIP)
 - [x] Onload swap : dès que le fichier est ajouté, l'affiche apparait sans flash (visibility:hidden initial)
 
+**Audit authenticité + Mairie déléguée** *(commit `4f7f12d`, 15 fichiers)*
+- [x] Ajout de **Mairie déléguée d'Annecy-le-Vieux** comme partenaire institutionnel (siège social du CŒSPC) — 48 partenaires au total
+- [x] Retrait de la phrase « chacun veut jouer les Bobet, selon la presse de l'époque » (référence non sourcée et invérifiable)
+- [x] Retrait de « M. Rollier, alors préfet de Haute-Savoie, confirme le rayonnement de la fête » (titre non vérifié + commentaire éditorial fabriqué). La mention de Rollier reste dans la légende de la photo (visible au second plan).
+- [x] Retrait des tics IA : « véritable événement communal », « rendez-vous incontournable » (Ancilevienne), « véritable cœur de l'événement » (2023), « deux concours emblématiques » (2024), « attraction incontournable » (1950s)
+- [x] Reformulation factuelle de l'archive 2025 (retrait « record historique avec pas moins de », « mobilisation exceptionnelle qui témoigne de l'attachement », « événement incontournable »)
+- [x] Citation Balmain 2017 raccourcie (retrait « tradition de 50 ans » qui ne correspondait pas arithmétiquement à 1950→2017)
+- [x] Retrait de la citation invérifiable « l'importance de cette fête au cœur du village » + jargon « mission de responsabilité sociale » dans archive 2011
+
+**Règle d'authenticité** : aucune citation/nom/statistique sans source vérifiable et nommée. Voir section « Points d'attention » plus haut pour la liste des tics IA bannis.
+
 ### 🚧 À faire — voir `TODO.md` pour le détail actionnable
 
 Roadmap par horizon (résumé — détail dans `TODO.md`) :
@@ -302,7 +318,7 @@ Roadmap par horizon (résumé — détail dans `TODO.md`) :
 | Horizon | Items | Priorité |
 |---|---|---|
 | **Court terme (mai 2026)** | Activation OAuth bénévoles · Téléphone Prune (accord) · Affiche 2026 (artiste) · Search Console · Photos foule/remise chèque (album partagé) | 🔴 Action sur OAuth |
-| **Moyen terme (été 2026)** | Comm réseaux sociaux pré-fête · Décision migration `fetevillageoise.com` · Vidéo filigrane Goret 1953 | 🟢 Non bloquant |
+| **Moyen terme (été 2026)** | Comm réseaux sociaux pré-fête · Décision migration `fetevillageoise.com` | 🟢 Non bloquant |
 | **Refactoring vague 2 (post-13 sept 2026)** | WebP images · Modules JS dynamiques · PurgeCSS · Tests Playwright · Lighthouse CI · Sitemap dynamique · PWA | ⏳ Attendre fin événement |
 
 Dette technique surveillée (3 points) : voir `TODO.md` § « Dette technique surveillée ».
@@ -321,4 +337,4 @@ Dette technique surveillée (3 points) : voir `TODO.md` § « Dette technique su
 
 ---
 
-*Dernière mise à jour : 27 avril 2026 (5 lots du feedback bureau intégrés)*
+*Dernière mise à jour : 27 avril 2026 (5 lots feedback bureau + audit authenticité + Mairie déléguée)*

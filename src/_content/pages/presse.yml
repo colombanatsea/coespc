@@ -2,9 +2,9 @@
 # Chaque clé correspond à un attribut data-cms="clé" sur presse.html
 
 # ══ HERO ══
-heroBadge: "74e édition – 13 septembre 2026"
+heroBadge: "74e édition · 13 septembre 2026"
 titre: "Espace presse"
-heroSousTitre: "74e Fête Villageoise d'Annecy-le-Vieux – 13 septembre 2026."
+heroSousTitre: "74e Fête Villageoise d'Annecy-le-Vieux · 13 septembre 2026."
 
 # ══ CHIFFRES CLES ══
 chiffresTitre: "Chiffres clés"
@@ -14,16 +14,16 @@ enBrefTitre: "En bref"
 texteIntro: |
   <p>La <strong>Fête Villageoise d'Annecy-le-Vieux</strong> est un événement populaire organisé chaque année depuis 1950 par le <strong>CŒSPC</strong> (Comité des Œuvres Sociales Paroissiales et Communales), une association loi 1901 entièrement bénévole.</p>
   <p>L'intégralité des bénéfices est reversée au <strong>CCAS</strong> (Centre Communal d'Action Sociale) pour un tiers, et aux <strong>œuvres sociales paroissiales</strong> pour les deux tiers restants.</p>
-  <p>La fête propose une tartiflette géante, une tombola avec plus de 40 lots offerts par les commerces locaux, des jeux, des animations, et l'Ancilevienne – une course à pied créée en 1985.</p>
+  <p>La fête propose une tartiflette géante, une tombola avec plus de 40 lots offerts par les commerces locaux, des jeux, des animations, et l'Ancilevienne, une course à pied créée en 1985.</p>
 
 # ══ KIT MEDIA ══
 kitTag: "Kit média"
 kitTitre: "Tout pour parler de la Fête Villageoise"
-kitDesc: "Bio, chiffres clés, visuels, affiches, dossier complet — téléchargez ce dont vous avez besoin."
+kitDesc: "Bio, chiffres clés, visuels, affiches, dossier complet à télécharger."
 
 # ══ DOSSIER DE PRESSE ══
 dossierTitre: "Dossier de presse complet 2026"
-dossierTexte: "Bio, historique, programme complet, chiffres clés, photos libres de droits et contacts — le tout en un seul document."
+dossierTexte: "Bio, historique, programme complet, chiffres clés, photos libres de droits et contacts. Le tout en un seul document."
 dossierNote: "Disponible à partir de juillet 2026."
 dossierBouton: "Bientôt disponible"
 

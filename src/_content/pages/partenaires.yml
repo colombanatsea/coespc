@@ -3,7 +3,7 @@
 # Les tuiles partenaires individuelles sont dans /src/_content/partenaires/
 
 # ══ HERO ══
-heroBadge: "74e édition – 13 septembre 2026"
+heroBadge: "74e édition · 13 septembre 2026"
 heroTitre: "Nos partenaires"
 heroSousTitre: "43 commerces, restaurants et entreprises soutiennent la 74e Fête Villageoise. Sans eux, la tombola n'existerait pas."
 
@@ -14,14 +14,13 @@ stat2Nombre: "27"
 stat2Label: "restaurants et cafés"
 stat3Nombre: "7"
 stat3Label: "commerces et cavistes"
-stat4Nombre: "5000"
-stat4Label: "plaquettes distribuées"
+stat4Nombre: "3000"
+stat4Label: "tickets de tombola imprimés"
 
 # ══ INTRO SOUTIENS ══
 soutiensTag: "Nos soutiens"
 soutiensTitre: "Ils soutiennent la fête"
 soutiensDesc: "La Fête Villageoise ne serait rien sans l'engagement des commerçants, restaurateurs et entreprises d'Annecy-le-Vieux. Chaque année, ils offrent les lots de la tombola, financent la plaquette programme et font vivre la tradition villageoise."
-soutiensCitation: "« La Fête Villageoise, c'est l'occasion pour les commerçants du village de se retrouver autour d'une tradition qui nous dépasse tous. Offrir un repas ou un bon d'achat, c'est soutenir la paroisse, l'école, le tissu associatif. C'est aussi fidéliser nos clients autour d'une cause commune. » – Un restaurateur d'Annecy-le-Vieux, partenaire depuis 15 ans"
 
 # ══ CATEGORIES (titres et descriptions) ══
 categorieInstitutionnelsTitre: "Partenaires institutionnels"
@@ -42,26 +41,21 @@ devenirTag: "Rejoignez-nous"
 devenirTitre: "Devenir partenaire"
 devenirDesc: "Vous êtes commerçant, restaurateur, artisan ou chef d'entreprise à Annecy-le-Vieux ? Associez votre enseigne à la plus ancienne fête caritative du village. Trois façons de nous soutenir."
 devenirWay1Titre: "Offrir un lot tombola"
-devenirWay1Texte: "Un repas, un bon d'achat, un panier garni, un séjour. Votre lot est annoncé au micro lors du tirage devant 2 000 personnes, mentionné sur la plaquette programme et présenté sur nos réseaux sociaux."
-devenirWay2Titre: "Encart plaquette programme"
-devenirWay2Texte: "Réservez un encart publicitaire dans les 5 000 plaquettes déposées chez les commerçants, dans les écoles, les églises et les lieux publics d'Annecy-le-Vieux et Veyrier dès fin août. Tarifs et formats sur demande."
+devenirWay1Texte: "Un repas, un bon d'achat, un panier garni, un séjour. Les principaux lots figurent sur les 3 000 tickets imprimés, sont présentés en ligne et sur nos réseaux sociaux, et chaque partenaire est remercié au micro lors du tirage au sort."
+devenirWay2Titre: "Devenir partenaire premium"
+devenirWay2Texte: "Visibilité accrue : banderole, sacs aux couleurs du partenaire, personnalisation des gilets des bénévoles utilisés lors des visites chez les partenaires, des ventes de billets de tombola, le jour J, lors des remises de chèque à la mairie et à la paroisse."
 devenirWay3Titre: "Don ou mécénat"
 devenirWay3Texte: "Soutenez directement l'association par un don. Le CŒSPC reverse l'intégralité des bénéfices à la paroisse, à l'école et aux associations du village."
 
 # ══ VISIBILITE ══
-visibilite1Titre: "Annonce au micro"
-visibilite1Texte: "Chaque lot est nommé lors du tirage devant 2 000 personnes."
-visibilite2Titre: "Plaquette programme"
-visibilite2Texte: "Mention dans les 5 000 plaquettes mises à disposition dans le village."
+visibilite1Titre: "Remerciement au micro"
+visibilite1Texte: "Chaque partenaire est remercié lors du tirage au sort de la tombola."
+visibilite2Titre: "Présence sur les tickets"
+visibilite2Texte: "Les principaux lots figurent sur les 3 000 tickets de tombola imprimés."
 visibilite3Titre: "Site web & réseaux"
 visibilite3Texte: "Présence sur cette page et sur nos posts Instagram et Facebook."
 visibilite4Titre: "Signalétique jour J"
 visibilite4Texte: "Votre nom affiché sur le podium et les stands durant la fête."
-
-# ══ PLAQUETTE PROGRAMME ══
-plaquetteTag: "Notre vitrine"
-plaquetteTitre: "La plaquette programme"
-plaquetteLede: "Chaque année, la plaquette programme de la Fête Villageoise est mise à disposition chez les commerçants, dans les écoles, les églises et les lieux publics d'Annecy-le-Vieux et Veyrier. C'est le support de référence qui accompagne le village jusqu'au jour J."
 
 # ══ CTA FINAL ══
 ctaFinalTag: "Ensemble"

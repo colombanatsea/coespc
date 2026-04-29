@@ -1298,49 +1298,30 @@ blockquote cite {
 }
 .hero, .page-hero { position: relative; }
 .balloons-hero .balloon-hero {
+  /* Le ballon est l'<img> du logo CŒSPC complet (clocher + cœur + wordmark).
+     Le fond bleu de l'image se confond avec le fond bleu du hero, donnant
+     l'illusion que seul le clocher orange et les lettres dorées flottent.
+     La taille est définie en JS (60-90px desktop, 45-65px mobile). */
   position: absolute;
-  bottom: -80px; /* demarre juste sous le hero */
-  width: 36px;
-  height: 46px;
-  border-radius: 50% 50% 50% 50% / 55% 55% 45% 45%;
+  bottom: -100px; /* demarre juste sous le hero */
+  display: block;
   opacity: 0;
   animation: balloonRiseHero var(--dur, 18s) linear var(--delay, 0s) infinite;
-  box-shadow:
-    inset -6px -8px 12px rgba(255, 255, 255, 0.35),
-    inset 6px 4px 10px rgba(0, 0, 0, 0.08);
   will-change: transform, opacity;
-  /* Lettre C Œ S P C blanche écrite sur le ballon (identité du CŒSPC) */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: var(--font-display);
-  font-weight: 800;
-  color: rgba(255, 255, 255, 0.85);
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
-  font-size: 0.5em;
-  letter-spacing: 0;
-}
-.balloons-hero .balloon-hero[data-letter] {
-  font-size: 16px;
-}
-.balloons-hero .balloon-hero::after {
-  content: '';
-  position: absolute;
-  bottom: -30px; left: 50%;
-  width: 1px; height: 30px;
-  background: rgba(244, 179, 101, 0.4);
+  pointer-events: none;
+  user-select: none;
 }
 @keyframes balloonRiseHero {
   0%   {
     transform: translate(0, 0) rotate(0deg);
     opacity: 0;
   }
-  10%  { opacity: 0.7; }
+  10%  { opacity: 0.95; }
   50%  {
     transform: translate(20px, calc(var(--rise-distance) * -0.5)) rotate(6deg);
-    opacity: 0.8;
+    opacity: 1;
   }
-  90%  { opacity: 0.5; }
+  90%  { opacity: 0.6; }
   100% {
     transform: translate(-15px, calc(var(--rise-distance) * -1.15)) rotate(-4deg);
     opacity: 0;

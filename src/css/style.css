@@ -276,7 +276,7 @@ button { cursor: pointer; font-family: inherit; }
 .logo-text {
   font-family: var(--font-display); font-weight: 800;
   font-size: var(--text-lg); color: var(--or-logo);
-  letter-spacing: 0.18em;
+  letter-spacing: 0.32em;
   display: none;
 }
 @media (max-width: 1024px) {
@@ -286,7 +286,7 @@ button { cursor: pointer; font-family: inherit; }
 @media (max-width: 768px) {
   .logo-img { width: 48px; height: 48px; }
   .header-inner { padding: 0.6rem 0; }
-  .logo-text { font-size: var(--text-base); letter-spacing: 0.15em; }
+  .logo-text { font-size: var(--text-base); letter-spacing: 0.28em; }
 }
 .nav-links {
   display: flex; align-items: center; gap: var(--space-1);
@@ -706,8 +706,10 @@ blockquote cite {
 .footer-brand h3 {
   font-family: var(--font-display); font-weight: 800;
   color: var(--or-logo); font-size: var(--text-2xl);
-  letter-spacing: 0.18em;
+  letter-spacing: 0.32em;
   margin: var(--space-4) 0 var(--space-2);
+  /* letter-spacing décale le texte vers la droite : compensation visuelle pour rester centré */
+  padding-left: 0.32em;
 }
 .footer-brand p { color: rgba(244,179,101,0.6); font-size: var(--text-sm); line-height: var(--leading-normal); }
 .footer-location { font-weight: 500; color: rgba(244,179,101,0.8) !important; margin-top: var(--space-2); }

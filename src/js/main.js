@@ -241,12 +241,13 @@ function initBalloonsHero() {
       b.style.setProperty('--dur', (18 + Math.random() * 10) + 's');
       // Delai negatif = les ballons sont deja en cours de montee au chargement
       b.style.setProperty('--delay', (-(i + Math.random()) * 3) + 's');
-      // Logo-mark à l'intérieur : SVG fichier externe (cœur + clocher
-      // + petite croix sur le toit), en blanc, fond transparent.
-      // Compat universelle, fiabilité du <img src> SVG.
+      // Logo-mark à l'intérieur : vrai logo CŒSPC (clocher + cœur orange)
+      // sans wordmark et sans fond bleu (PNG avec canal alpha — fond
+      // bleu original remplacé par transparence). La pastel du ballon
+      // reste visible derrière les zones transparentes.
       var mark = document.createElement('img');
       mark.className = 'balloon-mark';
-      mark.src = '/assets/images/logo-mark-coespc.svg';
+      mark.src = '/assets/images/logo-coespc-mark-transparent.png';
       mark.alt = '';
       mark.setAttribute('aria-hidden', 'true');
       b.appendChild(mark);

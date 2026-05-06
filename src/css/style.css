@@ -1345,12 +1345,13 @@ blockquote cite {
   background: rgba(244, 179, 101, 0.4);
 }
 .balloons-hero .balloon-mark {
-  /* SVG inline du logo-mark CŒSPC (clocher dans un cœur, blanc).
-     Compat universelle, pas de fond bleu, la pastel du ballon reste
-     visible derrière les zones non tracées du SVG. */
+  /* Vrai logo CŒSPC sans wordmark et sans fond bleu (PNG transparent).
+     La couleur pastel du ballon reste visible derrière les zones
+     transparentes ; le clocher + cœur orange du logo apparaît par-dessus. */
   display: block;
-  width: 80%;
-  height: 80%;
+  width: 95%;
+  height: 95%;
+  object-fit: contain;
   pointer-events: none;
   filter: drop-shadow(0 1px 1.5px rgba(0, 0, 0, 0.18));
 }

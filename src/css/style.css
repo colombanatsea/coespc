@@ -1298,30 +1298,52 @@ blockquote cite {
 }
 .hero, .page-hero { position: relative; }
 .balloons-hero .balloon-hero {
-  /* Le ballon est l'<img> du logo CŒSPC complet (clocher + cœur + wordmark).
-     Le fond bleu de l'image se confond avec le fond bleu du hero, donnant
-     l'illusion que seul le clocher orange et les lettres dorées flottent.
-     La taille est définie en JS (60-90px desktop, 45-65px mobile). */
+  /* Ballon pastel ovale (couleurs originales) avec, en overlay, le logo-mark
+     CŒSPC (clocher + cœur, sans wordmark) appliqué via mix-blend-mode pour
+     se fondre dans la couleur pastel. La taille est définie en JS. */
   position: absolute;
-  bottom: -100px; /* demarre juste sous le hero */
-  display: block;
+  bottom: -80px;
+  border-radius: 50% 50% 50% 50% / 55% 55% 45% 45%;
   opacity: 0;
   animation: balloonRiseHero var(--dur, 18s) linear var(--delay, 0s) infinite;
+  box-shadow:
+    inset -6px -8px 12px rgba(255, 255, 255, 0.35),
+    inset 6px 4px 10px rgba(0, 0, 0, 0.08);
   will-change: transform, opacity;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.balloons-hero .balloon-hero::after {
+  /* ficelle subtile sous le ballon */
+  content: '';
+  position: absolute;
+  bottom: -28px; left: 50%;
+  width: 1px; height: 28px;
+  background: rgba(244, 179, 101, 0.4);
+}
+.balloons-hero .balloon-mark {
+  width: 110%;
+  height: 110%;
+  object-fit: cover;
+  /* multiply = le bleu et l'orange du logo se fondent dans la pastel,
+     sans masquer entièrement la couleur du ballon */
+  mix-blend-mode: multiply;
+  opacity: 0.85;
   pointer-events: none;
-  user-select: none;
 }
 @keyframes balloonRiseHero {
   0%   {
     transform: translate(0, 0) rotate(0deg);
     opacity: 0;
   }
-  10%  { opacity: 0.95; }
+  10%  { opacity: 0.85; }
   50%  {
     transform: translate(20px, calc(var(--rise-distance) * -0.5)) rotate(6deg);
-    opacity: 1;
+    opacity: 0.9;
   }
-  90%  { opacity: 0.6; }
+  90%  { opacity: 0.55; }
   100% {
     transform: translate(-15px, calc(var(--rise-distance) * -1.15)) rotate(-4deg);
     opacity: 0;
@@ -2117,24 +2139,21 @@ img { image-rendering: auto; -ms-interpolation-mode: bicubic; }
   100% { transform: translateX(-50%); }
 }
 @media (max-width: 768px) {
-  /* Mobile : remplace la marquee animée par un scroll horizontal swipable
-     pour permettre à l'utilisateur de faire défiler rapidement tous les
-     portraits avec le doigt (au lieu d'attendre l'animation lente). */
+  /* Mobile : marquee animée à vitesse doublée + scroll manuel possible.
+     L'auto-scroll fait défiler tous les portraits rapidement (30s vs 60s
+     desktop) et l'utilisateur peut aussi swiper avec le doigt s'il veut
+     accélérer ou s'arrêter sur un portrait. */
   .partners-portraits-marquee {
     overflow-x: auto;
     overflow-y: hidden;
     -webkit-overflow-scrolling: touch;
-    scroll-snap-type: x mandatory;
     -webkit-mask-image: none;
             mask-image: none;
-    scrollbar-width: thin;
+    scrollbar-width: none;
   }
+  .partners-portraits-marquee::-webkit-scrollbar { display: none; }
   .partners-portraits-track {
-    animation: none !important;
-    padding: var(--space-4);
-  }
-  .partner-portrait {
-    scroll-snap-align: center;
+    animation-duration: 30s;
   }
 }
 @media (max-width: 640px) {

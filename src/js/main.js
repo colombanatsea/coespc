@@ -198,6 +198,16 @@ function meteoDesc(code) {
 // pour que les ballons montent vraiment jusqu'en haut du hero, que ce
 // soit un hero 800px desktop ou un page-hero 200px mobile.
 function initBalloonsHero() {
+  var COLORS = [
+    '#F7DCA0', // jaune ballon pastel
+    '#F0C29A', // ambre pastel
+    '#F0B5A3', // corail pastel
+    '#B0D5E5', // bleu lac pastel
+    '#B2D8B5', // vert tilleul pastel
+    '#EBD58F', // or girouette pastel
+    '#F0D4D4', // rose pastel
+    '#D1C4E0'  // lavande pastel
+  ];
   // Moins de ballons sur mobile pour eviter le serrement visuel
   var isMobile = window.innerWidth < 640;
   var NB_BALLOONS = isMobile ? 4 : 8;
@@ -209,31 +219,35 @@ function initBalloonsHero() {
     container.setAttribute('aria-hidden', 'true');
 
     for (var i = 0; i < NB_BALLOONS; i++) {
-      // Chaque ballon = logo CŒSPC complet (clocher + coeur + wordmark)
-      // Le fond bleu du PNG se confond avec le fond bleu du hero,
-      // donnant l'illusion que seuls le clocher orange et les lettres
-      // dorées flottent et montent.
-      var b = document.createElement('img');
+      // Ballon pastel ovale + image du logo-mark (clocher + cœur, sans
+      // wordmark) en overlay multiply à l'intérieur. Le multiply teinte
+      // le ballon avec le bleu/orange du logo, donnant l'identité CŒSPC
+      // sans perdre la couleur pastel.
+      var b = document.createElement('span');
       b.className = 'balloon-hero';
-      b.src = '/assets/images/logo-coespc.png';
-      b.alt = '';
-      b.setAttribute('aria-hidden', 'true');
+      b.style.background = COLORS[Math.floor(Math.random() * COLORS.length)];
       // Repartition reguliere + jitter : evite que 2 ballons soient l'un sur l'autre
       var basePos = (i / NB_BALLOONS) * 100;
       var jitter = (Math.random() - 0.5) * (80 / NB_BALLOONS);
       b.style.left = Math.max(3, Math.min(95, basePos + jitter)) + '%';
-      // Taille variable plus grande qu'avant : il faut pouvoir lire le wordmark
-      // (60-90px desktop, 45-65px mobile)
-      var sizeMin = isMobile ? 45 : 60;
-      var sizeMax = isMobile ? 65 : 90;
+      // Taille variable un peu plus grande qu'avant pour que le mark
+      // (clocher + cœur) reste lisible (40-58px desktop, 30-44px mobile)
+      var sizeMin = isMobile ? 30 : 40;
+      var sizeMax = isMobile ? 44 : 58;
       var size = sizeMin + Math.random() * (sizeMax - sizeMin);
       b.style.width = size + 'px';
-      b.style.height = size + 'px'; // logo carré, pas ovale
+      b.style.height = (size * 1.25) + 'px';
       // Duree variable (18-28s)
       b.style.setProperty('--dur', (18 + Math.random() * 10) + 's');
       // Delai negatif = les ballons sont deja en cours de montee au chargement
-      // Reparti sur la duree pour un effet continu (pas tous en bas au start)
       b.style.setProperty('--delay', (-(i + Math.random()) * 3) + 's');
+      // Logo-mark à l'intérieur (clocher + cœur, sans wordmark)
+      var mark = document.createElement('img');
+      mark.className = 'balloon-mark';
+      mark.src = '/assets/images/logo-coespc-mark.png';
+      mark.alt = '';
+      mark.setAttribute('aria-hidden', 'true');
+      b.appendChild(mark);
       container.appendChild(b);
     }
     hero.insertBefore(container, hero.firstChild);

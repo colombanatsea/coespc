@@ -1345,26 +1345,14 @@ blockquote cite {
   background: rgba(244, 179, 101, 0.4);
 }
 .balloons-hero .balloon-mark {
-  /* On utilise un <span> avec le PNG en mask-image (mode luminance) :
-     seuls les pixels clairs du PNG (clocher orange, contours dorés)
-     laissent passer la couleur de fond (blanche). Le fond bleu sombre
-     du PNG est masqué, donc la pastel du ballon reste visible derrière
-     les zones non-logo. */
+  /* SVG inline du logo-mark CŒSPC (clocher dans un cœur, blanc).
+     Compat universelle, pas de fond bleu, la pastel du ballon reste
+     visible derrière les zones non tracées du SVG. */
   display: block;
-  width: 90%;
-  height: 90%;
-  background-color: rgba(255, 255, 255, 0.92);
-  -webkit-mask-image: url('/assets/images/logo-coespc-mark.png');
-          mask-image: url('/assets/images/logo-coespc-mark.png');
-  -webkit-mask-mode: luminance;
-          mask-mode: luminance;
-  -webkit-mask-size: contain;
-          mask-size: contain;
-  -webkit-mask-position: center;
-          mask-position: center;
-  -webkit-mask-repeat: no-repeat;
-          mask-repeat: no-repeat;
+  width: 80%;
+  height: 80%;
   pointer-events: none;
+  filter: drop-shadow(0 1px 1.5px rgba(0, 0, 0, 0.18));
 }
 @keyframes balloonRiseHero {
   0%   {

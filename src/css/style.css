@@ -1345,15 +1345,25 @@ blockquote cite {
   background: rgba(244, 179, 101, 0.4);
 }
 .balloons-hero .balloon-mark {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  /* Le PNG a un canal alpha (RGBA). On force toutes les zones opaques
-     en blanc pour ne garder que la silhouette du clocher + cœur, en
-     préservant la transparence. La couleur pastel du ballon reste
-     visible derrière. */
-  filter: brightness(0) invert(1);
-  opacity: 0.92;
+  /* On utilise un <span> avec le PNG en mask-image (mode luminance) :
+     seuls les pixels clairs du PNG (clocher orange, contours dorés)
+     laissent passer la couleur de fond (blanche). Le fond bleu sombre
+     du PNG est masqué, donc la pastel du ballon reste visible derrière
+     les zones non-logo. */
+  display: block;
+  width: 90%;
+  height: 90%;
+  background-color: rgba(255, 255, 255, 0.92);
+  -webkit-mask-image: url('/assets/images/logo-coespc-mark.png');
+          mask-image: url('/assets/images/logo-coespc-mark.png');
+  -webkit-mask-mode: luminance;
+          mask-mode: luminance;
+  -webkit-mask-size: contain;
+          mask-size: contain;
+  -webkit-mask-position: center;
+          mask-position: center;
+  -webkit-mask-repeat: no-repeat;
+          mask-repeat: no-repeat;
   pointer-events: none;
 }
 @keyframes balloonRiseHero {

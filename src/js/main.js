@@ -241,11 +241,13 @@ function initBalloonsHero() {
       b.style.setProperty('--dur', (18 + Math.random() * 10) + 's');
       // Delai negatif = les ballons sont deja en cours de montee au chargement
       b.style.setProperty('--delay', (-(i + Math.random()) * 3) + 's');
-      // Logo-mark à l'intérieur (clocher + cœur, sans wordmark)
-      var mark = document.createElement('img');
+      // Logo-mark à l'intérieur (clocher + cœur, sans wordmark).
+      // <span> avec le PNG en mask-image (mode luminance) : seuls les pixels
+      // clairs du PNG (clocher orange, contours dorés) laissent passer le
+      // background blanc. Le fond bleu sombre est masqué, donc la pastel
+      // du ballon reste visible derrière.
+      var mark = document.createElement('span');
       mark.className = 'balloon-mark';
-      mark.src = '/assets/images/logo-coespc-mark.png';
-      mark.alt = '';
       mark.setAttribute('aria-hidden', 'true');
       b.appendChild(mark);
       container.appendChild(b);

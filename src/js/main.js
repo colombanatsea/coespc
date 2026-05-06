@@ -208,20 +208,6 @@ function initBalloonsHero() {
     '#F0D4D4', // rose pastel
     '#D1C4E0'  // lavande pastel
   ];
-  // SVG inline stylise du logo-mark CŒSPC (clocher dans un coeur),
-  // en blanc, pour etre dessine sur les ballons pastel.
-  var SVG_MARK =
-    '<svg class="balloon-mark" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">' +
-      // Coeur (contour blanc)
-      '<path d="M50,86 C30,68 14,56 14,38 C14,28 22,22 30,22 C38,22 44,28 50,36 C56,28 62,22 70,22 C78,22 86,28 86,38 C86,56 70,68 50,86 Z" ' +
-        'fill="none" stroke="#fff" stroke-width="4" stroke-linejoin="round"/>' +
-      // Clocher (corps + toit)
-      '<rect x="42" y="46" width="16" height="26" fill="#fff"/>' +
-      '<polygon points="40,46 50,34 60,46" fill="#fff"/>' +
-      // Petite croix sur le toit
-      '<rect x="49.2" y="24" width="1.6" height="10" fill="#fff"/>' +
-      '<rect x="46.5" y="27" width="7" height="1.6" fill="#fff"/>' +
-    '</svg>';
   // Moins de ballons sur mobile pour eviter le serrement visuel
   var isMobile = window.innerWidth < 640;
   var NB_BALLOONS = isMobile ? 4 : 8;
@@ -255,10 +241,15 @@ function initBalloonsHero() {
       b.style.setProperty('--dur', (18 + Math.random() * 10) + 's');
       // Delai negatif = les ballons sont deja en cours de montee au chargement
       b.style.setProperty('--delay', (-(i + Math.random()) * 3) + 's');
-      // Logo-mark à l'intérieur : SVG inline stylisé (cœur + clocher
-       // + petite croix sur le toit), en blanc. Compat universelle, contrôle
-      // total de la couleur, pas de fond bleu opaque.
-      b.innerHTML = SVG_MARK;
+      // Logo-mark à l'intérieur : SVG fichier externe (cœur + clocher
+      // + petite croix sur le toit), en blanc, fond transparent.
+      // Compat universelle, fiabilité du <img src> SVG.
+      var mark = document.createElement('img');
+      mark.className = 'balloon-mark';
+      mark.src = '/assets/images/logo-mark-coespc.svg';
+      mark.alt = '';
+      mark.setAttribute('aria-hidden', 'true');
+      b.appendChild(mark);
       container.appendChild(b);
     }
     hero.insertBefore(container, hero.firstChild);

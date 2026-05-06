@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" aria-hidden="true">
+  <!-- Coeur (contour) -->
+  <path d="M50,86 C30,68 14,56 14,38 C14,28 22,22 30,22 C38,22 44,28 50,36 C56,28 62,22 70,22 C78,22 86,28 86,38 C86,56 70,68 50,86 Z" fill="none" stroke="#ffffff" stroke-width="5" stroke-linejoin="round"/>
+  <!-- Clocher : corps -->
+  <rect x="42" y="46" width="16" height="26" fill="#ffffff"/>
+  <!-- Clocher : toit -->
+  <polygon points="40,46 50,34 60,46" fill="#ffffff"/>
+  <!-- Croix sur le toit -->
+  <rect x="49.2" y="24" width="1.6" height="10" fill="#ffffff"/>
+  <rect x="46.5" y="27" width="7" height="1.6" fill="#ffffff"/>
+</svg>

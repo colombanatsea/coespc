@@ -1345,15 +1345,16 @@ blockquote cite {
   background: rgba(244, 179, 101, 0.4);
 }
 .balloons-hero .balloon-mark {
-  /* Vrai logo CŒSPC sans wordmark et sans fond bleu (PNG transparent).
-     La couleur pastel du ballon reste visible derrière les zones
-     transparentes ; le clocher + cœur orange du logo apparaît par-dessus. */
+  /* Vrai logo CŒSPC sans wordmark et sans fond bleu (PNG transparent),
+     passé en blanc via filter brightness(0)+invert(1) : tous les pixels
+     opaques (clocher + cœur orange) deviennent blancs, la transparence
+     est préservée → la pastel du ballon reste visible derrière. */
   display: block;
   width: 95%;
   height: 95%;
   object-fit: contain;
   pointer-events: none;
-  filter: drop-shadow(0 1px 1.5px rgba(0, 0, 0, 0.18));
+  filter: brightness(0) invert(1) drop-shadow(0 1px 1.5px rgba(0, 0, 0, 0.18));
 }
 @keyframes balloonRiseHero {
   0%   {

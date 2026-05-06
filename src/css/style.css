@@ -1345,13 +1345,15 @@ blockquote cite {
   background: rgba(244, 179, 101, 0.4);
 }
 .balloons-hero .balloon-mark {
-  width: 110%;
-  height: 110%;
-  object-fit: cover;
-  /* multiply = le bleu et l'orange du logo se fondent dans la pastel,
-     sans masquer entièrement la couleur du ballon */
-  mix-blend-mode: multiply;
-  opacity: 0.85;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  /* Le PNG a un canal alpha (RGBA). On force toutes les zones opaques
+     en blanc pour ne garder que la silhouette du clocher + cœur, en
+     préservant la transparence. La couleur pastel du ballon reste
+     visible derrière. */
+  filter: brightness(0) invert(1);
+  opacity: 0.92;
   pointer-events: none;
 }
 @keyframes balloonRiseHero {

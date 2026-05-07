@@ -394,7 +394,13 @@ button { cursor: pointer; font-family: inherit; }
   border-radius: var(--radius-full); margin-bottom: var(--space-8);
 }
 .hero-date svg { color: var(--or-logo); flex-shrink: 0; }
-.hero-actions { display: flex; gap: var(--space-4); justify-content: center; flex-wrap: wrap; }
+.hero-actions {
+  display: flex; gap: var(--space-4); justify-content: center; flex-wrap: wrap;
+  /* Aère systématiquement les boutons CTA du texte qui précède.
+     Sur la home (.hero), le margin-collapse avec hero-date mb 32px
+     donne max(32, 24)=32px : pas de double-marge. */
+  margin-top: var(--space-6);
+}
 
 /* --- PAGE HERO (shorter) --- */
 .page-hero {
@@ -806,9 +812,13 @@ blockquote cite {
 .text-center { text-align: center; }
 .text-left { text-align: left; }
 .mt-4 { margin-top: var(--space-4); }
+.mt-6 { margin-top: var(--space-6); }
 .mt-8 { margin-top: var(--space-8); }
+.mt-12 { margin-top: var(--space-12); }
 .mb-4 { margin-bottom: var(--space-4); }
+.mb-6 { margin-bottom: var(--space-6); }
 .mb-8 { margin-bottom: var(--space-8); }
+.mb-12 { margin-bottom: var(--space-12); }
 
 /* --- FADE IN --- */
 .fade-in {

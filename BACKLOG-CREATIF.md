@@ -7,16 +7,18 @@
 
 ---
 
-## 📊 Statut (27 avril 2026)
+## 📊 Statut (7 mai 2026)
 
 - ✅ **Direction A « Kermesse Éternelle »** retenue + design system officiel Anthropic appliqué
 - ✅ **Site complet déployé** sur https://coespc.org (24 pages HTML + admin Decap)
 - ✅ **Architecture CMS Decap** branchée (config, OAuth proxy, 6 collections, 90 YAML)
 - ✅ **13 archives** + **48 partenaires** (ajout Mairie déléguée d'Annecy-le-Vieux) + **81 photos** + **12 FAQ** + **7 moments programme** migrés
 - ✅ **Refactoring qualité avril 2026** : -278 lignes dead code, perf guard data-cms, fix RSS entities, headers cleanup
-- ✅ **Feedback bureau du 27/04/2026** intégré : 5 lots livrés + audit authenticité (commits `d3412e8`, `f074d38`, `f94565d`, `1b3c475`, `212611a`, `4f7f12d`)
+- ✅ **Feedback bureau du 27/04/2026** intégré : 5 lots livrés + audit authenticité
 - ✅ **Charte d'authenticité** : aucune citation/nom/statistique sans source vérifiable (règle 27/04/2026)
+- ✅ **Itérations design 6-7 mai 2026** : logo sans wordmark partout (`logo-coespc-mark.png`), ballons hero avec le vrai logo CŒSPC en blanc sur pastel via `logo-coespc-mark-transparent.png` + filter blanc, letter-spacing élargi `C Œ S P C`, marquee mobile 2× plus rapide, tél Prune activé sur CTA partenaires, fix z-index page-hero, audit espacements UX
 - 🚧 **Activation OAuth bénévoles** = prochaine étape opérationnelle (voir `docs/CMS-ACTIVATION.md`)
+- 🚧 **Tél Prune** : à étendre éventuellement à contact + footer + Schema.org (cf. `TODO.md`)
 
 Idées non-prioritaires conservées ci-dessous (historique + roadmap).
 

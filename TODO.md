@@ -4,7 +4,7 @@
 > Pour le « pourquoi » : voir `CLAUDE.md` (vision + état) et `BACKLOG-CREATIF.md` (idées long terme + dette technique surveillée).
 > Pour le « comment » technique : voir `HANDOFF.md`.
 >
-> *Dernière mise à jour : 27 avril 2026 (5 lots feedback bureau + audit authenticité)*
+> *Dernière mise à jour : 7 mai 2026 (itérations design + activation tél Prune partielle)*
 
 ---
 
@@ -31,16 +31,16 @@ URLs utiles :
 - **Procédure** : `docs/CMS-ACTIVATION.md`
 - **Critère de succès** : un bénévole peut se connecter sur `/admin/`, modifier une FAQ, publier, voir le changement live en <5 min
 
-### 🟠 Téléphone Prune (en attente d'accord)
-- **Owner** : Colomban (demande) + Prune (accord)
-- **Effort** : <5 min côté code, dès l'accord obtenu
-- **Action une fois l'accord obtenu** :
-  1. Créer une nouvelle classe CSS `.contact-phone` (équivalent `.contact-email`) dans `src/css/style.css`
-  2. Ajouter dans `src/_content/pages/contact.yml` les clés `telTitre`, `tel`, `telLien` (`tel:+33...`)
-  3. Insérer une section « Nous appeler » sur `contact.html`, juste sous la section email
-  4. Ajouter dans `src/index.html` le `Schema.org Organization → contactPoint → telephone`
+### 🟠 Téléphone Prune — étendre l'affichage
+- **Owner** : Colomban
+- **Effort** : ~15 min
+- **Statut actuel** : numéro affiché uniquement sur la CTA finale de `partenaires.html` (« Rejoignez la 74e édition ») — commit `92d29ac`. Format : `06 46 74 53 38` cliquable via `tel:+33646745338`.
+- **Extension possible** (si le bureau valide l'affichage généralisé) :
+  1. Page `contact.html` : nouvelle section « Nous appeler » sous l'email, avec classe CSS dédiée `.contact-phone` (équivalente à `.contact-email`)
+  2. Footer global (24 pages) sous l'adresse postale, classe `.footer-phone`
+  3. `src/index.html` Schema.org Organization → `contactPoint.telephone: "+33646745338"`
+  4. Mentions légales : ajout du tél au bloc « Contact »
   5. Push → CF Pages redéploie auto
-- **Statut** : ⏳ pas encore affiché, conformément à la demande de Prune
 
 ### 🟡 Affiche 2026 (dès réception de l'artiste)
 - **Owner** : artiste local (à recruter, cf. `BACKLOG-CREATIF.md` § « Collection d'affiches »)
@@ -114,6 +114,19 @@ URLs utiles :
 | Lot 4 — galerie 76 ans (2014 Brésil) + swipe mobile portraits | UX mobile + diversité affiches | `1b3c475` | 2 |
 | Lot 5 — lettres `C Œ S P C` blanches sur ballons + section affiche 2026 placeholder | Identité ludique + slot pour artiste | `212611a` | 3 |
 | Audit authenticité — retrait des contenus invérifiables / prose IA | Crédibilité / tout sourcé | `4f7f12d` | 15 |
+
+### Itérations design 6-7 mai 2026 (pour mémoire — déjà déployées)
+| Sujet | Bénéfice | Commit | Fichiers |
+|---|---|---|---|
+| Letter-spacing élargi `C Œ S P C` (0.18em → 0.32em) | « Petit espace » bien visible | `ef106f8` | 1 |
+| Logo sans wordmark partout (header + footer + Schema.org) — création `logo-coespc-mark.png` | Identité plus propre, acronyme rendu en CSS | `56e1cea` | 25 |
+| Marquee « Visages de la fête » sur mobile : 60s → 30s + scroll swipe | UX mobile défilement rapide | `2040a8d` | 2 |
+| Lien email ajouté sous boutons CTA partenaires | Contact direct sur la page partenaires | `c00ccce` | 2 |
+| Ballons hero : itération technique pour avoir le **vrai** logo CŒSPC blanc transparent dessiné sur la pastel (création `logo-coespc-mark-transparent.png` via script Python qui supprime les pixels bleus du PNG, puis `filter: brightness(0) invert(1)` pour passer en blanc) | Identité forte sur les ballons sans masquer la couleur pastel | `70b2449` + `4db3edd` | 4 |
+| Édition 2026 : « Stand de tir pour les grands et les petits » → « Stand de tir & concours pour les grands et les petits » | Précision factuelle | `70b2449` | 1 |
+| Téléphone Prune — affichage activé sur la CTA finale partenaires (`tel:+33646745338`), retrait des boutons Insta/FB à cet endroit | Canal de contact direct possible (Prune a confirmé l'accord) | `92d29ac` | 1 |
+| Z-index : texte au-dessus des ballons sur `.page-hero` | Lisibilité titres sur toutes les pages secondaires | `703da60` | 1 |
+| Audit espacements UX (charte 8px) : utility classes manquantes `.mt-6` / `.mb-6` / `.mt-12` / `.mb-12`, `.hero-actions { margin-top: var(--space-6) }`, cleanup de 12 inline `style="margin-top: 1.5rem"` → classes utility | Cohérence visuelle, boutons CTA plus aérés du texte | `440cb4b` | 15 |
 
 ### Prochaine vague
 | # | Lot | Effort | Impact | Owner |

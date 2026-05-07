@@ -311,6 +311,24 @@ Workflow éditorial : draft → review → publish via Pull Request GitHub.
 
 **Règle d'authenticité** : aucune citation/nom/statistique sans source vérifiable et nommée. Voir section « Points d'attention » plus haut pour la liste des tics IA bannis.
 
+#### Itérations design 6-7 mai 2026
+
+- [x] Letter-spacing élargi sur l'acronyme `C Œ S P C` (0.18em → 0.32em) avec compensation `padding-left` pour rester centré (commit `ef106f8`)
+- [x] **Logo sans wordmark** partout : nouveau fichier `logo-coespc-mark.png` (clocher + cœur, sans le texte CŒSPC du PNG d'origine). Header/footer/Schema.org pointent vers cette nouvelle version (commit `56e1cea`, 25 fichiers). L'acronyme `C Œ S P C` est désormais rendu en CSS au lieu d'être gravé dans l'image — modifiable sans toucher au PNG. Le `logo-coespc.png` original est conservé comme téléchargement dans le kit média presse.
+- [x] **Favicon** : SVG coq seul partout, suppression des fallbacks PNG qui pointaient vers le logo CŒSPC (le SVG suffit pour les navigateurs modernes)
+- [x] **Marquee « Visages de la fête » mobile** : animation 60s → 30s (2× plus rapide) + scroll swipe + scrollbar masquée (commit `2040a8d`)
+- [x] **Ballons hero** : itération technique pour afficher le **vrai** logo CŒSPC en blanc sur les ballons pastel (sans masquer la couleur). Pipeline final :
+  1. Création de `logo-coespc-mark-transparent.png` via script Python (PIL) qui parse le PNG d'origine pixel par pixel et remplace les pixels du fond bleu (`~#142477`) par alpha=0, en conservant les pixels orange du clocher + cœur (262 144 pixels traités, ~84 % bleu retiré)
+  2. Chaque ballon = `<span>` pastel ovale + `<img class="balloon-mark" src="logo-coespc-mark-transparent.png">` à l'intérieur
+  3. CSS : `filter: brightness(0) invert(1) drop-shadow(...)` sur l'image → tous les pixels opaques deviennent blancs, transparence préservée
+  4. Résultat : silhouette blanche du **vrai** logo CŒSPC sur la pastel du ballon, lisibilité maximale sur les 8 couleurs (jaune, ambre, corail, bleu lac, vert tilleul, or girouette, rose, lavande)
+  - commits : `64a11f1`, `258714c`, `a305b21`, `0e4e714`, `70b2449`, `4db3edd`
+- [x] **Email contact** ajouté sous les boutons Insta/FB dans le CTA final de partenaires.html (commit `c00ccce`)
+- [x] **Téléphone Prune activé** : `06 46 74 53 38` cliquable via `tel:+33646745338` ajouté sur la CTA finale de partenaires.html, en remplacement des boutons Insta/FB (commit `92d29ac`). Extension à la page contact + footer + Schema.org en attente du go bureau (cf. `TODO.md` § horizon 1).
+- [x] **Édition 2026 — programme** : « Stand de tir pour les grands et les petits » → « Stand de tir & concours pour les grands et les petits » (commit `70b2449`)
+- [x] **Z-index** : texte au-dessus des ballons sur `.page-hero` (toutes les pages secondaires) — règle ciblée `.page-hero > .container { position: relative; z-index: 2 }` ajoutée pour aligner avec `.hero-content` qui avait déjà cette propriété (commit `703da60`)
+- [x] **Audit espacements UX (charte 8px)** : utility classes manquantes ajoutées (`.mt-6`, `.mb-6`, `.mt-12`, `.mb-12`), `.hero-actions { margin-top: var(--space-6) }` pour aérer les boutons CTA du texte qui précède, cleanup de 12 styles inline `margin/padding` en valeurs rem vers les classes utility (commit `440cb4b`, 15 fichiers)
+
 ### 🚧 À faire — voir `TODO.md` pour le détail actionnable
 
 Roadmap par horizon (résumé — détail dans `TODO.md`) :
@@ -337,4 +355,4 @@ Dette technique surveillée (3 points) : voir `TODO.md` § « Dette technique su
 
 ---
 
-*Dernière mise à jour : 27 avril 2026 (5 lots feedback bureau + audit authenticité + Mairie déléguée)*
+*Dernière mise à jour : 7 mai 2026 (itérations design ballons/logo/spacing + activation tél Prune partielle)*

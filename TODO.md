@@ -4,7 +4,9 @@
 > Pour le « pourquoi » : voir `CLAUDE.md` (vision + état) et `BACKLOG-CREATIF.md` (idées long terme + dette technique surveillée).
 > Pour le « comment » technique : voir `HANDOFF.md`.
 >
-> *Dernière mise à jour : 7 mai 2026 (itérations design + activation tél Prune partielle)*
+> *Dernière mise à jour : 7 mai 2026 (extension tél Prune complète + REFERENCE.md créé)*
+>
+> **🆕 Note** : `REFERENCE.md` est désormais le **document maître exhaustif** (specs + design system + décisions + changelog complet + procédures). À lire en priorité pour reprendre le projet.
 
 ---
 
@@ -31,16 +33,16 @@ URLs utiles :
 - **Procédure** : `docs/CMS-ACTIVATION.md`
 - **Critère de succès** : un bénévole peut se connecter sur `/admin/`, modifier une FAQ, publier, voir le changement live en <5 min
 
-### 🟠 Téléphone Prune — étendre l'affichage
-- **Owner** : Colomban
-- **Effort** : ~15 min
-- **Statut actuel** : numéro affiché uniquement sur la CTA finale de `partenaires.html` (« Rejoignez la 74e édition ») — commit `92d29ac`. Format : `06 46 74 53 38` cliquable via `tel:+33646745338`.
-- **Extension possible** (si le bureau valide l'affichage généralisé) :
-  1. Page `contact.html` : nouvelle section « Nous appeler » sous l'email, avec classe CSS dédiée `.contact-phone` (équivalente à `.contact-email`)
-  2. Footer global (24 pages) sous l'adresse postale, classe `.footer-phone`
-  3. `src/index.html` Schema.org Organization → `contactPoint.telephone: "+33646745338"`
-  4. Mentions légales : ajout du tél au bloc « Contact »
-  5. Push → CF Pages redéploie auto
+### ✅ Téléphone Prune — affiché partout (terminé le 7 mai 2026)
+- **Statut** : déployé partout sur le site avec personnification (« Prune · 06 46 74 53 38 »).
+- **Endroits** :
+  - Page `contact.html` : section dédiée « Nous appeler » sous l'email
+  - Footer global (24 pages) : ligne sous l'email
+  - `index.html` Schema.org Organization : `telephone` + `contactPoint.telephone` + `contactPoint.name: "Prune"`
+  - Mentions légales : ajout au bloc Contact
+  - CTA finale partenaires : « ou contactez Prune - 06 46 74 53 38 »
+- **Format technique** : `tel:+33646745338` (E.164), affichage `06 46 74 53 38` avec `&nbsp;` pour ne pas couper.
+- **Classes CSS** : `.contact-phone` + `.contact-phone-name` (page contact), `.footer-phone` (footer).
 
 ### 🟡 Affiche 2026 (dès réception de l'artiste)
 - **Owner** : artiste local (à recruter, cf. `BACKLOG-CREATIF.md` § « Collection d'affiches »)

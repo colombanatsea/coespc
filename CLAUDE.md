@@ -195,7 +195,7 @@ Workflow éditorial : draft → review → publish via Pull Request GitHub.
 - **Date 2026** : 13 septembre 2026 (dimanche). 74e édition. 76 ans depuis 1950.
 - **Aucune mention Covid** sur le site (décision bureau 27/04/2026 : « c'est du passé »). Pas d'archive 2020/2021, pas de « post-COVID ».
 - **Email contact** : `fetevillageoise@pcr74.fr` **affiché en clair** sur la page Contact + footer global (décision 27/04/2026, l'adresse est redirigée vers Gmail). Réseaux sociaux relégués en « suivez-nous » (pas en canal de contact principal).
-- **Téléphone** : pas affiché tant que Prune n'a pas donné son accord pour exposer le sien.
+- **Téléphone Prune** (`06 46 74 53 38`, accord obtenu le 7 mai 2026) : affiché en clair partout — page Contact (section dédiée « Nous appeler »), footer global (24 pages, sous l'email), Schema.org Organization (`telephone` + `contactPoint.name: "Prune"`), mentions légales. Format affiché : « Prune · 06 46 74 53 38 » ou « contactez Prune au 06... » selon le contexte. Lien `tel:+33646745338` pour déclencher le dialer mobile.
 - **Adresse postale officielle** affichée partout (footer + contact + mentions légales) :
   ```
   Comité des Œuvres Sociales Paroissiales et Communales
@@ -343,7 +343,8 @@ Dette technique surveillée (3 points) : voir `TODO.md` § « Dette technique su
 
 ## Documentation associée
 
-- **`TODO.md`** — Roadmap actionnable (3 horizons, owner, effort, statut) — **point d'entrée pour reprendre le projet**
+- **`REFERENCE.md`** — **Note de référence EXHAUSTIVE** (specs + design system + décisions + changelog complet + procédures). À lire en priorité si tu reprends après une longue absence ou si tu découvres le projet.
+- **`TODO.md`** — Roadmap actionnable (3 horizons, owner, effort, statut)
 - `HANDOFF.md` — Spécification technique complète (architecture, choix de stack, sécurité, cache)
 - `BACKLOG-CREATIF.md` — Idées créatives long terme + historique design + dette technique
 - `docs/CMS-ACTIVATION.md` — Procédure activation OAuth GitHub (5 étapes)
@@ -351,8 +352,8 @@ Dette technique surveillée (3 points) : voir `TODO.md` § « Dette technique su
 - `src/assets/images/archives/README.md` — Comment ajouter des coupures presse
 - `src/assets/images/partenaires-portraits/README.md` — Comment ajouter des portraits
 
-> **Reprendre le projet plus tard ?** Lis `CLAUDE.md` (3 min) puis `TODO.md` (2 min). Tout est là.
+> **Reprendre le projet plus tard ?** Lis `REFERENCE.md` (10 min, exhaustif) ou en mode rapide `CLAUDE.md` (3 min) + `TODO.md` (2 min).
 
 ---
 
-*Dernière mise à jour : 7 mai 2026 (itérations design ballons/logo/spacing + activation tél Prune partielle)*
+*Dernière mise à jour : 7 mai 2026 (extension tél Prune complète + REFERENCE.md exhaustif créé)*

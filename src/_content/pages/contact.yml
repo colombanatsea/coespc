@@ -13,6 +13,14 @@ email: "fetevillageoise@pcr74.fr"
 emailLien: "mailto:fetevillageoise@pcr74.fr"
 emailNote: "Adresse officielle de l'association, redirigée vers notre boîte Gmail pour un suivi quotidien."
 
+# ══ TÉLÉPHONE CONTACT ══
+telTitre: "Nous appeler"
+telIntro: "Pour un échange direct, vous pouvez aussi joindre Prune par téléphone :"
+telPrenom: "Prune"
+tel: "06 46 74 53 38"
+telLien: "tel:+33646745338"
+telNote: "Disponible en soirée et le week-end de préférence."
+
 # ══ SUIVRE SUR LES RESEAUX ══
 suivreTitre: "Suivez-nous"
 suivreIntro: "Pour les actualités, photos et coulisses de la fête."

@@ -13,6 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initGallery();
   initPartnersFeed();
   initBalloonsHero();
+  initFooterLogoZoom();
 });
 
 
@@ -520,5 +521,60 @@ function initActiveNav() {
     if (path === '/' && href === '/') {
       link.classList.add('active');
     }
+  });
+}
+
+
+// ═══ LOGO FOOTER : zoom grand format au clic, re-clic = retour accueil ═══
+function initFooterLogoZoom() {
+  const trigger = document.querySelector('.footer-brand img');
+  if (!trigger) return;
+
+  let overlay = null;
+
+  function build() {
+    overlay = document.createElement('div');
+    overlay.className = 'logo-lightbox';
+    overlay.setAttribute('role', 'dialog');
+    overlay.setAttribute('aria-modal', 'true');
+    overlay.setAttribute('aria-label', 'Logo CŒSPC en grand format');
+    overlay.innerHTML =
+      '<button type="button" class="logo-lightbox-close" aria-label="Fermer">&times;</button>' +
+      '<figure class="logo-lightbox-figure">' +
+        '<a href="/" class="logo-lightbox-link" aria-label="Revenir à l\'accueil">' +
+          '<img src="/assets/images/logo-coespc.png" alt="Logo CŒSPC — Comité des Œuvres Sociales Paroissiales et Communales">' +
+        '</a>' +
+        '<figcaption>Cliquez sur le logo pour revenir à l\'accueil</figcaption>' +
+      '</figure>';
+    document.body.appendChild(overlay);
+
+    overlay.addEventListener('click', (e) => {
+      // clic sur le fond ou la croix = fermeture ; clic sur le logo = lien accueil
+      if (e.target === overlay || e.target.classList.contains('logo-lightbox-close')) {
+        close();
+      }
+    });
+  }
+
+  function open() {
+    if (!overlay) build();
+    requestAnimationFrame(() => overlay.classList.add('is-open'));
+    document.body.classList.add('logo-lightbox-lock');
+    document.addEventListener('keydown', onKey);
+  }
+  function close() {
+    if (!overlay) return;
+    overlay.classList.remove('is-open');
+    document.body.classList.remove('logo-lightbox-lock');
+    document.removeEventListener('keydown', onKey);
+  }
+  function onKey(e) { if (e.key === 'Escape') close(); }
+
+  trigger.setAttribute('role', 'button');
+  trigger.setAttribute('tabindex', '0');
+  trigger.setAttribute('aria-label', 'Agrandir le logo CŒSPC');
+  trigger.addEventListener('click', open);
+  trigger.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(); }
   });
 }

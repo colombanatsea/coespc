@@ -732,7 +732,10 @@ blockquote cite {
   width: 96px; height: 96px;
   border-radius: var(--radius-md);
   display: block;
+  cursor: zoom-in;
+  transition: transform 0.2s cubic-bezier(.2,.8,.2,1);
 }
+.footer-brand img:hover { transform: scale(1.04); }
 .footer-brand h3 {
   font-family: var(--font-display); font-weight: 800;
   color: var(--or-logo); font-size: var(--text-2xl);
@@ -2025,6 +2028,43 @@ img { image-rendering: auto; -ms-interpolation-mode: bicubic; }
   color: var(--or-logo, #F4B365);
   font-size: 2.5rem; cursor: pointer; line-height: 1;
 }
+
+/* Logo footer : zoom grand format (re-clic sur le logo = retour accueil) */
+.logo-lightbox {
+  position: fixed; inset: 0; z-index: 2100;
+  background: rgba(5, 22, 130, 0.94);
+  display: flex; align-items: center; justify-content: center;
+  padding: 2rem; cursor: zoom-out;
+  opacity: 0; visibility: hidden;
+  transition: opacity 0.25s ease, visibility 0.25s ease;
+}
+.logo-lightbox.is-open { opacity: 1; visibility: visible; }
+.logo-lightbox-figure {
+  margin: 0; text-align: center;
+  transform: scale(0.96);
+  transition: transform 0.25s cubic-bezier(.2,.8,.2,1);
+}
+.logo-lightbox.is-open .logo-lightbox-figure { transform: scale(1); }
+.logo-lightbox-link { display: inline-block; cursor: pointer; }
+.logo-lightbox-link img {
+  max-width: min(80vw, 420px); max-height: 70vh;
+  object-fit: contain;
+  border-radius: var(--radius-lg, 16px);
+  box-shadow: 0 18px 60px rgba(0, 0, 0, 0.5);
+}
+.logo-lightbox figcaption {
+  margin-top: var(--space-4);
+  color: var(--or-logo, #F4B365);
+  font-family: var(--font-body); font-size: var(--text-sm);
+  opacity: 0.85; letter-spacing: 0.02em;
+}
+.logo-lightbox-close {
+  position: absolute; top: 1rem; right: 1.5rem;
+  background: none; border: none;
+  color: var(--or-logo, #F4B365);
+  font-size: 2.5rem; cursor: pointer; line-height: 1;
+}
+body.logo-lightbox-lock { overflow: hidden; }
 
 /* =================================================================
    LISTE PARTENAIRES ARCHIVES

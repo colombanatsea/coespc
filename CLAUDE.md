@@ -81,7 +81,7 @@ Tokens définis en `:root` dans `src/css/style.css` :
 ### Couleurs
 
 ```css
---bleu-logo:       #142477;  /* Bleu Clocher — primaire, fond dark */
+--bleu-logo:       #071584;  /* Bleu Clocher — primaire, fond dark (bleu exact du fond du logo) */
 --or-logo:         #F4B365;  /* Or chaud — TOUS les textes sur fond bleu */
 --ambre-fete:      #D4760A;  /* CTA, liens, accents chauds */
 --or-girouette:    #D4AF37;  /* Détails, cocardes (jamais texte sur bleu) */

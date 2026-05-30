@@ -50,7 +50,7 @@ Idées non-prioritaires conservées ci-dessous (historique + roadmap).
 
 ### Direction A — « Kermesse Éternelle » ⭐ (RETENUE et déployée)
 - **Esprit** : énergie joyeuse et artisanale, peinte à la main
-- **Palette** : Bleu Clocher (#142477), Ambre Fête (#D4760A), Or Girouette (#D4AF37), Rouge Guirlande (#C0392B)
+- **Palette** : Bleu Clocher (#071584), Ambre Fête (#D4760A), Or Girouette (#D4AF37), Rouge Guirlande (#C0392B)
 - **Typo titrage** : Fraunces (variable serif, expressif, chaud)
 - **Typo corps** : DM Sans (humanist sans-serif)
 - **Signatures visuelles** :

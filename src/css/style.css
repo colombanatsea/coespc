@@ -68,7 +68,7 @@
 /* --- TOKENS --- */
 :root {
   /* ═══ COLORS · Primaires ═══ */
-  --bleu-logo:       #142477;  /* Bleu Clocher — nuit de fête */
+  --bleu-logo:       #071584;  /* Bleu Clocher — bleu exact du fond du logo */
   --or-logo:         #F4B365;  /* Or chaud — texte sur fond bleu */
   --ambre-fete:      #D4760A;  /* CTA, liens, accents chauds */
   --or-girouette:    #D4AF37;  /* Détails, cocardes, badges */
@@ -1887,7 +1887,7 @@ img { image-rendering: auto; -ms-interpolation-mode: bicubic; }
   background: #fff;
 }
 .tombola-table thead {
-  background: var(--bleu-logo, #142477);
+  background: var(--bleu-logo, #071584);
   color: var(--or-logo, #F4B365);
 }
 .tombola-table thead th {
@@ -1915,7 +1915,7 @@ img { image-rendering: auto; -ms-interpolation-mode: bicubic; }
 .tombola-table td:first-child {
   text-align: center;
   font-weight: 700;
-  color: var(--bleu-logo, #142477);
+  color: var(--bleu-logo, #071584);
   font-family: 'Fraunces', serif;
 }
 .tombola-table td:last-child {
@@ -1952,7 +1952,7 @@ img { image-rendering: auto; -ms-interpolation-mode: bicubic; }
 }
 .retrait-lots h2 {
   margin-top: 0;
-  color: var(--bleu-logo, #142477);
+  color: var(--bleu-logo, #071584);
   font-family: 'Fraunces', serif;
   font-size: 1.5rem;
 }
@@ -2094,7 +2094,7 @@ img { image-rendering: auto; -ms-interpolation-mode: bicubic; }
   font-family: 'Fraunces', serif;
   font-size: 1.05rem;
   line-height: 1.35;
-  color: var(--bleu-logo, #142477);
+  color: var(--bleu-logo, #071584);
 }
 .partners-feed-date {
   font-size: 0.85rem;

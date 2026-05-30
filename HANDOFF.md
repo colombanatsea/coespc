@@ -129,7 +129,7 @@ Conçu par Anthropic pour le projet (avril 2026), basé sur l'affiche 2025 de F.
 ### 4.1 Palette
 
 **Primaires** (5 piliers identitaires) :
-- `--bleu-logo` `#142477` — Bleu Clocher (logos, headers, fond dark)
+- `--bleu-logo` `#071584` — Bleu Clocher (logos, headers, fond dark ; bleu exact du fond du logo)
 - `--or-logo` `#F4B365` — Or chaud (texte sur fond bleu, **uniquement**)
 - `--ambre-fete` `#D4760A` — CTA, liens, accents chauds
 - `--or-girouette` `#D4AF37` — Cocardes, badges (jamais texte sur bleu)

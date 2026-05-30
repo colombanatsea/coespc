@@ -259,12 +259,12 @@ button { cursor: pointer; font-family: inherit; }
   text-decoration: none;
 }
 .logo-lockup {
-  height: 56px; width: auto;
+  height: 68px; width: auto;
   display: block; flex-shrink: 0;
 }
 .logo-img {
   border-radius: var(--radius-sm);
-  width: 64px; height: 64px;
+  width: 80px; height: 80px;
   flex-shrink: 0;
   display: none;
 }
@@ -280,7 +280,7 @@ button { cursor: pointer; font-family: inherit; }
   .logo-text { display: inline-block; }
 }
 @media (max-width: 768px) {
-  .logo-img { width: 48px; height: 48px; }
+  .logo-img { width: 58px; height: 58px; }
   .header-inner { padding: 0.6rem 0; }
   .logo-text { font-size: var(--text-base); letter-spacing: 0.28em; }
 }
@@ -729,7 +729,7 @@ blockquote cite {
   position: relative;
 }
 .footer-brand img {
-  width: 96px; height: 96px;
+  width: 150px; height: 150px;
   border-radius: var(--radius-md);
   display: block;
   cursor: zoom-in;

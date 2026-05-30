@@ -1,6 +1,5 @@
 // Fête Villageoise — main.js
 document.addEventListener('DOMContentLoaded', () => {
-  initFanions();
   initMobileMenu();
   initStickyHeader();
   initScrollAnimations();

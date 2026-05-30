@@ -327,7 +327,9 @@ button { cursor: pointer; font-family: inherit; }
   position: fixed;
   top: 0; left: 0; right: 0;
   z-index: 101; /* au-dessus du header */
-  background: transparent;
+  height: 40px;
+  background: url('/assets/images/fanions-tile.png') repeat-x left top;
+  background-size: auto 40px;
   overflow: visible;
   padding: 0; line-height: 0;
   pointer-events: none;

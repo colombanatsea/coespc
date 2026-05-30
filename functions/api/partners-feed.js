@@ -9,9 +9,13 @@ const FEEDS = [
 
 const MAX_ITEMS_PER_FEED = 3;
 const CACHE_TTL_SECONDS  = 3600; // 1h
+// Fenetre de fraicheur : on n'affiche jamais un item plus vieux que ca.
+// Evite que des flux dormants (ex: Ancilevienne, dernier post 2019) ne
+// remontent d'anciens articles. Un flux sans item recent ne contribue rien.
+const MAX_AGE_MONTHS = 18;
 // Bump cette version pour invalider tous les caches Cloudflare Edge
-// (ex: changement du parser, ajout d'un decodeur d'entites HTML).
-const CACHE_VERSION = 'v2';
+// (ex: changement du parser, ajout d'un decodeur d'entites HTML, filtre age).
+const CACHE_VERSION = 'v3';
 
 export async function onRequestGet({ request }) {
   const u = new URL(request.url);
@@ -23,10 +27,16 @@ export async function onRequestGet({ request }) {
   let response = await cache.match(cacheKey);
   if (response) return response;
 
+  // Seuil de fraicheur : maintenant moins MAX_AGE_MONTHS mois
+  const cutoff = new Date();
+  cutoff.setMonth(cutoff.getMonth() - MAX_AGE_MONTHS);
+  const cutoffMs = cutoff.getTime();
+
   // Sinon fetch les flux en parallele
   const results = await Promise.allSettled(FEEDS.map(fetchFeed));
   const items = results
     .flatMap((r, i) => r.status === 'fulfilled' ? r.value.map(it => ({ ...it, source: FEEDS[i].source })) : [])
+    .filter(it => { const t = new Date(it.pubDate).getTime(); return !isNaN(t) && t >= cutoffMs; })
     .sort((a, b) => new Date(b.pubDate) - new Date(a.pubDate))
     .slice(0, FEEDS.length * MAX_ITEMS_PER_FEED);
 

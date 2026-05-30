@@ -67,11 +67,14 @@ function initGallery() {
 function initPartnersFeed() {
   var el = document.getElementById('partners-feed');
   if (!el) return;
+  var section = el.closest('#partners-news');
+  function hideSection() { if (section) section.style.display = 'none'; else el.innerHTML = ''; }
   fetch('/api/partners-feed', { cache: 'no-cache' })
     .then(function(r) { return r.ok ? r.json() : null; })
     .then(function(data) {
       if (!data || !data.items || !data.items.length) {
-        el.innerHTML = '<p class="partners-feed-empty">Flux indisponibles pour l\'instant.</p>';
+        // Aucune actu fraiche : on masque toute la section plutot que d'afficher un bloc vide
+        hideSection();
         return;
       }
       var html = data.items.slice(0, 6).map(function(it) {
@@ -85,7 +88,7 @@ function initPartnersFeed() {
       }).join('');
       el.innerHTML = html;
     })
-    .catch(function() { el.innerHTML = '<p class="partners-feed-empty">Flux indisponibles pour l\'instant.</p>'; });
+    .catch(function() { hideSection(); });
 }
 
 function escapeHtml(s) {

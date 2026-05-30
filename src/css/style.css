@@ -258,21 +258,16 @@ button { cursor: pointer; font-family: inherit; }
   display: flex; align-items: center; gap: var(--space-3);
   text-decoration: none;
 }
+.logo-lockup {
+  height: 56px; width: auto;
+  display: block; flex-shrink: 0;
+}
 .logo-img {
   border-radius: var(--radius-sm);
   width: 64px; height: 64px;
   flex-shrink: 0;
+  display: none;
 }
-.logo-fullname {
-  display: flex; flex-direction: column;
-  font-family: var(--font-display); font-weight: 700;
-  color: var(--or-logo);
-  line-height: 1.15;
-  font-size: 0.95rem;
-  letter-spacing: 0.005em;
-}
-.logo-fullname .logo-line1,
-.logo-fullname .logo-line2 { display: block; }
 .logo-text {
   font-family: var(--font-display); font-weight: 800;
   font-size: var(--text-lg); color: var(--or-logo);
@@ -280,7 +275,8 @@ button { cursor: pointer; font-family: inherit; }
   display: none;
 }
 @media (max-width: 1024px) {
-  .logo-fullname { display: none; }
+  .logo-lockup { display: none; }
+  .logo-img { display: block; }
   .logo-text { display: inline-block; }
 }
 @media (max-width: 768px) {

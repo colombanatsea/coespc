@@ -277,12 +277,11 @@ button { cursor: pointer; font-family: inherit; }
 @media (max-width: 1024px) {
   .logo-lockup { display: none; }
   .logo-img { display: block; }
-  .logo-text { display: inline-block; }
+  /* .logo-text reste masqué : logo-coespc.png contient déjà CŒSPC */
 }
 @media (max-width: 768px) {
-  .logo-img { width: 58px; height: 58px; }
+  .logo-img { width: 60px; height: 60px; }
   .header-inner { padding: 0.6rem 0; }
-  .logo-text { font-size: var(--text-base); letter-spacing: 0.28em; }
 }
 .nav-links {
   display: flex; align-items: center; gap: var(--space-1);

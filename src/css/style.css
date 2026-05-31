@@ -874,6 +874,7 @@ blockquote cite {
   .archives-mosaic { grid-template-columns: 1fr 1fr; }
   .hero-actions { flex-direction: column; align-items: center; }
   .btn { width: 100%; max-width: 280px; }
+  .footer-brand img { width: 104px; height: 104px; }
 }
 
 /* --- REDUCED MOTION --- */
@@ -2363,3 +2364,4 @@ body.logo-lightbox-lock { overflow: hidden; }
 /* === Dévoilement affiche 2026 : image portrait (affichée en entier, centrée, non recadrée) === */
 .affiche-2026-frame{aspect-ratio:auto!important;min-height:0!important;display:flex;justify-content:center;background:none!important;border:none!important;padding:0!important;}
 .affiche-2026-img{width:auto!important;max-width:100%;height:auto!important;max-height:min(78vh,760px);object-fit:contain!important;display:block;border-radius:var(--radius-md);box-shadow:0 12px 40px rgba(7,21,132,0.18);}
+@media (max-width: 768px) { .affiche-2026-img { max-height: 62vh !important; } }

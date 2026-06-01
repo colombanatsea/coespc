@@ -324,12 +324,12 @@ button { cursor: pointer; font-family: inherit; }
    pointer-events: none pour que le header reste cliquable a travers. */
 .fanions-banner {
   position: fixed;
-  top: 0; left: 0; right: 0;
+  top: -6px; left: 0; right: 0;
   z-index: 101; /* au-dessus du header */
-  height: 32px;
+  height: 38px;
   background: url('/assets/images/fanions-tile.png') repeat-x left top;
   background-size: auto 32px;
-  overflow: visible;
+  overflow: hidden;
   padding: 0; line-height: 0;
   pointer-events: none;
   /* léger balancement de la guirlande (brise) */

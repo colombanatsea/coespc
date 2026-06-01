@@ -544,7 +544,7 @@ function initFooterLogoZoom() {
       '<button type="button" class="logo-lightbox-close" aria-label="Fermer">&times;</button>' +
       '<figure class="logo-lightbox-figure">' +
         '<a href="/" class="logo-lightbox-link" aria-label="Revenir à l\'accueil">' +
-          '<img src="/assets/images/logo-coespc.png" alt="Logo CŒSPC — Comité des Œuvres Sociales Paroissiales et Communales">' +
+          '<img src="/assets/images/logo-coespc.png?v=2" alt="Logo CŒSPC — Comité des Œuvres Sociales Paroissiales et Communales">' +
         '</a>' +
         '<figcaption>Cliquez sur le logo pour revenir à l\'accueil</figcaption>' +
       '</figure>';

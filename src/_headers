@@ -62,6 +62,10 @@
 /assets/images/galerie/*
   Cache-Control: public, max-age=86400, stale-while-revalidate=3600
 
+# Videos (archives) : cache 30 jours + SWR (lourdes, URL stable)
+/assets/videos/*
+  Cache-Control: public, max-age=2592000, stale-while-revalidate=86400
+
 # Images (affiches, logos) : cache 1 jour + revalidation (SWR 7 j)
 # Pas d'immutable : les logos sont remplaces sur place, ils doivent
 # pouvoir se rafraichir (un logo fige en cache 1 an cassait le mobile).

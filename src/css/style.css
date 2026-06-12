@@ -2223,16 +2223,12 @@ body.logo-lightbox-lock { overflow: hidden; }
   opacity: 0.9;
 }
 .partners-portraits-carousel {
-  display: flex;
-  align-items: center;
-  gap: var(--space-2);
+  position: relative;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 var(--space-4);
 }
 .partners-portraits-viewport {
-  flex: 1 1 auto;
-  min-width: 0;
+  width: 100%;
   overflow-x: auto;
   overflow-y: hidden;
   scroll-behavior: smooth;
@@ -2250,28 +2246,36 @@ body.logo-lightbox-lock { overflow: hidden; }
   width: max-content;
 }
 .portraits-arrow {
-  flex: 0 0 auto;
-  width: 44px;
-  height: 44px;
+  position: absolute;
+  top: 50%;
+  z-index: 3;
+  width: 64px;
+  height: 64px;
   border-radius: 50%;
-  border: 2px solid var(--or-logo);
-  background: rgba(244, 179, 101, 0.12);
+  border: 2px solid rgba(244, 179, 101, 0.55);
+  background: rgba(7, 21, 132, 0.38);
+  -webkit-backdrop-filter: blur(3px);
+          backdrop-filter: blur(3px);
   color: var(--or-logo);
-  font-size: var(--text-2xl);
+  font-size: var(--text-4xl);
   line-height: 1;
   font-family: var(--font-display);
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: background 0.2s cubic-bezier(.2,.8,.2,1), transform 0.2s cubic-bezier(.2,.8,.2,1);
+  padding-bottom: 4px;
+  box-shadow: 0 4px 18px rgba(5, 22, 130, 0.30);
+  transition: background 0.2s cubic-bezier(.2,.8,.2,1), border-color 0.2s cubic-bezier(.2,.8,.2,1), transform 0.2s cubic-bezier(.2,.8,.2,1);
 }
+.portraits-arrow-prev { left: var(--space-4); transform: translateY(-50%); }
+.portraits-arrow-next { right: var(--space-4); transform: translateY(-50%); }
 .portraits-arrow:hover {
-  background: var(--or-logo);
-  color: var(--bleu-logo);
-  transform: scale(1.08);
+  background: rgba(7, 21, 132, 0.64);
+  border-color: var(--or-logo);
+  transform: translateY(-50%) scale(1.08);
 }
-.portraits-arrow:active { transform: scale(0.96); }
+.portraits-arrow:active { transform: translateY(-50%) scale(0.96); }
 .partner-portrait {
   flex-shrink: 0;
   width: 240px;

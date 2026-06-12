@@ -187,83 +187,121 @@
       </div>
     </section>
 
-    <!-- SECTION 3bis - MARQUEE PORTRAITS PARTENAIRES -->
-    <section class="partners-portraits-section" aria-label="Portraits de nos partenaires avec l'affiche 2025">
+    <!-- SECTION 3bis - CARROUSEL PORTRAITS PARTENAIRES -->
+    <section class="partners-portraits-section" aria-label="Portraits de nos chefs et restaurateurs partenaires avec l'affiche 2025">
       <p class="partners-portraits-title">Les <em>visages</em> de la fête</p>
-      <div class="partners-portraits-marquee">
-        <div class="partners-portraits-track">
-          <figure class="partner-portrait">
-            <div class="partner-portrait-img-wrap">
-              <img src="/assets/images/partenaires-portraits/01-le-binome.jpg?v=2" alt="Les propriétaires du restaurant Le Binôme avec l'affiche 2025" loading="lazy">
-            </div>
-            <p class="partner-portrait-name">Le Binôme</p>
-            <p class="partner-portrait-role">Bistronomie de village</p>
-          </figure>
-          <figure class="partner-portrait">
-            <div class="partner-portrait-img-wrap">
-              <img src="/assets/images/partenaires-portraits/02-avoc-place.jpg?v=2" alt="Deux partenaires sur la place le jour de la fête 2025" loading="lazy">
-            </div>
-            <p class="partner-portrait-name">Place du chef-lieu</p>
-            <p class="partner-portrait-role">Jour J · 14 septembre 2025</p>
-          </figure>
-          <figure class="partner-portrait">
-            <div class="partner-portrait-img-wrap">
-              <img src="/assets/images/partenaires-portraits/03-bora-bora.jpg?v=2" alt="Bora Bora restaurant avec l'affiche 2025" loading="lazy">
-            </div>
-            <p class="partner-portrait-name">Bora Bora</p>
-            <p class="partner-portrait-role">Terrasse face au lac</p>
-          </figure>
-          <figure class="partner-portrait">
-            <div class="partner-portrait-img-wrap">
-              <img src="/assets/images/partenaires-portraits/04-maison-benoit-vidal.jpg?v=2" alt="Benoît Vidal, chef de la Maison Benoît Vidal (2 étoiles Michelin), avec l'affiche 2025" loading="lazy">
-            </div>
-            <p class="partner-portrait-name">Maison Benoît Vidal</p>
-            <p class="partner-portrait-role">Restaurant &#9733;&#9733; Michelin</p>
-          </figure>
-          <figure class="partner-portrait">
-            <div class="partner-portrait-img-wrap">
-              <img src="/assets/images/partenaires-portraits/05-bistrot-green.jpg?v=2" alt="Propriétaire du Bistrot Green avec l'affiche 2025" loading="lazy">
-            </div>
-            <p class="partner-portrait-name">Bistrot Green</p>
-            <p class="partner-portrait-role">Cuisine végétale</p>
-          </figure>
-          <!-- Duplicat pour boucle infinie -->
-          <figure class="partner-portrait">
-            <div class="partner-portrait-img-wrap">
-              <img src="/assets/images/partenaires-portraits/01-le-binome.jpg?v=2" alt="" loading="lazy" aria-hidden="true">
-            </div>
-            <p class="partner-portrait-name">Le Binôme</p>
-            <p class="partner-portrait-role">Bistronomie de village</p>
-          </figure>
-          <figure class="partner-portrait">
-            <div class="partner-portrait-img-wrap">
-              <img src="/assets/images/partenaires-portraits/02-avoc-place.jpg?v=2" alt="" loading="lazy" aria-hidden="true">
-            </div>
-            <p class="partner-portrait-name">Place du chef-lieu</p>
-            <p class="partner-portrait-role">Jour J · 14 septembre 2025</p>
-          </figure>
-          <figure class="partner-portrait">
-            <div class="partner-portrait-img-wrap">
-              <img src="/assets/images/partenaires-portraits/03-bora-bora.jpg?v=2" alt="" loading="lazy" aria-hidden="true">
-            </div>
-            <p class="partner-portrait-name">Bora Bora</p>
-            <p class="partner-portrait-role">Terrasse face au lac</p>
-          </figure>
-          <figure class="partner-portrait">
-            <div class="partner-portrait-img-wrap">
-              <img src="/assets/images/partenaires-portraits/04-maison-benoit-vidal.jpg?v=2" alt="" loading="lazy" aria-hidden="true">
-            </div>
-            <p class="partner-portrait-name">Maison Benoît Vidal</p>
-            <p class="partner-portrait-role">Restaurant &#9733;&#9733; Michelin</p>
-          </figure>
-          <figure class="partner-portrait">
-            <div class="partner-portrait-img-wrap">
-              <img src="/assets/images/partenaires-portraits/05-bistrot-green.jpg?v=2" alt="" loading="lazy" aria-hidden="true">
-            </div>
-            <p class="partner-portrait-name">Bistrot Green</p>
-            <p class="partner-portrait-role">Cuisine végétale</p>
-          </figure>
+      <div class="partners-portraits-carousel" id="portraitsCarousel">
+        <button class="portraits-arrow portraits-arrow-prev" type="button" aria-label="Voir les portraits précédents">&#8249;</button>
+        <div class="partners-portraits-viewport" id="portraitsViewport">
+          <div class="partners-portraits-track">
+            <figure class="partner-portrait">
+              <div class="partner-portrait-img-wrap">
+                <img src="/assets/images/partenaires-portraits/chef-clos-des-sens.jpg" alt="Le Clos des Sens présente l'affiche 2025 de la Fête Villageoise" loading="lazy">
+              </div>
+              <p class="partner-portrait-name">Le Clos des Sens</p>
+              <p class="partner-portrait-role">Restaurant &#9733;&#9733;&#9733; Michelin</p>
+            </figure>
+            <figure class="partner-portrait">
+              <div class="partner-portrait-img-wrap">
+                <img src="/assets/images/partenaires-portraits/chef-maison-benoit-vidal.jpg" alt="La Maison Benoît Vidal présente l'affiche 2025 de la Fête Villageoise" loading="lazy">
+              </div>
+              <p class="partner-portrait-name">Maison Benoît Vidal</p>
+              <p class="partner-portrait-role">Restaurant &#9733;&#9733; Michelin</p>
+            </figure>
+            <figure class="partner-portrait">
+              <div class="partner-portrait-img-wrap">
+                <img src="/assets/images/partenaires-portraits/chef-cour-de-labbaye.jpg" alt="La Cour de l'Abbaye présente l'affiche 2025 de la Fête Villageoise" loading="lazy">
+              </div>
+              <p class="partner-portrait-name">La Cour de l'Abbaye</p>
+              <p class="partner-portrait-role">Restaurant &#9733; Michelin</p>
+            </figure>
+            <figure class="partner-portrait">
+              <div class="partner-portrait-img-wrap">
+                <img src="/assets/images/partenaires-portraits/chef-le-clocher.jpg" alt="Le Clocher présente l'affiche 2025 de la Fête Villageoise" loading="lazy">
+              </div>
+              <p class="partner-portrait-name">Le Clocher</p>
+              <p class="partner-portrait-role">Bistrot du village</p>
+            </figure>
+            <figure class="partner-portrait">
+              <div class="partner-portrait-img-wrap">
+                <img src="/assets/images/partenaires-portraits/chef-le-binome.jpg" alt="Le Binôme présente l'affiche 2025 de la Fête Villageoise" loading="lazy">
+              </div>
+              <p class="partner-portrait-name">Le Binôme</p>
+              <p class="partner-portrait-role">Bistronomie du marché</p>
+            </figure>
+            <figure class="partner-portrait">
+              <div class="partner-portrait-img-wrap">
+                <img src="/assets/images/partenaires-portraits/chef-les-4-gourmets.jpg" alt="Les 4 Gourmets présentent l'affiche 2025 de la Fête Villageoise" loading="lazy">
+              </div>
+              <p class="partner-portrait-name">Les 4 Gourmets</p>
+              <p class="partner-portrait-role">Cuisine traditionnelle</p>
+            </figure>
+            <figure class="partner-portrait">
+              <div class="partner-portrait-img-wrap">
+                <img src="/assets/images/partenaires-portraits/chef-bistrot-green.jpg" alt="Le Bistrot Green présente l'affiche 2025 de la Fête Villageoise" loading="lazy">
+              </div>
+              <p class="partner-portrait-name">Bistrot Green</p>
+              <p class="partner-portrait-role">Cuisine végétale</p>
+            </figure>
+            <figure class="partner-portrait">
+              <div class="partner-portrait-img-wrap">
+                <img src="/assets/images/partenaires-portraits/chef-le-braze.jpg" alt="Le Brazé présente l'affiche 2025 de la Fête Villageoise" loading="lazy">
+              </div>
+              <p class="partner-portrait-name">Le Brazé</p>
+              <p class="partner-portrait-role">Bistronomie au feu de bois</p>
+            </figure>
+            <figure class="partner-portrait">
+              <div class="partner-portrait-img-wrap">
+                <img src="/assets/images/partenaires-portraits/chef-cafe-brunet.jpg" alt="Le Café Brunet présente l'affiche 2025 de la Fête Villageoise" loading="lazy">
+              </div>
+              <p class="partner-portrait-name">Café Brunet</p>
+              <p class="partner-portrait-role">Brasserie de village</p>
+            </figure>
+            <figure class="partner-portrait">
+              <div class="partner-portrait-img-wrap">
+                <img src="/assets/images/partenaires-portraits/chef-table-de-melba.jpg" alt="La Table de Melba présente l'affiche 2025 de la Fête Villageoise" loading="lazy">
+              </div>
+              <p class="partner-portrait-name">Table de Melba</p>
+              <p class="partner-portrait-role">Cuisine bistronomique</p>
+            </figure>
+            <figure class="partner-portrait">
+              <div class="partner-portrait-img-wrap">
+                <img src="/assets/images/partenaires-portraits/chef-rita.jpg" alt="Rita présente l'affiche 2025 de la Fête Villageoise" loading="lazy">
+              </div>
+              <p class="partner-portrait-name">Rita</p>
+              <p class="partner-portrait-role">Pizza &amp; trattoria</p>
+            </figure>
+            <figure class="partner-portrait">
+              <div class="partner-portrait-img-wrap">
+                <img src="/assets/images/partenaires-portraits/chef-pepone.jpg" alt="Pepone présente l'affiche 2025 de la Fête Villageoise" loading="lazy">
+              </div>
+              <p class="partner-portrait-name">Pepone</p>
+              <p class="partner-portrait-role">Pizzeria</p>
+            </figure>
+            <figure class="partner-portrait">
+              <div class="partner-portrait-img-wrap">
+                <img src="/assets/images/partenaires-portraits/chef-java-des-flacons.jpg" alt="La Java des Flacons présente l'affiche 2025 de la Fête Villageoise" loading="lazy">
+              </div>
+              <p class="partner-portrait-name">La Java des Flacons</p>
+              <p class="partner-portrait-role">Caviste passionné</p>
+            </figure>
+            <figure class="partner-portrait">
+              <div class="partner-portrait-img-wrap">
+                <img src="/assets/images/partenaires-portraits/chef-bora-bora.jpg" alt="Bora Bora présente l'affiche 2025 de la Fête Villageoise" loading="lazy">
+              </div>
+              <p class="partner-portrait-name">Bora Bora</p>
+              <p class="partner-portrait-role">Terrasse face au lac</p>
+            </figure>
+            <figure class="partner-portrait">
+              <div class="partner-portrait-img-wrap">
+                <img src="/assets/images/partenaires-portraits/chef-le-cabanon.jpg" alt="Le Cabanon présente l'affiche 2025 de la Fête Villageoise" loading="lazy">
+              </div>
+              <p class="partner-portrait-name">Le Cabanon</p>
+              <p class="partner-portrait-role">Restaurant partenaire</p>
+            </figure>
+          </div>
         </div>
+        <button class="portraits-arrow portraits-arrow-next" type="button" aria-label="Voir les portraits suivants">&#8250;</button>
       </div>
     </section>
 
@@ -630,7 +668,7 @@
         </div>
 
         <div class="text-center mt-8 fade-in">
-          <a href="https://www.instagram.com/fete_villageoise" class="btn btn-primary" target="_blank" rel="noopener">Nous contacter sur Instagram</a>
+          <a href="/contact.html" class="btn btn-primary">Nous contacter</a>
         </div>
       </div>
     </section>

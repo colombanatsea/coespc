@@ -13,6 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initPartnersFeed();
   initBalloonsHero();
   initFooterLogoZoom();
+  initPortraitsCarousel();
 });
 
 
@@ -60,6 +61,61 @@ function initGallery() {
         grid.innerHTML = '<p class="gallery-empty">Aucune photo disponible pour l\'instant.</p>';
       });
   });
+}
+
+// ═══ CARROUSEL PORTRAITS PARTENAIRES (chefs avec l'affiche) ═══
+// Defilement doux en va-et-vient (ping-pong) + fleches cliquables pour PC
+// non tactile. Pause au survol, au focus et quelques secondes apres toute
+// interaction manuelle. Sur tactile, les fleches sont masquees (CSS) et le
+// doigt fait defiler le viewport.
+function initPortraitsCarousel() {
+  var carousel = document.getElementById('portraitsCarousel');
+  var viewport = document.getElementById('portraitsViewport');
+  if (!carousel || !viewport) return;
+  var track = viewport.querySelector('.partners-portraits-track');
+  if (!track) return;
+  var prev = carousel.querySelector('.portraits-arrow-prev');
+  var next = carousel.querySelector('.portraits-arrow-next');
+
+  var paused = false, resumeTimer = null;
+  function pauseAuto() {
+    paused = true;
+    if (resumeTimer) clearTimeout(resumeTimer);
+    resumeTimer = setTimeout(function() { paused = false; }, 4000);
+  }
+  function cardStep() {
+    var card = track.querySelector('.partner-portrait');
+    var w = card ? card.offsetWidth : 240;
+    return w + 16; // largeur carte + gap (--space-4)
+  }
+  if (prev) prev.addEventListener('click', function() { pauseAuto(); viewport.scrollBy({ left: -cardStep(), behavior: 'smooth' }); });
+  if (next) next.addEventListener('click', function() { pauseAuto(); viewport.scrollBy({ left: cardStep(), behavior: 'smooth' }); });
+
+  viewport.addEventListener('mouseenter', function() { paused = true; });
+  viewport.addEventListener('mouseleave', function() { paused = false; });
+  viewport.addEventListener('pointerdown', pauseAuto);
+  viewport.addEventListener('wheel', pauseAuto, { passive: true });
+  viewport.addEventListener('focusin', function() { paused = true; });
+  viewport.addEventListener('focusout', function() { paused = false; });
+
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduce) return;
+
+  var dir = 1, acc = 0;
+  function tick() {
+    if (!paused) {
+      var max = track.scrollWidth - viewport.clientWidth;
+      if (max > 4) {
+        if (viewport.scrollLeft >= max - 1) dir = -1;
+        else if (viewport.scrollLeft <= 0) dir = 1;
+        acc += dir * 0.4; // ~24 px/s, lent et discret
+        var whole = acc < 0 ? Math.ceil(acc) : Math.floor(acc);
+        if (whole !== 0) { viewport.scrollLeft += whole; acc -= whole; }
+      }
+    }
+    requestAnimationFrame(tick);
+  }
+  requestAnimationFrame(tick);
 }
 
 // ═══ FLUX ACTUS PARTENAIRES (via Worker /api/partners-feed) ═══

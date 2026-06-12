@@ -1,1 +1,6 @@
-[]
+[
+  { "file": "01-ambiance-course.jpg", "alt": "L'ambiance de la course sous le ciel bleu" },
+  { "file": "02-structure-gonflable.jpg", "alt": "Les enfants dans la structure gonflable" },
+  { "file": "03-atelier-jeux.jpg", "alt": "Atelier jeux pour les enfants sous le chapiteau" },
+  { "file": "04-tir-a-larc.jpg", "alt": "Tir à l'arc sur cibles gonflables" }
+]

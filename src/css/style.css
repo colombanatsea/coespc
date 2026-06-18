@@ -1512,6 +1512,24 @@ blockquote cite {
   font-style: italic;
 }
 
+/* --- ARCHIVE 1953 : deux coupures cote a cote, agrandissement au clic --- */
+.archive-1953-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-6);
+  align-items: start;
+  margin: var(--space-8) 0;
+}
+.archive-1953-grid .archive-press { margin: 0; }
+.archive-1953-grid a, .archive-1953-wide a { display: block; cursor: zoom-in; }
+.archive-1953-wide {
+  max-width: 460px;
+  margin: var(--space-8) auto 0;
+}
+@media (max-width: 640px) {
+  .archive-1953-grid { grid-template-columns: 1fr; }
+}
+
 /* --- METEO WIDGET --- */
 .meteo-box {
   background: #fff; border: 1px solid var(--papier-vieilli);

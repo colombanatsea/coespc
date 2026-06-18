@@ -16,6 +16,19 @@ document.addEventListener('DOMContentLoaded', () => {
   initPortraitsCarousel();
 });
 
+// Correctif bfcache : au retour arriere, le navigateur peut restaurer la page
+// depuis son cache sans rejouer les scripts tiers (flux Instagram Elfsight),
+// laissant un bloc blanc. Si le conteneur du flux est vide apres restauration,
+// on recharge la page pour le re-initialiser. Pas de boucle : au reload,
+// e.persisted vaut false.
+window.addEventListener('pageshow', function (e) {
+  if (!e.persisted) return;
+  var ig = document.querySelector('[class^="elfsight-app-"]');
+  if (ig && ig.children.length === 0 && ig.textContent.trim() === '') {
+    window.location.reload();
+  }
+});
+
 
 // ═══ GALERIE PHOTOS (auto depuis /assets/images/galerie/<annee>/galerie.json) ═══
 function initGallery() {

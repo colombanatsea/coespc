@@ -8,6 +8,10 @@ compatibility_date = "2024-01-01"
 binding = "CONTENT"
 id = "" # To be filled after creating KV namespace in Cloudflare dashboard
 
+[[kv_namespaces]]
+binding = "IG"
+id = "" # Jeton Instagram (cle "token") — voir docs/INSTAGRAM-CONNECTOR.md ; binding a poser aussi dans Pages > Settings > Functions
+
 [[r2_buckets]]
 binding = "ASSETS"
 bucket_name = "fete-villageoise-assets"

@@ -11,23 +11,38 @@ document.addEventListener('DOMContentLoaded', () => {
   initBalloonsOnDayJ();
   initGallery();
   initPartnersFeed();
+  initInstagramFeed();
   initBalloonsHero();
   initFooterLogoZoom();
   initPortraitsCarousel();
 });
 
-// Correctif bfcache : au retour arriere, le navigateur peut restaurer la page
-// depuis son cache sans rejouer les scripts tiers (flux Instagram Elfsight),
-// laissant un bloc blanc. Si le conteneur du flux est vide apres restauration,
-// on recharge la page pour le re-initialiser. Pas de boucle : au reload,
-// e.persisted vaut false.
-window.addEventListener('pageshow', function (e) {
-  if (!e.persisted) return;
-  var ig = document.querySelector('[class^="elfsight-app-"]');
-  if (ig && ig.children.length === 0 && ig.textContent.trim() === '') {
-    window.location.reload();
-  }
-});
+// ═══ FLUX INSTAGRAM (connecteur maison via /api/instagram-feed) ═══
+function initInstagramFeed() {
+  var grid = document.getElementById('insta-grid');
+  if (!grid) return;
+  fetch('/api/instagram-feed', { cache: 'no-cache' })
+    .then(function (r) { return r.ok ? r.json() : null; })
+    .then(function (data) {
+      if (!data || !data.items || !data.items.length) {
+        // Pas de flux (jeton pas encore depose ou aucun post) : invite discrete,
+        // jamais de bloc blanc casse. Le bouton "Suivre" reste sous la grille.
+        grid.innerHTML = '<p class="insta-empty">Retrouvez nos derni&egrave;res publications sur Instagram &#64;fete_villageoise.</p>';
+        return;
+      }
+      grid.innerHTML = data.items.slice(0, 12).map(function (it) {
+        var cap = (it.caption || 'Publication Instagram de la F&ecirc;te Villageoise')
+          .replace(/"/g, '&quot;').replace(/</g, '&lt;').slice(0, 120);
+        var badge = it.type === 'VIDEO'
+          ? '<span class="insta-badge" aria-hidden="true">&#9654;</span>' : '';
+        return '<a class="insta-item" href="' + it.permalink + '" target="_blank" rel="noopener" aria-label="Voir la publication sur Instagram">' +
+          badge + '<img src="' + it.image + '" alt="' + cap + '" loading="lazy"></a>';
+      }).join('');
+    })
+    .catch(function () {
+      grid.innerHTML = '<p class="insta-empty">Retrouvez nos derni&egrave;res publications sur Instagram &#64;fete_villageoise.</p>';
+    });
+}
 
 
 // ═══ GALERIE PHOTOS (auto depuis /assets/images/galerie/<annee>/galerie.json) ═══

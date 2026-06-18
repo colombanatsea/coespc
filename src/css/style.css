@@ -1530,6 +1530,47 @@ blockquote cite {
   .archive-1953-grid { grid-template-columns: 1fr; }
 }
 
+/* --- FLUX INSTAGRAM (connecteur maison) --- */
+.insta-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: var(--space-3);
+}
+.insta-item {
+  position: relative;
+  display: block;
+  aspect-ratio: 1 / 1;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background: var(--papier-vieilli);
+  box-shadow: 0 4px 16px rgba(5, 22, 130, 0.06);
+}
+.insta-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform .4s cubic-bezier(.2, .8, .2, 1);
+}
+.insta-item:hover img { transform: scale(1.05); }
+.insta-badge {
+  position: absolute;
+  top: 8px;
+  right: 10px;
+  color: #fff;
+  font-size: 13px;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, .6);
+  z-index: 1;
+}
+.insta-empty {
+  grid-column: 1 / -1;
+  text-align: center;
+  color: var(--bois-chaud);
+  font-style: italic;
+  margin: 0;
+  padding: var(--space-6) 0;
+}
+
 /* --- METEO WIDGET --- */
 .meteo-box {
   background: #fff; border: 1px solid var(--papier-vieilli);
